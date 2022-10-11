@@ -1,31 +1,38 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <div id="game">
+        <Start v-if="startPage"></Start>
+    </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue';
+import Start from './components/start.vue';
+
+const startPage = ref(true);
+
+onMounted(() => {
+    const div = document.getElementById('game') as HTMLDivElement;
+    if (window.innerHeight > window.innerWidth) {
+        // 手机端，旋转90度
+        div.style.transform = 'rotate(90deg)';
+        div.style.width = `95vh`;
+        div.style.height = `95vw`;
+    }
+})
+</script>
+
+<style lang="less" scoped>
+html,
+body {
+    padding: 0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+#game {
+    width: 95vw;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 </style>

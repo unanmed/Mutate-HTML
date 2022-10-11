@@ -7,5 +7,12 @@ export default defineConfig({
   plugins: [
     vue(),
     legacy({ targets: ['defaults', 'not IE 11'] })
-  ]
+  ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      }
+    },
+  },
 })
