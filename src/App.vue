@@ -27,7 +27,7 @@ onMounted(() => {
     span.style.opacity = '1';
 })
 
-async function start() {
+function start() {
     if (acted.value) return;
     const span = document.getElementById('start-tip') as HTMLSpanElement;
     span.style.opacity = '0';
