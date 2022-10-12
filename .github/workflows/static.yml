@@ -48,3 +48,5 @@ jobs:
         with:
           folder: dist
           ssh-key: ${{ secrets.DEPLOY_KEY }}
+          repository-name: unanmed/unanmed.github.io
+          clean: true
