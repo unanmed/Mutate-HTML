@@ -1,14 +1,18 @@
 <template>
-    <div v-if="!loaded" id="start-page">
+    <div v-if="!loaded" id="start-load">
         <canvas id="loading"></canvas>
         <a-progress :percent="progress"></a-progress>
+    </div>
+    <div v-if="loaded" id="start-page">
+        <Cover></Cover>
     </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 import { loadAudio } from '../audio';
-import mutate from 'mutate-game';
+import * as mutate from 'mutate-game';
+import Cover from './cover.vue';
 
 const loaded = ref(false);
 
@@ -87,7 +91,8 @@ onMounted(async () => {
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.filter = 'blur(5px)';
-    canvas.addEventListener('transitionend', () => {
+    canvas.addEventListener('transitionend', async () => {
+        if (loaded.value) return;
         loaded.value = true;
         ticker.destroy();
     });
@@ -104,7 +109,7 @@ onMounted(async () => {
     transition: all 0.8s ease-out;
 }
 
-#start-page {
+#start-load {
     display: flex;
     justify-content: center;
     justify-items: center;

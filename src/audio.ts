@@ -1,5 +1,5 @@
 import axios from "axios";
-import mutate from "mutate-game";
+import * as mutate from "mutate-game";
 
 /** 音频资源节点 */
 const audioList: Record<number, AudioBufferSourceNode> = {};

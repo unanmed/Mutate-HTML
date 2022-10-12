@@ -1,6 +1,7 @@
 <template>
-    <div id="game">
-        <Start v-if="startPage"></Start>
+    <div id="game" @click="start">
+        <span v-if="!acted" id="start-tip">点击以加载游戏</span>
+        <Start v-if="startPage && acted"></Start>
     </div>
 </template>
 
@@ -8,17 +9,32 @@
 import { onMounted, ref } from 'vue';
 import Start from './components/start.vue';
 
+/** 是否在开始界面 */
 const startPage = ref(true);
+
+/** 是否与页面交互过 */
+const acted = ref(false);
 
 onMounted(() => {
     const div = document.getElementById('game') as HTMLDivElement;
+    const span = document.getElementById('start-tip') as HTMLSpanElement;
     if (window.innerHeight > window.innerWidth) {
         // 手机端，旋转90度
         div.style.transform = 'rotate(90deg)';
         div.style.width = `95vh`;
         div.style.height = `95vw`;
     }
+    span.style.opacity = '1';
 })
+
+async function start() {
+    if (acted.value) return;
+    const span = document.getElementById('start-tip') as HTMLSpanElement;
+    span.style.opacity = '0';
+    span.addEventListener('transitionend', () => {
+        acted.value = true;
+    })
+}
 </script>
 
 <style lang="less" scoped>
@@ -34,5 +50,28 @@ body {
     justify-content: center;
     justify-items: center;
     align-items: center;
+}
+
+#start-tip {
+    opacity: 0;
+    font-size: 6em;
+    font-family: 微软雅黑;
+    transition: opacity 0.5s linear;
+    color: white;
+    animation: start 4s ease-in-out 0s infinite alternate;
+}
+
+@keyframes start {
+    0% {
+        transform: scale(100%);
+    }
+
+    50% {
+        transform: scale(110%);
+    }
+
+    100% {
+        transform: scale(100%);
+    }
 }
 </style>

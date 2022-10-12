@@ -2,6 +2,7 @@
  * 歌曲信息
  */
 export interface MusicInfo {
+    file: string
     author: string
     chart: string
     hard: MusicHard
@@ -30,6 +31,7 @@ export const musics: Record<string, string[]> = {
  */
 export const info: Record<string, MusicInfo> = {
     '靈': {
+        file: '1.mp3',
         author: '弱鸡绿毛怪',
         chart: '古祠',
         duration: 158,
