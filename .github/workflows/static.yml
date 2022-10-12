@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Install Dependencies & Build
         run: | 
-          npm i pnpm 
+          npm i -g pnpm
           pnpm i 
           pnpm build
       - name: Checkout
