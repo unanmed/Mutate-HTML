@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build && ts-node-esm script/font.ts",
+    "build": "vue-tsc --noEmit && vite build && pnpm compress",
     "preview": "vite preview",
+    "compress": "ts-node-esm script/font.ts",
     "buildh5": "pnpm build && ts-node-esm script/pack.ts",
-    "updateh5": "pnpm buildh5 && ts-node-esm update.ts"
+    "updateh5": "pnpm buildh5 && ts-node-esm update.ts",
+    "build-gh": "vue-tsc --noEmit && vite build --base=/Mutate-HTML/ && pnpm compress"
   },
   "dependencies": {
     "ant-design-vue": "^3.2.13",
