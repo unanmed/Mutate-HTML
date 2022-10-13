@@ -22,14 +22,16 @@ let allTask = 0;
 
 let loadedCnt = ref(0);
 
+const base = import.meta.env.BASE_URL
+
 /**
  * 加载所有内容
  */
 async function load() {
     const tasks = [
-        loadAudio('/music/mutate.mp3').then(() => loadedCnt.value++),
-        loadAudio('/se/tap.wav').then(() => loadedCnt.value++),
-        loadAudio('/se/drag.wav').then(() => loadedCnt.value++)
+        loadAudio(`${base}/music/mutate.mp3`).then(() => loadedCnt.value++),
+        loadAudio(`${base}/se/tap.wav`).then(() => loadedCnt.value++),
+        loadAudio(`${base}/se/drag.wav`).then(() => loadedCnt.value++)
     ]
     allTask = tasks.length;
     await Promise.all(tasks);
