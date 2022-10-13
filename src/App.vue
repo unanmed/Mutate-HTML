@@ -38,11 +38,6 @@ function start() {
 </script>
 
 <style lang="less" scoped>
-html,
-body {
-    padding: 0;
-}
-
 #game {
     width: 95vw;
     height: 95vh;
@@ -59,6 +54,7 @@ body {
     transition: opacity 0.5s linear;
     color: white;
     animation: start 4s ease-in-out 0s infinite alternate;
+    user-select: none;
 }
 
 @keyframes start {

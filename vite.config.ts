@@ -9,7 +9,11 @@ export default defineConfig({
   plugins: [
     vue(),
     legacy({ targets: ['defaults', 'not IE 11'] }),
-    Components({ resolvers: [AntDesignVueResolver()] })
+    Components({
+      resolvers: [
+        AntDesignVueResolver()
+      ]
+    })
   ],
   css: {
     preprocessorOptions: {
@@ -21,7 +25,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-
+        manualChunks: {
+          antdv: ['ant-design-vue']
+        }
       }
     }
   }
