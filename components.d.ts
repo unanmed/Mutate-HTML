@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AProgress: typeof import('ant-design-vue/es')['Progress']
     Cover: typeof import('./src/components/cover.vue')['default']
+    Select: typeof import('./src/components/select.vue')['default']
     Start: typeof import('./src/components/start.vue')['default']
   }
 }

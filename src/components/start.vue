@@ -1,57 +1,100 @@
 <template>
-    <div v-if="!loaded" id="start-load">
+    <div v-if="!gameLoaded" id="start-load">
         <canvas id="loading"></canvas>
-        <a-progress :percent="progress"></a-progress>
+        <a-progress :percent="loaded"></a-progress>
     </div>
-    <div v-if="loaded" id="start-page">
+    <div v-if="gameLoaded" id="start-page">
         <Cover></Cover>
     </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { loadAudio } from '../audio';
 import * as mutate from 'mutate-game';
 import Cover from './cover.vue';
+import axios, { AxiosProgressEvent, AxiosResponse, ResponseType } from 'axios';
 
-const loaded = ref(false);
+interface ResponseMap {
+    arraybuffer: ArrayBuffer
+    blob: Blob
+    stream: any
+    text: string
+    json: object
+    document: any
+}
 
-const progress = ref(0);
+const gameLoaded = ref(false);
 
-let allTask = 0;
+const loaded = ref(0);
 
-let loadedCnt = ref(0);
+const total = ref(0);
+
+const loadedSize = ref(0);
+
+let caled: Record<number, boolean> = {};
+
+let loadedOne: Record<number, number> = {};
 
 const base = import.meta.env.BASE_URL;
+
+function calLoaded() {
+    const l = Object.values(loadedOne).reduce((pre, cur) => pre + cur, 0);
+    loaded.value = l / total.value * 100;
+    loadedSize.value = l;
+}
+
+function formatSize(size: number) {
+    if (size < 1024) return `${size.toFixed(2)}B`;
+    else if (size < 1024 ** 2) return `${(size / 1024).toFixed(2)}KB`;
+    else if (size < 1024 ** 3) return `${(size / 1024 ** 2).toFixed(2)}MB`;
+    else if (size < 1024 ** 4) return `${(size / 1024 ** 3).toFixed(2)}GB`;
+}
 
 /**
  * 加载所有内容
  */
 async function load() {
     const tasks = [
-        loadAudio(`${base}music/mutate.mp3`).then(() => loadedCnt.value++),
-        loadAudio(`${base}se/tap.wav`).then(() => loadedCnt.value++),
-        loadAudio(`${base}se/drag.wav`).then(() => loadedCnt.value++),
+        loadOne(`${base}music/mutate.mp3`, 0, 'arraybuffer'),
+        loadOne(`${base}se/tap.wav`, 1, 'arraybuffer'),
+        loadOne(`${base}se/drag.wav`, 2, 'arraybuffer'),
         (async () => {
-            const font = new FontFace('normal', `url(${base}font/normal.ttf)`);
+            const data = await loadOne(`${base}font/normal.ttf`, 3, 'arraybuffer');
+            const font = new FontFace('normal', data.data);
 
             await font.load();
             document.fonts.add(font);
         })()
     ]
-    allTask = tasks.length;
     await Promise.all(tasks);
 }
-
-// 监听加载过程
-watch(loadedCnt, v => {
-    loadedCnt.value = v;
-    progress.value = Math.round(v / allTask * 100);
-})
+/**
+ * 加载一个内容
+ */
+async function loadOne<T extends ResponseType>(url: string, i: number, type: T): Promise<AxiosResponse<ResponseMap[T]>> {
+    const on = (e: AxiosProgressEvent) => {
+        if (!caled[i]) {
+            caled[i] = true;
+            total.value += e.total!;
+        }
+        loadedOne[i] = e.loaded;
+        calLoaded();
+    }
+    if (url.endsWith('.mp3') || url.endsWith('.wav')) {
+        // @ts-ignore
+        return await loadAudio(url, on);
+    } else {
+        return await axios.get(url, {
+            responseType: type,
+            onDownloadProgress: on
+        })
+    }
+}
 
 onMounted(async () => {
     // 加载的动画
-    const ticker = new mutate.ticker.Ticker();
+    const ticker = new mutate.Ticker();
     const canvas = document.getElementById('loading') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
     setTimeout(() => {
@@ -90,6 +133,9 @@ onMounted(async () => {
         ctx.font = 'normal 4em Verdana';
         ctx.fillStyle = '#eee';
         ctx.fillText(`loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`, hw, hh + hh / 2);
+        ctx.textAlign = 'right';
+        ctx.font = 'normal 1em Verdana';
+        ctx.fillText(`${formatSize(loadedSize.value)} / ${formatSize(total.value)}`, canvas.width - 30, canvas.height - 30);
     })
 
     // 执行加载
@@ -100,8 +146,8 @@ onMounted(async () => {
     canvas.style.height = '100%';
     canvas.style.filter = 'blur(5px)';
     canvas.addEventListener('transitionend', async () => {
-        if (loaded.value) return;
-        loaded.value = true;
+        if (gameLoaded.value) return;
+        gameLoaded.value = true;
         ticker.destroy();
     });
 })

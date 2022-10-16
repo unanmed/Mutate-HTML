@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosProgressEvent, AxiosResponse } from "axios";
 import * as mutate from "mutate-game";
 
 /** 音频资源节点 */
@@ -17,10 +17,11 @@ export const ac = new AudioContext();
  * 加载音频但不播放
  * @param url 音频地址
  */
-export async function loadAudio(url: string): Promise<void> {
-    const data = await axios.get(url, { responseType: 'arraybuffer' });
+export async function loadAudio(url: string, onprogress?: (e: AxiosProgressEvent) => void): Promise<AxiosResponse<ArrayBuffer>> {
+    const data = await axios.get(url, { responseType: 'arraybuffer', onDownloadProgress: onprogress });
     const buffer = await ac.decodeAudioData(data.data);
     bufferCache[url] = buffer;
+    return data;
 }
 
 /**

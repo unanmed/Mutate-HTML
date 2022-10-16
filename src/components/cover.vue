@@ -1,9 +1,9 @@
 <template>
-    <canvas id="cover"></canvas>
+    <canvas id="cover" @click="startGame"></canvas>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { inject, onMounted, Ref } from 'vue';
 import * as mutate from 'mutate-game';
 import { getSize } from '../utils';
 import { play, ac } from '../audio';
@@ -17,12 +17,26 @@ interface Ball {
     color: string
 }
 
+const started = inject('started') as Ref<boolean>
+
+let ticker = new mutate.Ticker();
+
+/**
+ * 真正的开始游戏
+ */
+function startGame() {
+    const cover = document.getElementById('cover') as HTMLCanvasElement;
+    cover.style.opacity = '0';
+    cover.addEventListener('transitionend', e => {
+        started.value = true;
+    })
+}
+
 onMounted(async () => {
     await mutate.animate.sleep(500);
 
     const cover = document.getElementById('cover') as HTMLCanvasElement;
     const ctx = cover.getContext('2d') as CanvasRenderingContext2D;
-    const ticker = new mutate.ticker.Ticker();
 
     await play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
     const start = ac.currentTime;
@@ -55,15 +69,15 @@ onMounted(async () => {
             } else if (loc === 2) {
                 x = w;
                 y = Math.random() * h;
-                dir = (Math.random() + 0.5) * Math.PI;
+                dir = (Math.random() + 0.5) * Math.PI * 0.6;
             } else if (loc === 3) {
                 y = 0;
                 x = Math.random() * w;
-                dir = (Math.random() + 1) * Math.PI;
+                dir = Math.random() * Math.PI * 0.6;
             } else {
                 y = h;
                 x = Math.random() * w;
-                dir = ((Math.random() - 0.5) * 0.6 + 0.5) * Math.PI;
+                dir = (Math.random() - 1) * Math.PI * 0.6;
             }
             const vx = Math.cos(dir);
             const vy = Math.sin(dir);
@@ -85,10 +99,10 @@ onMounted(async () => {
         const ct = ac.currentTime * 1000;
         if (time < 1000) {
             cover.style.filter = `blur(${5 - time / 200}px)`;
-            speed = 105 - time / 10;
+            speed = 55 - time / 20;
             fSize = 1 + 2 * (time / 2000 - 0.5) ** 2
         } else {
-            speed = 10;
+            speed = 3;
             fSize = 1;
         }
         if (balls.length < 30) {
@@ -120,6 +134,7 @@ onMounted(async () => {
             ctx.arc(v.x, v.y, v.r, 0, Math.PI * 2);
             ctx.closePath();
             ctx.fill();
+            ctx.filter = 'none';
         }
         // 后绘制文字
         ctx.shadowColor = '#3df0ff';
@@ -129,7 +144,7 @@ onMounted(async () => {
         ctx.textAlign = 'center';
         ctx.fillStyle = '#f78fff';
         ctx.strokeStyle = '#3df0ff';
-        ctx.font = `${fSize * 10 + ds}em normal`;
+        ctx.font = `${fSize * 12 + ds}em normal`;
         ctx.filter = `blur(${(speed - 10) / 10}px)`;
         ctx.fillText('Mutate', cover.width / 2, cover.height / 2);
         ctx.strokeText('Mutate', cover.width / 2, cover.height / 2);
@@ -148,7 +163,8 @@ onMounted(async () => {
 <style scoped lang="less">
 #cover {
     opacity: 0;
-    animation: cover 10s linear 0s alternate infinite running
+    animation: cover 10s linear 0s alternate infinite running;
+    transition: opacity 0.6s ease-out;
 }
 
 @keyframes cover {
