@@ -73,8 +73,10 @@ async function load() {
  * 加载一个内容
  */
 async function loadOne<T extends ResponseType>(url: string, i: number, type: T): Promise<AxiosResponse<ResponseMap[T]>> {
+    console.log(`${url} start load`);
+
     const on = (e: AxiosProgressEvent) => {
-        if (!caled[i]) {
+        if (!caled[i] && mutate.utils.has(e.total)) {
             caled[i] = true;
             total.value += e.total!;
             console.log(e.total, i);
