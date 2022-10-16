@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 import { loadAudio } from '../audio';
 import * as mutate from 'mutate-game';
 import Cover from './cover.vue';
@@ -30,7 +30,7 @@ const gameLoaded = ref(false);
 const loaded = ref(0);
 
 // ### 总下载量
-const total = 23905630
+const total = 3066718;
 
 const loadedSize = ref(0);
 
@@ -135,6 +135,7 @@ onMounted(async () => {
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.filter = 'blur(5px)';
+    calLoaded();
     canvas.addEventListener('transitionend', async () => {
         if (gameLoaded.value) return;
         gameLoaded.value = true;
