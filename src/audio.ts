@@ -11,7 +11,7 @@ const bufferCache: Record<string, AudioBuffer> = {};
 let cnt = 0;
 
 /** 音频处理模块 */
-const ac = new AudioContext();
+export const ac = new AudioContext();
 
 /**
  * 加载音频但不播放

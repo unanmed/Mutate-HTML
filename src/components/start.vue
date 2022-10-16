@@ -31,7 +31,13 @@ async function load() {
     const tasks = [
         loadAudio(`${base}music/mutate.mp3`).then(() => loadedCnt.value++),
         loadAudio(`${base}se/tap.wav`).then(() => loadedCnt.value++),
-        loadAudio(`${base}se/drag.wav`).then(() => loadedCnt.value++)
+        loadAudio(`${base}se/drag.wav`).then(() => loadedCnt.value++),
+        (async () => {
+            const font = new FontFace('normal', `url(${base}font/normal.ttf)`);
+
+            await font.load();
+            document.fonts.add(font);
+        })()
     ]
     allTask = tasks.length;
     await Promise.all(tasks);
