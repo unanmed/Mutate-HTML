@@ -14,6 +14,7 @@ import { loadAudio } from '../audio';
 import * as mutate from 'mutate-game';
 import Cover from './cover.vue';
 import axios, { AxiosProgressEvent, AxiosResponse, ResponseType } from 'axios';
+import { formatSize } from '../utils';
 
 interface ResponseMap {
     arraybuffer: ArrayBuffer
@@ -28,11 +29,10 @@ const gameLoaded = ref(false);
 
 const loaded = ref(0);
 
-const total = ref(0);
+// ### 总下载量
+const total = 23905630
 
 const loadedSize = ref(0);
-
-let caled: Record<number, boolean> = {};
 
 let loadedOne: Record<number, number> = {};
 
@@ -40,15 +40,8 @@ const base = import.meta.env.BASE_URL;
 
 function calLoaded() {
     const l = Object.values(loadedOne).reduce((pre, cur) => pre + cur, 0);
-    loaded.value = Math.ceil(l / total.value * 100);
+    loaded.value = Math.ceil(l / total * 100);
     loadedSize.value = l;
-}
-
-function formatSize(size: number) {
-    if (size < 1024) return `${size.toFixed(2)}B`;
-    else if (size < 1024 ** 2) return `${(size / 1024).toFixed(2)}KB`;
-    else if (size < 1024 ** 3) return `${(size / 1024 ** 2).toFixed(2)}MB`;
-    else if (size < 1024 ** 4) return `${(size / 1024 ** 3).toFixed(2)}GB`;
 }
 
 /**
@@ -69,18 +62,12 @@ async function load() {
     ]
     await Promise.all(tasks);
 }
+
 /**
  * 加载一个内容
  */
 async function loadOne<T extends ResponseType>(url: string, i: number, type: T): Promise<AxiosResponse<ResponseMap[T]>> {
-    console.log(`${url} start load`);
-
     const on = (e: AxiosProgressEvent) => {
-        if (!caled[i] && mutate.utils.has(e.total)) {
-            caled[i] = true;
-            total.value += e.total!;
-            console.log(e.total, i);
-        }
         loadedOne[i] = e.loaded;
         calLoaded();
     }
@@ -138,9 +125,7 @@ onMounted(async () => {
         ctx.fillText(`loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`, hw, hh + hh / 2);
         ctx.textAlign = 'right';
         ctx.font = 'normal 1em Verdana';
-        console.log(total.value);
-
-        ctx.fillText(`${formatSize(loadedSize.value)} / ${formatSize(total.value)}`, canvas.width - 30, canvas.height - 30);
+        ctx.fillText(`${formatSize(loadedSize.value)} / ${formatSize(total)}`, canvas.width - 30, canvas.height - 30);
     })
 
     // 执行加载
