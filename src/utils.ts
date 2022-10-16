@@ -1,8 +1,10 @@
+const mobile = window.innerWidth <= window.innerHeight;
+
 /**
  * 获得游戏界面的尺寸
  */
 export function getSize() {
-    if (window.innerWidth >= window.innerHeight) {
+    if (!isMobile()) {
         return {
             w: window.innerWidth * 0.95,
             h: window.innerHeight * 0.95
@@ -13,6 +15,13 @@ export function getSize() {
             h: window.innerWidth * 0.95
         }
     }
+}
+
+/**
+ * 是否是移动设备
+ */
+export function isMobile() {
+    return mobile;
 }
 
 /**

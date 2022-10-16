@@ -14,7 +14,7 @@ import { loadAudio } from '../audio';
 import * as mutate from 'mutate-game';
 import Cover from './cover.vue';
 import axios, { AxiosProgressEvent, AxiosResponse, ResponseType } from 'axios';
-import { formatSize } from '../utils';
+import { formatSize, isMobile } from '../utils';
 
 interface ResponseMap {
     arraybuffer: ArrayBuffer
@@ -92,8 +92,8 @@ onMounted(async () => {
         canvas.style.width = '80%';
         canvas.style.height = '80%';
         canvas.style.filter = 'none';
-    }, 100);
-    if (window.innerWidth >= window.innerHeight) {
+    }, 50);
+    if (!isMobile()) {
         canvas.width = window.innerWidth * 0.95;
         canvas.height = window.innerHeight * 0.95;
     } else {
@@ -124,7 +124,7 @@ onMounted(async () => {
         ctx.fillStyle = '#eee';
         ctx.fillText(`loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`, hw, hh + hh / 2);
         ctx.textAlign = 'right';
-        ctx.font = 'normal 1em Verdana';
+        ctx.font = `normal ${isMobile() ? 1 : 2}em Verdana`;
         ctx.fillText(`${formatSize(loadedSize.value)} / ${formatSize(total)}`, canvas.width - 30, canvas.height - 30);
     })
 

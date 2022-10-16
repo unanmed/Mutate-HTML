@@ -147,8 +147,8 @@ onMounted(async () => {
         ctx.strokeStyle = '#3df0ff';
         ctx.font = `${fSize * 12 + ds}em normal`;
         ctx.filter = `blur(${(speed - 10) / 10}px)`;
-        ctx.fillText('Mutate', cover.width / 2, cover.height / 2);
-        ctx.strokeText('Mutate', cover.width / 2, cover.height / 2);
+        ctx.fillText('MUTATE', cover.width / 2, cover.height / 2);
+        ctx.strokeText('MUTATE', cover.width / 2, cover.height / 2);
 
         ctx.fillStyle = '#fff';
         ctx.shadowBlur = 0;
