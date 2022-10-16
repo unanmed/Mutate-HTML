@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL;
 
 function calLoaded() {
     const l = Object.values(loadedOne).reduce((pre, cur) => pre + cur, 0);
-    loaded.value = l / total.value * 100;
+    loaded.value = Math.ceil(l / total.value * 100);
     loadedSize.value = l;
 }
 
@@ -77,6 +77,8 @@ async function loadOne<T extends ResponseType>(url: string, i: number, type: T):
         if (!caled[i]) {
             caled[i] = true;
             total.value += e.total!;
+            console.log(e.total);
+
         }
         loadedOne[i] = e.loaded;
         calLoaded();
@@ -135,6 +137,8 @@ onMounted(async () => {
         ctx.fillText(`loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`, hw, hh + hh / 2);
         ctx.textAlign = 'right';
         ctx.font = 'normal 1em Verdana';
+        console.log(total.value);
+
         ctx.fillText(`${formatSize(loadedSize.value)} / ${formatSize(total.value)}`, canvas.width - 30, canvas.height - 30);
     })
 
