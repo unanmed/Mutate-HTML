@@ -77,8 +77,7 @@ async function loadOne<T extends ResponseType>(url: string, i: number, type: T):
         if (!caled[i]) {
             caled[i] = true;
             total.value += e.total!;
-            console.log(e.total);
-
+            console.log(e.total, i);
         }
         loadedOne[i] = e.loaded;
         calLoaded();

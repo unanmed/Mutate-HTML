@@ -29,6 +29,7 @@ function startGame() {
     cover.style.opacity = '0';
     cover.addEventListener('transitionend', e => {
         started.value = true;
+        ticker.destroy();
     })
 }
 
