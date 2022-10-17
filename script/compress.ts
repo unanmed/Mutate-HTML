@@ -89,7 +89,9 @@ import fse from 'fs-extra';
     // 5. 移动游戏开始前的加载资源，计算其大小
     let size = 0;
     const data = await fs.readFile('./src/components/start.vue', 'utf-8');
-    const urls = data.match(/loadOne\(\`(\$\{base\})?[\w,\s\`\'/.]+\)/g)!;
+    const urls = data.match(
+        /loadOne\((\r\n)?\s*\`(\$\{base\})?[\r\n\w,\s\`\'/.]+\)/g
+    )!;
     await Promise.all(
         urls.map(async v => {
             const url = v.split('`')[1].replace('${base}', './temp/');
@@ -97,6 +99,8 @@ import fse from 'fs-extra';
             size += stat.size;
         })
     );
+    console.log(urls);
+
     const res = data.replace(
         /\/\/\s*#{3}\s总下载量\r\nconst\s*total\s*=\s*[0-9]+;/,
         `// ### 总下载量
