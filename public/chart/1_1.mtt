@@ -1,0 +1,12 @@
+{
+    "option": {
+        "background": "#555"
+    },
+    "camera": {
+        "id": "camera",
+        "animate": [],
+        "css": {}
+    },
+    "bases": [],
+    "notes": []
+}

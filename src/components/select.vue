@@ -127,6 +127,7 @@
                 <div id="start">
                     <a-button
                         style="width: 50%; height: 80%; background-color: #ccc"
+                        @click="play"
                         ><caret-right-outlined
                             :style="{
                                 transform: `scale(${width / 4}%)`,
@@ -140,12 +141,17 @@
 </template>
 
 <script lang="ts" setup>
-import { animate } from 'mutate-game';
+import { animate, Ticker } from 'mutate-game';
 import { computed, onMounted, ref, watch } from 'vue';
 import { musics, info, MusicHard } from '../constants';
 import { isMobile } from '../utils';
 import Scroll from './scroll.vue';
 import { CaretRightOutlined } from '@ant-design/icons-vue';
+import { getAudio, main } from '../audio';
+
+const emits = defineEmits<{
+    (e: 'start', data: string): void;
+}>();
 
 let song = localStorage.getItem('@mutate:select');
 
@@ -181,6 +187,8 @@ let div: HTMLDivElement;
 let songs: HTMLDivElement;
 let right: HTMLDivElement;
 let songinfo: HTMLDivElement;
+let score: HTMLSpanElement;
+let rank: HTMLSpanElement;
 
 const color = computed(() => getColor(hard.value));
 
@@ -258,6 +266,19 @@ function getImgSrc(name: string) {
     return `${import.meta.env.BASE_URL}image/${name}`;
 }
 
+async function play() {
+    const info = `${selectedKeys.value[0]}@@${hard.value}`;
+    div.style.opacity = '0';
+    const ticker = new Ticker();
+    const [source, gain] = getAudio(main.value);
+    ticker.add(time => {
+        gain.gain.value = (700 - time) / 700;
+    });
+    await animate.sleep(700);
+    source.stop();
+    emits('start', info);
+}
+
 onMounted(async () => {
     await animate.sleep(200);
     div = document.getElementById('select') as HTMLDivElement;
@@ -265,6 +286,8 @@ onMounted(async () => {
     menu = document.getElementById('song-menu') as HTMLDivElement;
     right = document.getElementById('rightbar') as HTMLDivElement;
     songinfo = document.getElementById('song-info') as HTMLDivElement;
+    score = document.getElementById('score-num') as HTMLSpanElement;
+    rank = document.getElementById('rank') as HTMLSpanElement;
 
     calLength();
 
@@ -301,6 +324,10 @@ onMounted(async () => {
         ? `${width / 1000}em`
         : `${width / 900}em`;
     div.style.opacity = '1';
+    rank.style.fontSize = isMobile() ? `${width / 800}em` : `${width / 600}em`;
+    score.style.fontSize = isMobile()
+        ? `${width / 1000}em`
+        : `${width / 800}em`;
 
     const aspect = isMobile()
         ? window.innerHeight / window.innerWidth
@@ -331,7 +358,6 @@ onMounted(async () => {
     width: 100%;
     height: 100%;
     background-color: #111;
-    transition: opacity 0.6s linear;
     font-family: normal;
     text-align: center;
     color: #fff;
@@ -340,7 +366,7 @@ onMounted(async () => {
     flex-direction: row;
     user-select: none;
     justify-content: space-between;
-    transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear, opacity 0.6s linear;
 }
 
 #song-menu {

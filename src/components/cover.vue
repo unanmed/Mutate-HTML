@@ -6,7 +6,7 @@
 import { inject, onMounted, Ref } from 'vue';
 import * as mutate from 'mutate-game';
 import { getSize } from '../utils';
-import { play, ac } from '../audio';
+import { play, ac, main } from '../audio';
 
 interface Ball {
     x: number;
@@ -39,7 +39,10 @@ onMounted(async () => {
     const cover = document.getElementById('cover') as HTMLCanvasElement;
     const ctx = cover.getContext('2d') as CanvasRenderingContext2D;
 
-    await play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
+    main.value = await play(
+        `${import.meta.env.BASE_URL}music/mutate.mp3`,
+        true
+    );
     const start = ac.currentTime;
 
     cover.style.border = '1px solid #fff';

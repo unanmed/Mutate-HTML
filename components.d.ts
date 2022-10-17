@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     AProgress: typeof import('ant-design-vue/es')['Progress']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     Cover: typeof import('./src/components/cover.vue')['default']
+    Play: typeof import('./src/components/play.vue')['default']
     Scroll: typeof import('./src/components/scroll.vue')['default']
     Select: typeof import('./src/components/select.vue')['default']
     Start: typeof import('./src/components/start.vue')['default']

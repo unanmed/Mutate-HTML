@@ -86,7 +86,15 @@ import fse from 'fs-extra';
         } else await fs.rm(`./temp/${i}`);
     }
 
-    // 5. 移动游戏开始前的加载资源，计算其大小
+    // 5. 压缩谱面文件
+    const all3 = await fs.readdir('./temp/chart/');
+    for await (const c of all3) {
+        const json = await fs.readFile(`./temp/chart/${c}`, 'utf-8');
+        const res = JSON.stringify(JSON.parse(json));
+        await fs.writeFile(`./temp/chart/${c}`, res, 'utf-8');
+    }
+
+    // 6. 移动游戏开始前的加载资源，计算其大小
     let size = 0;
     const data = await fs.readFile('./src/components/start.vue', 'utf-8');
     const urls = data.match(
@@ -99,7 +107,6 @@ import fse from 'fs-extra';
             size += stat.size;
         })
     );
-    console.log(urls);
 
     const res = data.replace(
         /\/\/\s*#{3}\s总下载量\r\nconst\s*total\s*=\s*[0-9]+;/,

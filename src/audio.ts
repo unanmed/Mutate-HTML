@@ -1,8 +1,9 @@
-import axios, { AxiosProgressEvent, AxiosResponse } from "axios";
-import * as mutate from "mutate-game";
+import axios, { AxiosProgressEvent, AxiosResponse } from 'axios';
+import * as mutate from 'mutate-game';
+import { ref } from 'vue';
 
 /** 音频资源节点 */
-const audioList: Record<number, AudioBufferSourceNode> = {};
+const audioList: Record<number, [AudioBufferSourceNode, GainNode]> = {};
 
 /** 音频缓存 */
 const bufferCache: Record<string, AudioBuffer> = {};
@@ -13,12 +14,20 @@ let cnt = 0;
 /** 音频处理模块 */
 export const ac = new AudioContext();
 
+export let main = ref(0);
+
 /**
  * 加载音频但不播放
  * @param url 音频地址
  */
-export async function loadAudio(url: string, onprogress?: (e: AxiosProgressEvent) => void): Promise<AxiosResponse<ArrayBuffer>> {
-    const data = await axios.get(url, { responseType: 'arraybuffer', onDownloadProgress: onprogress });
+export async function loadAudio(
+    url: string,
+    onprogress?: (e: AxiosProgressEvent) => void
+): Promise<AxiosResponse<ArrayBuffer>> {
+    const data = await axios.get(url, {
+        responseType: 'arraybuffer',
+        onDownloadProgress: onprogress
+    });
     const buffer = await ac.decodeAudioData(data.data);
     bufferCache[url] = buffer;
     return data;
@@ -30,7 +39,10 @@ export async function loadAudio(url: string, onprogress?: (e: AxiosProgressEvent
  * @param loop 是否循环
  * @returns 该音频的数字id
  */
-export async function play(url: string, loop: boolean = false): Promise<number> {
+export async function play(
+    url: string,
+    loop: boolean = false
+): Promise<number> {
     const gain = ac.createGain();
     const source = ac.createBufferSource();
     // 检查缓存
@@ -42,7 +54,7 @@ export async function play(url: string, loop: boolean = false): Promise<number> 
         source.buffer = buffer;
     }
     source.loop = loop;
-    audioList[cnt] = source;
+    audioList[cnt] = [source, gain];
     source.connect(gain);
     gain.connect(ac.destination);
     source.start();
@@ -52,8 +64,9 @@ export async function play(url: string, loop: boolean = false): Promise<number> 
 /**
  * 获得指定数字对应的音频资源节点
  */
-export function getAudio(num: number): AudioBufferSourceNode {
+export function getAudio(num: number): [AudioBufferSourceNode, GainNode] {
     const node = audioList[num];
-    if (!mutate.utils.has(node)) throw new ReferenceError(`You are trying to get a nonexistent audio.`);
+    if (!mutate.utils.has(node))
+        throw new ReferenceError(`You are trying to get a nonexistent audio.`);
     return node;
 }
