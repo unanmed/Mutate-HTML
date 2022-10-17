@@ -53,7 +53,7 @@
         </div>
         <div id="rightbar">
             <img
-                :src="`/image/${info[selectedKeys[0]].file.image}`"
+                :src="getImgSrc(info[selectedKeys[0]].file.image)"
                 id="image"
             />
             <a-divider
@@ -252,6 +252,10 @@ function hasPlayed() {
             `@mutate:score-${selectedKeys.value[0]}-${hard.value}`
         ) !== null
     );
+}
+
+function getImgSrc(name: string) {
+    return `${import.meta.env.BASE_URL}image/${name}`;
 }
 
 onMounted(async () => {
