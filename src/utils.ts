@@ -8,12 +8,12 @@ export function getSize() {
         return {
             w: window.innerWidth * 0.95,
             h: window.innerHeight * 0.95
-        }
+        };
     } else {
         return {
             w: window.innerHeight * 0.95,
             h: window.innerWidth * 0.95
-        }
+        };
     }
 }
 

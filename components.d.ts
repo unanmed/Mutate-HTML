@@ -7,8 +7,16 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ADivider: typeof import('ant-design-vue/es')['Divider']
+    ALayout: typeof import('ant-design-vue/es')['Layout']
+    ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
+    ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
+    AMenu: typeof import('ant-design-vue/es')['Menu']
+    AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     AProgress: typeof import('ant-design-vue/es')['Progress']
+    ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     Cover: typeof import('./src/components/cover.vue')['default']
+    Scroll: typeof import('./src/components/scroll.vue')['default']
     Select: typeof import('./src/components/select.vue')['default']
     Start: typeof import('./src/components/start.vue')['default']
   }

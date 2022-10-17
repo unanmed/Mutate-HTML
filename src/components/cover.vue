@@ -9,15 +9,15 @@ import { getSize } from '../utils';
 import { play, ac } from '../audio';
 
 interface Ball {
-    x: number
-    y: number
-    r: number
-    vx: number
-    vy: number
-    color: string
+    x: number;
+    y: number;
+    r: number;
+    vx: number;
+    vy: number;
+    color: string;
 }
 
-const started = inject('started') as Ref<boolean>
+const started = inject('started') as Ref<boolean>;
 
 let ticker = new mutate.Ticker();
 
@@ -30,7 +30,7 @@ function startGame() {
     cover.addEventListener('transitionend', e => {
         started.value = true;
         ticker.destroy();
-    })
+    });
 }
 
 onMounted(async () => {
@@ -63,7 +63,8 @@ onMounted(async () => {
             let x, y;
             const loc = ~~(Math.random() * 4);
             let dir;
-            if (loc === 1) { // 左
+            if (loc === 1) {
+                // 左
                 x = 0;
                 y = Math.random() * h;
                 dir = (Math.random() - 0.5) * Math.PI * 0.6;
@@ -83,17 +84,19 @@ onMounted(async () => {
             const vx = Math.cos(dir);
             const vy = Math.sin(dir);
             const r = Math.random() * 10 + 50;
-            const color = `rgba(${~~(Math.random() * 255)}, ${~~(Math.random() * 255)}, ${~~(Math.random() * 255)}, 0.5)`;
+            const color = `rgba(${~~(Math.random() * 255)}, ${~~(
+                Math.random() * 255
+            )}, ${~~(Math.random() * 255)}, 0.5)`;
             balls.push({ x, y, r, vx, vy, color });
         }
-    }
+    };
 
     generate(20);
 
     ctx.save();
 
     // 绘制函数
-    ticker.add((time) => {
+    ticker.add(time => {
         ctx.restore();
         ctx.save();
         ctx.clearRect(0, 0, cover.width, cover.height);
@@ -101,7 +104,7 @@ onMounted(async () => {
         if (time < 1000) {
             cover.style.filter = `blur(${5 - time / 200}px)`;
             speed = 55 - time / 20;
-            fSize = 1 + 2 * (time / 2000 - 0.5) ** 2
+            fSize = 1 + 2 * (time / 2000 - 0.5) ** 2;
         } else {
             speed = 3;
             fSize = 1;
@@ -123,14 +126,19 @@ onMounted(async () => {
             const v = balls[i];
             v.x += v.vx * speed;
             v.y += v.vy * speed;
-            if (v.x < 0 - v.r || v.x > cover.width + v.r || v.y < 0 - v.r || v.y > cover.height + v.r) {
+            if (
+                v.x < 0 - v.r ||
+                v.x > cover.width + v.r ||
+                v.y < 0 - v.r ||
+                v.y > cover.height + v.r
+            ) {
                 balls.splice(i, 1);
                 i--;
                 continue;
             }
             // 绘制
             ctx.filter = 'blur(25px)';
-            ctx.fillStyle = v.color
+            ctx.fillStyle = v.color;
             ctx.beginPath();
             ctx.arc(v.x, v.y, v.r, 0, Math.PI * 2);
             ctx.closePath();
@@ -157,8 +165,8 @@ onMounted(async () => {
         ctx.shadowOffsetY = 0;
         ctx.font = '2em normal';
         ctx.fillText('点击开始游戏', cover.width / 2, cover.height / 2 + 40);
-    })
-})
+    });
+});
 </script>
 
 <style scoped lang="less">

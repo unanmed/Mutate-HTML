@@ -17,12 +17,12 @@ import axios, { AxiosProgressEvent, AxiosResponse, ResponseType } from 'axios';
 import { formatSize, isMobile } from '../utils';
 
 interface ResponseMap {
-    arraybuffer: ArrayBuffer
-    blob: Blob
-    stream: any
-    text: string
-    json: object
-    document: any
+    arraybuffer: ArrayBuffer;
+    blob: Blob;
+    stream: any;
+    text: string;
+    json: object;
+    document: any;
 }
 
 const gameLoaded = ref(false);
@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL;
 
 function calLoaded() {
     const l = Object.values(loadedOne).reduce((pre, cur) => pre + cur, 0);
-    loaded.value = Math.ceil(l / total * 100);
+    loaded.value = Math.ceil((l / total) * 100);
     loadedSize.value = l;
 }
 
@@ -53,24 +53,32 @@ async function load() {
         loadOne(`${base}se/tap.wav`, 1, 'arraybuffer'),
         loadOne(`${base}se/drag.wav`, 2, 'arraybuffer'),
         (async () => {
-            const data = await loadOne(`${base}font/normal.ttf`, 3, 'arraybuffer');
+            const data = await loadOne(
+                `${base}font/normal.ttf`,
+                3,
+                'arraybuffer'
+            );
             const font = new FontFace('normal', data.data);
 
             await font.load();
             document.fonts.add(font);
         })()
-    ]
+    ];
     await Promise.all(tasks);
 }
 
 /**
  * 加载一个内容
  */
-async function loadOne<T extends ResponseType>(url: string, i: number, type: T): Promise<AxiosResponse<ResponseMap[T]>> {
+async function loadOne<T extends ResponseType>(
+    url: string,
+    i: number,
+    type: T
+): Promise<AxiosResponse<ResponseMap[T]>> {
     const on = (e: AxiosProgressEvent) => {
         loadedOne[i] = e.loaded;
         calLoaded();
-    }
+    };
     if (url.endsWith('.mp3') || url.endsWith('.wav')) {
         // @ts-ignore
         return await loadAudio(url, on);
@@ -78,7 +86,7 @@ async function loadOne<T extends ResponseType>(url: string, i: number, type: T):
         return await axios.get(url, {
             responseType: type,
             onDownloadProgress: on
-        })
+        });
     }
 }
 
@@ -103,8 +111,8 @@ onMounted(async () => {
     ctx.strokeStyle = '#eee';
     ctx.lineWidth = 5;
     ctx.lineCap = 'round';
-    ticker.add((time) => {
-        const start = Math.PI * (time as number) / 700;
+    ticker.add(time => {
+        const start = (Math.PI * (time as number)) / 700;
         const w = canvas.width;
         const h = canvas.height;
         const hw = w / 2;
@@ -122,11 +130,19 @@ onMounted(async () => {
         ctx.textAlign = 'center';
         ctx.font = 'normal 4em Verdana';
         ctx.fillStyle = '#eee';
-        ctx.fillText(`loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`, hw, hh + hh / 2);
+        ctx.fillText(
+            `loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`,
+            hw,
+            hh + hh / 2
+        );
         ctx.textAlign = 'right';
         ctx.font = `normal ${isMobile() ? 1 : 2}em Verdana`;
-        ctx.fillText(`${formatSize(loadedSize.value)} / ${formatSize(total)}`, canvas.width - 30, canvas.height - 30);
-    })
+        ctx.fillText(
+            `${formatSize(loadedSize.value)} / ${formatSize(total)}`,
+            canvas.width - 30,
+            canvas.height - 30
+        );
+    });
 
     // 执行加载
     await load();
@@ -141,8 +157,7 @@ onMounted(async () => {
         gameLoaded.value = true;
         ticker.destroy();
     });
-})
-
+});
 </script>
 
 <style scoped lang="less">
