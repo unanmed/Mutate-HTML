@@ -8,12 +8,14 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AButton: typeof import('ant-design-vue/es')['Button']
+    ACheckbox: typeof import('ant-design-vue/es')['Checkbox']
     ADivider: typeof import('ant-design-vue/es')['Divider']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     AProgress: typeof import('ant-design-vue/es')['Progress']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     Cover: typeof import('./src/components/cover.vue')['default']
+    Offset: typeof import('./src/components/offset.vue')['default']
     Play: typeof import('./src/components/play.vue')['default']
     Scroll: typeof import('./src/components/scroll.vue')['default']
     Select: typeof import('./src/components/select.vue')['default']

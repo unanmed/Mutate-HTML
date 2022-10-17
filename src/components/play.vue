@@ -12,6 +12,7 @@ import { formatSize, getSize, isMobile } from '../utils';
 const props = defineProps<{
     chart: string;
     music: string;
+    auto: boolean;
 }>();
 
 onMounted(async () => {
@@ -90,7 +91,31 @@ onMounted(async () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.style.opacity = '1';
     canvas.style.transition = '';
+    game.setOffset(-100);
     game.start();
+    if (props.auto) game.chart.judger.auto = true;
+
+    game.renderer.on('after', e => {
+        const ctx = e.ctx;
+        ctx.save();
+        ctx.textBaseline = 'top';
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'right';
+        ctx.font = '100 32px normal';
+        ctx.fillText(
+            game.getScore().toString().padStart(7, '0'),
+            canvas.width - 20,
+            15
+        );
+        const combo = game.chart.judger.combo;
+        if (combo < 3) return;
+        ctx.textAlign = 'center';
+        ctx.font = '100 48px normal';
+        ctx.fillText(`${combo}`, canvas.width / 2, 20);
+        ctx.font = '100 24px normal';
+        ctx.fillText(`combo`, canvas.width / 2, 50);
+        ctx.restore();
+    });
 });
 </script>
 

@@ -125,6 +125,15 @@
                     dashed
                 ></a-divider>
                 <div id="start">
+                    <a-checkbox
+                        v-model:checked="auto"
+                        :style="{
+                            'font-size': isMobile()
+                                ? `${width / 3000}em`
+                                : `${width / 2000}em`
+                        }"
+                        >自动播放</a-checkbox
+                    >
                     <a-button
                         style="width: 50%; height: 80%; background-color: #ccc"
                         @click="play"
@@ -149,8 +158,14 @@ import Scroll from './scroll.vue';
 import { CaretRightOutlined } from '@ant-design/icons-vue';
 import { getAudio, main } from '../audio';
 
+interface StartInfo {
+    music: string;
+    hard: keyof MusicHard;
+    auto: boolean;
+}
+
 const emits = defineEmits<{
-    (e: 'start', data: string): void;
+    (e: 'start', data: StartInfo): void;
 }>();
 
 let song = localStorage.getItem('@mutate:select');
@@ -180,6 +195,8 @@ const total = ref(0);
 const scroll = ref(Scroll);
 
 const width = isMobile() ? window.innerHeight : window.innerWidth;
+
+const auto = ref(false);
 
 // 元素
 let menu: HTMLDivElement;
@@ -251,7 +268,7 @@ function getScore() {
         `@mutate:score-${selectedKeys.value[0]}-${hard.value}`
     );
     if (!score) score = '0F';
-    return score.padStart(7, '0');
+    return score.padStart(8, '0');
 }
 
 function hasPlayed() {
@@ -267,7 +284,11 @@ function getImgSrc(name: string) {
 }
 
 async function play() {
-    const info = `${selectedKeys.value[0]}@@${hard.value}`;
+    const info: StartInfo = {
+        music: selectedKeys.value[0],
+        hard: hard.value,
+        auto: auto.value
+    };
     div.style.opacity = '0';
     const ticker = new Ticker();
     const [source, gain] = getAudio(main.value);

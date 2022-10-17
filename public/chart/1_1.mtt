@@ -1,12 +1,79 @@
 {
     "option": {
-        "background": "#555"
+        "background": "#111"
     },
     "camera": {
         "id": "camera",
         "animate": [],
-        "css": {}
+        "css": {
+            "0": "filter: brightness(120%)"
+        }
     },
-    "bases": [],
-    "notes": []
+    "bases": [
+        {
+            "id": "base1",
+            "x": 960,
+            "y": 540,
+            "angle": 2,
+            "r": {
+                "0": 100
+            },
+            "bpm": {
+                "0": 52.5
+            },
+            "rgba": {
+                "0": [
+                    252,
+                    200,
+                    6,
+                    0
+                ]
+            },
+            "animate": [
+                {
+                    "custom": true,
+                    "start": 50,
+                    "type": "a",
+                    "time": 1000,
+                    "n": 1,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
+                }
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "base": "base1",
+            "type": "tap",
+            "config": {
+                "playTime": 2280
+            },
+            "speed": {
+                "0": 500
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base1",
+            "type": "tap",
+            "config": {
+                "playTime": 2850
+            },
+            "speed": {
+                "0": 500
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        }
+    ]
 }
