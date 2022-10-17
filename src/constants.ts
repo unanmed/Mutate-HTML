@@ -29,35 +29,7 @@ export type MusicHard = {
  * 歌曲列表
  */
 export const musics: Record<string, string[]> = {
-    单曲: [
-        '灵',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫',
-        '红枫'
-    ]
+    单曲: ['灵', '红枫']
 };
 
 /**
@@ -86,7 +58,7 @@ export const info: Record<string, MusicInfo> = {
     红枫: {
         file: {
             music: '2.mp3',
-            image: '2.png',
+            image: '2.jpg',
             chart: {
                 easy: '2_1.mtt',
                 normal: '2_2.mtt',
