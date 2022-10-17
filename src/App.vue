@@ -25,7 +25,7 @@ watch(started, async n => {
     started.value = n;
     const game = document.getElementById('game') as HTMLDivElement;
     game.style.border = '1px solid #fff';
-})
+});
 
 provide('started', started);
 
@@ -39,7 +39,7 @@ onMounted(() => {
         div.style.height = `95vw`;
     }
     span.style.opacity = '1';
-})
+});
 
 function start() {
     if (acted.value) return;
@@ -47,8 +47,10 @@ function start() {
     span.style.opacity = '0';
     span.addEventListener('transitionend', () => {
         acted.value = true;
-    })
+    });
 }
+
+document.addEventListener('touchmove', e => e.preventDefault());
 </script>
 
 <style lang="less" scoped>

@@ -1,7 +1,7 @@
 <template>
     <div v-if="!gameLoaded" id="start-load">
         <canvas id="loading"></canvas>
-        <a-progress :percent="loaded"></a-progress>
+        <a-progress :percent="loaded" style="width: 90%"></a-progress>
     </div>
     <div v-if="gameLoaded" id="start-page">
         <Cover></Cover>
@@ -27,7 +27,7 @@ interface ResponseMap {
 
 const gameLoaded = ref(false);
 
-const loaded = ref(0);
+const loaded = ref('0');
 
 // ### 总下载量
 const total = 3066718;
@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL;
 
 function calLoaded() {
     const l = Object.values(loadedOne).reduce((pre, cur) => pre + cur, 0);
-    loaded.value = Math.ceil((l / total) * 100);
+    loaded.value = ((l / total) * 100).toFixed(2);
     loadedSize.value = l;
 }
 

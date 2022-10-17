@@ -69,8 +69,8 @@ onMounted(() => {
         if (!mouseDown) return;
         const dy = e.movementY;
         if (canvas.height < props.total) {
-            draw(dy * 1.5 + now);
-            emits('scroll', now + dy * 1.5);
+            draw(dy + now);
+            emits('scroll', now + dy);
         }
     });
 });

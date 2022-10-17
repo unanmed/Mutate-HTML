@@ -75,6 +75,7 @@ const hard = ref<keyof MusicHard>('easy');
 
 // 滚动条
 const now = ref(parseFloat(initSelect[2]));
+
 const total = ref(0);
 
 const scroll = ref(Scroll);
@@ -107,17 +108,20 @@ function draw() {
 
 /** 滚动 */
 function scrollList(y: number) {
+    if (parseFloat(getComputedStyle(div).height) >= total.value) return;
     const h = parseFloat(getComputedStyle(div).height);
-    if (y + h > total.value) {
+    if (y + h >= total.value) {
         now.value = total.value - h;
-        draw();
         menu.style.top = `${-now.value}px`;
-    } else if (y < 0) {
-        now.value = 0;
         draw();
+    } else if (y <= 0) {
+        now.value = 0;
         menu.style.top = '0px';
+        draw();
     } else {
+        now.value = y;
         menu.style.top = `${-y}px`;
+        draw();
     }
 }
 
@@ -146,6 +150,7 @@ onMounted(async () => {
 
     let last = -1;
     songs.addEventListener('touchmove', e => {
+        e.preventDefault();
         if (parseFloat(getComputedStyle(div).height) >= total.value) return;
         const d = e.touches[0];
         if (last === -1) last = d.clientY;
@@ -156,6 +161,9 @@ onMounted(async () => {
 
     if (isMobile()) songs.style.width = '30%';
     div.style.opacity = '1';
+
+    await animate.sleep(200);
+    scrollList(now.value);
 });
 </script>
 
