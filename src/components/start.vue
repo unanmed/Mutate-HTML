@@ -27,7 +27,7 @@ interface ResponseMap {
 
 const gameLoaded = ref(false);
 
-const loaded = ref('0');
+const loaded = ref(0);
 
 // ### 总下载量
 const total = 3135434;
@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL;
 
 function calLoaded() {
     const l = Object.values(loadedOne).reduce((pre, cur) => pre + cur, 0);
-    loaded.value = ((l / total) * 100).toFixed(2);
+    loaded.value = parseFloat(((l / total) * 100).toFixed(2));
     loadedSize.value = l;
 }
 

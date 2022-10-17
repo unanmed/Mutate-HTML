@@ -44,6 +44,7 @@
             type="vertical"
             dashed
         ></a-divider>
+        <div id="info"></div>
     </div>
 </template>
 
@@ -92,16 +93,6 @@ watch(selectedKeys, n => {
     );
 });
 
-watch(now, n => {
-    now.value = n;
-    draw();
-});
-
-watch(total, n => {
-    total.value = n;
-    draw();
-});
-
 function draw() {
     requestAnimationFrame(() => scroll.value.draw());
 }
@@ -113,16 +104,14 @@ function scrollList(y: number) {
     if (y + h >= total.value) {
         now.value = total.value - h;
         menu.style.top = `${-now.value}px`;
-        draw();
     } else if (y <= 0) {
         now.value = 0;
         menu.style.top = '0px';
-        draw();
     } else {
         now.value = y;
         menu.style.top = `${-y}px`;
-        draw();
     }
+    draw();
 }
 
 /** 计算滚动条的总高度 */
@@ -148,15 +137,20 @@ onMounted(async () => {
         scrollList(now.value);
     });
 
-    let last = -1;
+    let last = 0;
+    songs.addEventListener('touchstart', e => {
+        const d = e.touches[0];
+        last = isMobile() ? d.clientX : d.clientY;
+    });
+
     songs.addEventListener('touchmove', e => {
         e.preventDefault();
         if (parseFloat(getComputedStyle(div).height) >= total.value) return;
         const d = e.touches[0];
-        if (last === -1) last = d.clientY;
-        now.value -= d.clientY - last;
+        const y = isMobile() ? d.clientX : d.clientY;
+        now.value += y - last;
         scrollList(now.value);
-        last = d.clientY;
+        last = y;
     });
 
     if (isMobile()) songs.style.width = '30%';
@@ -193,5 +187,9 @@ onMounted(async () => {
     padding: 0.5%;
     padding-right: 0;
     overflow: hidden;
+}
+
+#info {
+    justify-self: end;
 }
 </style>

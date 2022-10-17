@@ -39,6 +39,7 @@ onMounted(() => {
         div.style.height = `95vw`;
     }
     span.style.opacity = '1';
+    div.addEventListener('touchmove', e => e.preventDefault());
 });
 
 function start() {
@@ -49,8 +50,6 @@ function start() {
         acted.value = true;
     });
 }
-
-document.addEventListener('touchmove', e => e.preventDefault());
 </script>
 
 <style lang="less" scoped>

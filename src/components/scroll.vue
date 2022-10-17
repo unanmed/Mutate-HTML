@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
+import { onMounted, onUpdated } from 'vue';
 
 const props = defineProps<{
     total: number;
@@ -39,6 +39,10 @@ function draw(y: number = props.now) {
     ctx.stroke();
 }
 
+onUpdated(() => {
+    draw();
+});
+
 onMounted(() => {
     const canvas = document.getElementById(
         `scroll-${props.id}`
@@ -55,17 +59,12 @@ onMounted(() => {
         mouseDown = true;
     });
 
-    canvas.addEventListener('mouseup', e => {
+    document.addEventListener('mouseup', e => {
         mouseDown = false;
         if (canvas.height < props.total) emits('scroll', now);
     });
 
-    canvas.addEventListener('mouseleave', e => {
-        mouseDown = false;
-        if (canvas.height < props.total) emits('scroll', now);
-    });
-
-    canvas.addEventListener('mousemove', e => {
+    document.addEventListener('mousemove', e => {
         if (!mouseDown) return;
         const dy = e.movementY;
         if (canvas.height < props.total) {
