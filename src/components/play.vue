@@ -48,6 +48,8 @@ onMounted(async () => {
         const h = canvas.height;
         const hw = w / 2;
         const hh = h / 2;
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
         ctx.arc(hw, hh, Math.min(w, h) / 16, 0, Math.PI * 2);

@@ -91,7 +91,7 @@ async function loadOne<T extends ResponseType>(
         url.endsWith('.jpg') ||
         url.endsWith('.jpeg')
     ) {
-        return await loadImage(url);
+        return await loadImage(url, on);
     } else {
         return await axios.get(url, {
             responseType: type,
