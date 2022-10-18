@@ -24,30 +24,16 @@ onMounted(async () => {
     h -= 10;
     if (w / h > 16 / 9) {
         const width = (h * 16) / 9;
-        if (!isMobile()) {
-            canvas.height = h;
-            canvas.width = width;
-            canvas.style.width = `${width}px`;
-            canvas.style.height = `${h}px`;
-        } else {
-            canvas.height = width;
-            canvas.width = h;
-            canvas.style.width = `${h}px`;
-            canvas.style.height = `${width}px`;
-        }
+        canvas.height = h;
+        canvas.width = width;
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${h}px`;
     } else {
         const height = (w * 9) / 16;
-        if (!isMobile()) {
-            canvas.height = height;
-            canvas.width = w;
-            canvas.style.width = `${w}px`;
-            canvas.style.height = `${height}px`;
-        } else {
-            canvas.height = height;
-            canvas.width = w;
-            canvas.style.width = `${height}px`;
-            canvas.style.height = `${w}px`;
-        }
+        canvas.height = height;
+        canvas.width = w;
+        canvas.style.width = `${w}px`;
+        canvas.style.height = `${height}px`;
     }
 
     await animate.sleep(600);
