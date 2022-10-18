@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { animate, create, Ticker } from 'mutate-game';
 import { onMounted, ref } from 'vue';
-import { setRenderer } from '../render';
+import { drawInfo, setRenderer } from '../render';
 import { formatSize, getSize, isMobile } from '../utils';
 
 const props = defineProps<{
@@ -79,32 +79,12 @@ onMounted(async () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.style.opacity = '1';
     canvas.style.transition = '';
-    game.setOffset(-100);
+    // game.setOffset(-100);
     setRenderer(game);
     game.start();
     if (props.auto) game.chart.judger.auto = true;
 
-    game.renderer.on('after', e => {
-        const ctx = e.ctx;
-        ctx.save();
-        ctx.textBaseline = 'top';
-        ctx.fillStyle = '#fff';
-        ctx.textAlign = 'right';
-        ctx.font = '100 32px normal';
-        ctx.fillText(
-            game.getScore().toString().padStart(7, '0'),
-            canvas.width - 20,
-            15
-        );
-        const combo = game.chart.judger.combo;
-        if (combo < 3) return;
-        ctx.textAlign = 'center';
-        ctx.font = '100 48px normal';
-        ctx.fillText(`${combo}`, canvas.width / 2, 20);
-        ctx.font = '100 24px normal';
-        ctx.fillText(`combo`, canvas.width / 2, 50);
-        ctx.restore();
-    });
+    game.renderer.on('after', drawInfo);
 });
 </script>
 

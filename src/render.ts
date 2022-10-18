@@ -1,4 +1,12 @@
-import { Base, BaseNote, Camera, Mutate, Renderer, utils } from 'mutate-game';
+import {
+    Base,
+    BaseNote,
+    Camera,
+    Mutate,
+    Renderer,
+    RenderEvent,
+    utils
+} from 'mutate-game';
 import { image } from './image';
 
 export function setRenderer(game: Mutate) {
@@ -7,6 +15,33 @@ export function setRenderer(game: Mutate) {
     // game.renderer.setNote('hold', drawHold);
     game.renderer.setBase(drawBase);
     game.chart.camera.setGlobalEffects(globalEffect);
+}
+
+export function drawInfo(e: RenderEvent<'after'>) {
+    const t = e.target as Renderer;
+    const ctx = e.ctx;
+    const game = t.game;
+    const canvas = ctx.canvas;
+    ctx.save();
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'right';
+    ctx.font = '100 32px normal';
+    ctx.fillText(
+        game.getScore().toString().padStart(7, '0'),
+        canvas.width - 20,
+        15
+    );
+    const combo = game.chart.judger.combo;
+    if (combo < 3 && !t.game.chart.judger.auto) return;
+    ctx.textAlign = 'center';
+    ctx.font = '100 48px normal';
+    ctx.fillText(`${combo}`, canvas.width / 2, 10);
+    ctx.font = '100 32px normal';
+    if (t.game.chart.judger.auto)
+        ctx.fillText(`autoplay`, canvas.width / 2, 50);
+    else ctx.fillText(`combo`, canvas.width / 2, 50);
+    ctx.restore();
 }
 
 function drawTap(this: Renderer, note: BaseNote<'tap'>) {
@@ -99,7 +134,6 @@ function globalEffect(camera: Camera) {
     ctx.translate(-dx, -dy);
     ctx.translate(-x, -y);
 
-    ctx.filter = 'blur(1px)';
     ctx.shadowBlur = 4;
     ctx.shadowColor = 'black';
 }

@@ -50,7 +50,7 @@ export const info: Record<string, MusicInfo> = {
         chart: '古祠',
         duration: 158,
         hard: {
-            easy: 2,
+            easy: 4,
             normal: 7,
             hard: 12
         }
