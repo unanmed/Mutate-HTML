@@ -7,6 +7,7 @@
 <script lang="ts" setup>
 import { animate, create, Ticker } from 'mutate-game';
 import { onMounted, ref } from 'vue';
+import { setRenderer } from '../render';
 import { formatSize, getSize, isMobile } from '../utils';
 
 const props = defineProps<{
@@ -92,6 +93,7 @@ onMounted(async () => {
     canvas.style.opacity = '1';
     canvas.style.transition = '';
     game.setOffset(-100);
+    setRenderer(game);
     game.start();
     if (props.auto) game.chart.judger.auto = true;
 

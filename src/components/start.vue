@@ -15,6 +15,7 @@ import * as mutate from 'mutate-game';
 import Cover from './cover.vue';
 import axios, { AxiosProgressEvent, AxiosResponse, ResponseType } from 'axios';
 import { formatSize, isMobile } from '../utils';
+import { loadImage } from '../image';
 
 interface ResponseMap {
     arraybuffer: ArrayBuffer;
@@ -52,12 +53,15 @@ async function load() {
         loadOne(`${base}music/mutate.mp3`, 0, 'arraybuffer'),
         loadOne(`${base}se/tap.wav`, 1, 'arraybuffer'),
         loadOne(`${base}se/drag.wav`, 2, 'arraybuffer'),
+        loadOne(`${base}image/base1.png`, 3, 'arraybuffer'),
+        loadOne(`${base}image/base2.png`, 4, 'arraybuffer'),
+        loadOne(`${base}image/base3.png`, 5, 'arraybuffer'),
         (async () => {
-            const data = await loadOne(
+            const data = (await loadOne(
                 `${base}font/normal.ttf`,
                 3,
                 'arraybuffer'
-            );
+            )) as AxiosResponse<ArrayBuffer>;
             const font = new FontFace('normal', data.data);
 
             await font.load();
@@ -74,7 +78,7 @@ async function loadOne<T extends ResponseType>(
     url: string,
     i: number,
     type: T
-): Promise<AxiosResponse<ResponseMap[T]>> {
+): Promise<AxiosResponse<ResponseMap[T]> | HTMLImageElement> {
     const on = (e: AxiosProgressEvent) => {
         loadedOne[i] = e.loaded;
         calLoaded();
@@ -82,6 +86,12 @@ async function loadOne<T extends ResponseType>(
     if (url.endsWith('.mp3') || url.endsWith('.wav')) {
         // @ts-ignore
         return await loadAudio(url, on);
+    } else if (
+        url.endsWith('.png') ||
+        url.endsWith('.jpg') ||
+        url.endsWith('.jpeg')
+    ) {
+        return await loadImage(url);
     } else {
         return await axios.get(url, {
             responseType: type,

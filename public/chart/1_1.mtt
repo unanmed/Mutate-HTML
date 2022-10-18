@@ -11,7 +11,7 @@
     },
     "bases": [
         {
-            "id": "base1",
+            "id": "base1-j",
             "x": 960,
             "y": 540,
             "angle": 2,
@@ -29,6 +29,79 @@
                     0
                 ]
             },
+            "filter": {},
+            "animate": [
+                {
+                    "custom": true,
+                    "start": 50,
+                    "type": "a",
+                    "time": 1000,
+                    "n": 1,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
+                }
+            ]
+        },
+        {
+            "id": "base1-i1",
+            "x": 960,
+            "y": 540,
+            "angle": 2,
+            "r": {
+                "0": 100
+            },
+            "bpm": {
+                "0": 52.5
+            },
+            "rgba": {
+                "0": [
+                    252,
+                    200,
+                    6,
+                    0
+                ]
+            },
+            "filter": {},
+            "animate": [
+                {
+                    "custom": true,
+                    "start": 50,
+                    "type": "a",
+                    "time": 1000,
+                    "n": 1,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
+                }
+            ]
+        },
+        {
+            "id": "base1-i2",
+            "x": 960,
+            "y": 540,
+            "angle": 2,
+            "r": {
+                "0": 100
+            },
+            "bpm": {
+                "0": -52.5
+            },
+            "rgba": {
+                "0": [
+                    252,
+                    200,
+                    6,
+                    0
+                ]
+            },
+            "filter": {},
             "animate": [
                 {
                     "custom": true,
@@ -48,7 +121,7 @@
     ],
     "notes": [
         {
-            "base": "base1",
+            "base": "base1-j",
             "type": "tap",
             "config": {
                 "playTime": 2280
@@ -62,7 +135,7 @@
             "animate": []
         },
         {
-            "base": "base1",
+            "base": "base1-j",
             "type": "tap",
             "config": {
                 "playTime": 2850

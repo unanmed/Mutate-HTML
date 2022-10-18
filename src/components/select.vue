@@ -130,7 +130,8 @@
                         :style="{
                             'font-size': isMobile()
                                 ? `${width / 3000}em`
-                                : `${width / 2000}em`
+                                : `${width / 1500}em`,
+                            'margin-left': '3%'
                         }"
                         >自动播放</a-checkbox
                     >
@@ -445,8 +446,8 @@ onMounted(async () => {
 
         #score {
             display: flex;
-            padding-left: 20%;
-            padding-right: 20%;
+            padding-left: 10%;
+            padding-right: 10%;
             justify-content: space-between;
             align-items: center;
             height: 10%;
@@ -462,7 +463,7 @@ onMounted(async () => {
 
         #start {
             display: flex;
-            justify-content: end;
+            justify-content: space-between;
             height: 100%;
             align-items: center;
         }

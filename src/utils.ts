@@ -28,7 +28,7 @@ export function isMobile() {
  * 格式化大小
  */
 export function formatSize(size: number): string {
-    if (size < 1024) return `${size.toFixed(2)}B`;
+    if (size < 1024) return `${size}B`;
     else if (size < 1024 ** 2) return `${(size / 1024).toFixed(2)}KB`;
     else if (size < 1024 ** 3) return `${(size / 1024 ** 2).toFixed(2)}MB`;
     else if (size < 1024 ** 4) return `${(size / 1024 ** 3).toFixed(2)}GB`;
