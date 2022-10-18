@@ -1,6 +1,28 @@
 <template>
     <div id="mutate-div">
         <canvas id="mutate-game"></canvas>
+        <a-progress
+            :percent="parseFloat(rate[0])"
+            :style="{
+                position: 'absolute',
+                bottom: '10%',
+                width: '50%',
+                left: '10%',
+                opacity,
+                transition: 'opacity 0.6s linear'
+            }"
+        ></a-progress>
+        <a-progress
+            :percent="parseFloat(rate[1])"
+            :style="{
+                position: 'absolute',
+                bottom: '20%',
+                width: '50%',
+                left: '10%',
+                opacity,
+                transition: 'opacity 0.6s linear'
+            }"
+        ></a-progress>
     </div>
 </template>
 
@@ -15,6 +37,11 @@ const props = defineProps<{
     music: string;
     auto: boolean;
 }>();
+
+const loaded = ref([0, 0]);
+const all = ref([0, 0]);
+const rate = ref(['0', '0']);
+const opacity = ref(0);
 
 onMounted(async () => {
     const canvas = document.getElementById('mutate-game') as HTMLCanvasElement;
@@ -40,14 +67,15 @@ onMounted(async () => {
     const game = create(canvas);
     const base = import.meta.env.BASE_URL;
     canvas.style.opacity = '1';
+    opacity.value = 1;
     // 加载动画
     const ticker = new Ticker();
     ticker.add(time => {
         const start = (Math.PI * (time as number)) / 700;
         const w = canvas.width;
         const h = canvas.height;
-        const hw = w / 2;
-        const hh = h / 2;
+        const hw = (w / 5) * 2;
+        const hh = (h / 5) * 2;
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -66,16 +94,46 @@ onMounted(async () => {
         ctx.fillText(
             `loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`,
             hw,
-            hh + hh / 2
+            hh + hh / 5
         );
+        // 加载大小
+        const ms = formatSize(loaded.value[0]);
+        const ma = formatSize(all.value[0]);
+        ctx.textAlign = 'left';
+        ctx.font = `normal ${isMobile() ? 1 : 2}em Verdana`;
+        ctx.fillText(
+            `音乐加载进度    ${ms} / ${ma}`,
+            canvas.width / 11,
+            canvas.height * (1 - 0.11)
+        );
+        const cs = formatSize(loaded.value[1]);
+        const ca = formatSize(all.value[1]);
+        ctx.fillText(
+            `谱面加载进度    ${cs} / ${ca}`,
+            canvas.width / 11,
+            canvas.height * (1 - 0.21)
+        );
+        rate.value = [
+            ((loaded.value[0] / all.value[0]) * 100).toFixed(2),
+            ((loaded.value[1] / all.value[1]) * 100).toFixed(2)
+        ];
     });
 
     await game.load(
         `${base}music/${props.music}`,
-        `${base}chart/${props.chart}`
+        `${base}chart/${props.chart}`,
+        e => {
+            loaded.value[0] = e.loaded;
+            all.value[0] = e.total;
+        },
+        e => {
+            loaded.value[1] = e.loaded;
+            all.value[1] = e.total;
+        }
     );
     // 加载完成
     canvas.style.opacity = '0';
+    opacity.value = 0;
     await animate.sleep(600);
     ticker.destroy();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
