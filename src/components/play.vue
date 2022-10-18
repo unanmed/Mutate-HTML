@@ -84,6 +84,8 @@ onMounted(async () => {
     // game.setOffset(-100);
     setRenderer(game);
     game.start();
+    game.setSound('tap', `${import.meta.env.BASE_URL}se/tap.wav`);
+    game.setSound('drag', `${import.meta.env.BASE_URL}se/drag.wav`);
     if (props.auto) game.chart.judger.auto = true;
 
     game.renderer.on('after', drawInfo);
