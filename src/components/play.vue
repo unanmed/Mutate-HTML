@@ -74,7 +74,7 @@ onMounted(async () => {
         const start = (Math.PI * (time as number)) / 700;
         const w = canvas.width;
         const h = canvas.height;
-        const hw = (w / 5) * 2;
+        const hw = w / 2;
         const hh = (h / 5) * 2;
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
@@ -94,7 +94,7 @@ onMounted(async () => {
         ctx.fillText(
             `loading${'.'.repeat(Math.floor((time as number) / 800) % 4)}`,
             hw,
-            hh + hh / 5
+            hh + hh / 2
         );
         // 加载大小
         const ms = formatSize(loaded.value[0]);
