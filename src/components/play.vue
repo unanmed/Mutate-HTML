@@ -53,6 +53,7 @@ onMounted(async () => {
     await animate.sleep(600);
     const game = create(canvas);
     const base = import.meta.env.BASE_URL;
+    canvas.style.opacity = '1';
     // 加载动画
     const ticker = new Ticker();
     ticker.add(time => {
