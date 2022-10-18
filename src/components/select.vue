@@ -13,7 +13,9 @@
                         theme="dark"
                         v-model:openKeys="openKeys"
                         v-model:selectedKeys="selectedKeys"
-                        style="font-size: 1.5em"
+                        :style="{
+                            'font-size': isMobile() ? `1em` : `1.5em`
+                        }"
                     >
                         <a-sub-menu
                             v-for="(arr, key) of musics"
@@ -24,7 +26,9 @@
                             <a-menu-item
                                 v-for="(song, i) of arr"
                                 :key="song"
-                                style="font-size: 1.5em"
+                                :style="{
+                                    'font-size': isMobile() ? `1em` : `1.5em`
+                                }"
                             >
                                 {{ song }}&nbsp;-&nbsp;{{ info[song].author }}
                             </a-menu-item>
@@ -52,10 +56,25 @@
             ></a-divider>
         </div>
         <div id="rightbar">
-            <img
-                :src="getImgSrc(info[selectedKeys[0]].file.image)"
-                id="image"
-            />
+            <div id="song-image">
+                <span
+                    id="song-name"
+                    :style="{
+                        'font-size': isMobile()
+                            ? `${width / 800}em`
+                            : `${width / 600}em`
+                    }"
+                    >{{ selectedKeys[0] }}</span
+                >
+                <a-divider
+                    style="border-color: #ddd4; margin: 1%"
+                    dashed
+                ></a-divider>
+                <img
+                    :src="getImgSrc(info[selectedKeys[0]].file.image)"
+                    id="image"
+                />
+            </div>
             <a-divider
                 style="border-color: #ddd4; height: 100%"
                 type="vertical"
@@ -154,7 +173,7 @@
 import { animate, Ticker } from 'mutate-game';
 import { computed, onMounted, ref, watch } from 'vue';
 import { musics, info, MusicHard } from '../constants';
-import { isMobile } from '../utils';
+import { getSize, isMobile } from '../utils';
 import Scroll from './scroll.vue';
 import { CaretRightOutlined } from '@ant-design/icons-vue';
 import { getAudio, main } from '../audio';
@@ -336,12 +355,15 @@ onMounted(async () => {
         last = y;
     });
 
+    const aspect = isMobile()
+        ? window.innerHeight / window.innerWidth
+        : window.innerWidth / window.innerHeight;
+
     if (isMobile()) {
-        songs.style.width = 'calc(30% + 48px)';
-        right.style.width = 'calc(70% - 48px)';
-        right.style.paddingTop = '0';
-        right.style.paddingBottom = '0';
+        songs.style.width = 'calc(25% + 48px)';
+        right.style.width = 'calc(75% - 48px)';
     }
+
     songinfo.style.fontSize = isMobile()
         ? `${width / 1000}em`
         : `${width / 900}em`;
@@ -351,18 +373,16 @@ onMounted(async () => {
         ? `${width / 1000}em`
         : `${width / 800}em`;
 
-    const aspect = isMobile()
-        ? window.innerHeight / window.innerWidth
-        : window.innerWidth / window.innerHeight;
+    const { w, h } = getSize();
     if (aspect > 16 / 9) {
-        const target = (window.innerHeight * 16) / 9;
+        const target = (h * 16) / 9;
         const width = parseFloat(getComputedStyle(div).width);
         const d = (width - target) / 2;
         div.style.paddingLeft = `${d}px`;
         div.style.paddingRight = `${d}px`;
     }
     if (aspect < 16 / 9) {
-        const target = (window.innerWidth * 9) / 16;
+        const target = (w * 9) / 16;
         const height = parseFloat(getComputedStyle(div).height);
         const d = (height - target) / 2;
         div.style.paddingTop = `${d}px`;
@@ -417,6 +437,23 @@ onMounted(async () => {
     padding-top: 7%;
     padding-bottom: 7%;
 
+    #song-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        #song-name {
+            height: 10%;
+            font-size: 1.5em;
+            max-width: 100%;
+        }
+
+        #image {
+            height: 85%;
+        }
+    }
+
     #info {
         width: 100%;
         display: flex;
@@ -467,11 +504,6 @@ onMounted(async () => {
             height: 100%;
             align-items: center;
         }
-    }
-
-    #image {
-        position: relative;
-        height: 100%;
     }
 }
 </style>
