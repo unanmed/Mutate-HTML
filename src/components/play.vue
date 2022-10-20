@@ -1,34 +1,36 @@
 <template>
     <div id="mutate-div">
-        <canvas id="mutate-game"></canvas>
-        <a-progress
-            :percent="parseFloat(rate[0])"
-            :style="{
-                position: 'absolute',
-                bottom: '10%',
-                width: '50%',
-                left: '10%',
-                opacity,
-                transition: 'opacity 0.6s linear'
-            }"
-        ></a-progress>
-        <a-progress
-            :percent="parseFloat(rate[1])"
-            :style="{
-                position: 'absolute',
-                bottom: '20%',
-                width: '50%',
-                left: '10%',
-                opacity,
-                transition: 'opacity 0.6s linear'
-            }"
-        ></a-progress>
+        <div id="mutate-core">
+            <canvas id="mutate-game" style="width: 100%; height: 100%"></canvas>
+            <a-progress
+                :percent="parseFloat(rate[0])"
+                :style="{
+                    position: 'absolute',
+                    bottom: '7%',
+                    width: '50%',
+                    left: '7%',
+                    opacity,
+                    transition: 'opacity 0.6s linear'
+                }"
+            ></a-progress>
+            <a-progress
+                :percent="parseFloat(rate[1])"
+                :style="{
+                    position: 'absolute',
+                    bottom: '17%',
+                    width: '50%',
+                    left: '7%',
+                    opacity,
+                    transition: 'opacity 0.6s linear'
+                }"
+            ></a-progress>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { animate, create, Ticker } from 'mutate-game';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { drawInfo, setRenderer } from '../render';
 import { formatSize, getSize, isMobile } from '../utils';
 
@@ -44,6 +46,7 @@ const rate = ref(['0', '0']);
 const opacity = ref(0);
 
 onMounted(async () => {
+    const div = document.getElementById('mutate-core') as HTMLDivElement;
     const canvas = document.getElementById('mutate-game') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
     let { w, h } = getSize();
@@ -53,14 +56,14 @@ onMounted(async () => {
         const width = (h * 16) / 9;
         canvas.height = h;
         canvas.width = width;
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${h}px`;
+        div.style.width = `${width}px`;
+        div.style.height = `${h}px`;
     } else {
         const height = (w * 9) / 16;
         canvas.height = height;
         canvas.width = w;
-        canvas.style.width = `${w}px`;
-        canvas.style.height = `${height}px`;
+        div.style.width = `${w}px`;
+        div.style.height = `${height}px`;
     }
 
     await animate.sleep(600);
@@ -100,7 +103,7 @@ onMounted(async () => {
         const ms = formatSize(loaded.value[0]);
         const ma = formatSize(all.value[0]);
         ctx.textAlign = 'left';
-        ctx.font = `normal ${isMobile() ? 1 : 2}em Verdana`;
+        ctx.font = `normal ${(24 * canvas.width) / 1920}px Verdana`;
         ctx.fillText(
             `音乐加载进度    ${ms} / ${ma}`,
             canvas.width / 11,
@@ -163,5 +166,9 @@ onMounted(async () => {
     justify-items: center;
     align-items: center;
     justify-content: center;
+}
+
+#mutate-core {
+    position: relative;
 }
 </style>

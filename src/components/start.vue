@@ -91,7 +91,6 @@ async function loadOne<T extends ResponseType>(
         url.endsWith('.jpg') ||
         url.endsWith('.jpeg')
     ) {
-        // @ts-ignore
         return await loadImage(url, on);
     } else {
         return await axios.get(url, {
@@ -158,6 +157,7 @@ onMounted(async () => {
     // 执行加载
     await load();
     // 加载完毕，隐藏加载动画和加载进度条
+    loaded.value = 100;
     canvas.style.opacity = '0';
     canvas.style.width = '100%';
     canvas.style.height = '100%';

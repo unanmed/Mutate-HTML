@@ -4,7 +4,312 @@
     },
     "camera": {
         "id": "camera",
-        "animate": [],
+        "animate": [
+            {
+                "custom": false,
+                "start": 2286,
+                "type": "rotate",
+                "time": 500,
+                "n": -10,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 2857,
+                "type": "rotate",
+                "time": 500,
+                "n": 10,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 3429,
+                "type": "rotate",
+                "time": 3428,
+                "n": 90,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 7429,
+                "type": "rotate",
+                "time": 4000,
+                "n": 0,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 17143,
+                "type": "resize",
+                "time": 50,
+                "n": 1.1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 17243,
+                "type": "resize",
+                "time": 300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 17714,
+                "type": "resize",
+                "time": 50,
+                "n": 1.1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 17814,
+                "type": "resize",
+                "time": 300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 18286,
+                "type": "resize",
+                "time": 50,
+                "n": 1.1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 18386,
+                "type": "resize",
+                "time": 300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 18857,
+                "type": "resize",
+                "time": 50,
+                "n": 1.1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 18957,
+                "type": "resize",
+                "time": 300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 19429,
+                "type": "resize",
+                "time": 50,
+                "n": 1.1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 19529,
+                "type": "resize",
+                "time": 300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 20000,
+                "type": "resize",
+                "time": 50,
+                "n": 1.1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 20100,
+                "type": "resize",
+                "time": 300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 20571,
+                "type": "resize",
+                "time": 50,
+                "n": 1.1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 20671,
+                "type": "resize",
+                "time": 300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "linear",
+                    "args": []
+                }
+            },
+            {
+                "custom": false,
+                "start": 38571,
+                "type": "resize",
+                "time": 828,
+                "n": 4,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "in"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 38571,
+                "type": "rotate",
+                "time": 828,
+                "n": 360,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        3,
+                        "in"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 39459,
+                "type": "resize",
+                "time": 1300,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 39459,
+                "type": "rotate",
+                "time": 7000,
+                "n": 360,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        8,
+                        "out"
+                    ]
+                }
+            }
+        ],
         "css": {
             "0": "filter: brightness(120%)"
         }
@@ -62,6 +367,19 @@
                             "sin",
                             "out"
                         ]
+                    },
+                    "relation": "absolute"
+                },
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 1,
+                    "n": 0,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 }
@@ -236,6 +554,19 @@
                         ]
                     },
                     "relation": "relative"
+                },
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 1,
+                    "n": 0,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
                 }
             ]
         },
@@ -360,6 +691,19 @@
                         ]
                     },
                     "relation": "absolute"
+                },
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 1,
+                    "n": 0,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
                 }
             ]
         },
@@ -415,6 +759,19 @@
                             "sin",
                             "out"
                         ]
+                    },
+                    "relation": "absolute"
+                },
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 1,
+                    "n": 0,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 }
@@ -525,6 +882,19 @@
                         ]
                     },
                     "relation": "relative"
+                },
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 1,
+                    "n": 0,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
                 }
             ]
         },
@@ -583,6 +953,19 @@
                             "sin",
                             "out"
                         ]
+                    },
+                    "relation": "absolute"
+                },
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 1,
+                    "n": 0,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 }
@@ -1037,6 +1420,130 @@
                         ]
                     },
                     "relation": "absolute"
+                },
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 1,
+                    "n": 0,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
+                }
+            ]
+        },
+        {
+            "id": "base4-j",
+            "x": 960,
+            "y": 540,
+            "angle": 0,
+            "r": {
+                "0": 100
+            },
+            "bpm": {
+                "0": 0,
+                "39459": 105
+            },
+            "rgba": {
+                "0": [
+                    252,
+                    200,
+                    6,
+                    0
+                ]
+            },
+            "filter": {},
+            "animate": [
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 2000,
+                    "n": 1,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
+                }
+            ]
+        },
+        {
+            "id": "base2-i1",
+            "x": 960,
+            "y": 540,
+            "angle": 90,
+            "r": {
+                "0": 100
+            },
+            "bpm": {
+                "0": 0,
+                "39459": 52.5
+            },
+            "rgba": {
+                "0": [
+                    252,
+                    200,
+                    6,
+                    0
+                ]
+            },
+            "filter": {},
+            "animate": [
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 2000,
+                    "n": 1,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
+                }
+            ]
+        },
+        {
+            "id": "base2-i2",
+            "x": 960,
+            "y": 540,
+            "angle": 0,
+            "r": {
+                "0": 100
+            },
+            "bpm": {
+                "0": 0,
+                "39459": 52.5
+            },
+            "rgba": {
+                "0": [
+                    252,
+                    200,
+                    6,
+                    0
+                ]
+            },
+            "filter": {},
+            "animate": [
+                {
+                    "custom": true,
+                    "start": 39459,
+                    "type": "a",
+                    "time": 2000,
+                    "n": 1,
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "linear",
+                        "args": []
+                    },
+                    "relation": "absolute"
                 }
             ]
         }
@@ -1046,7 +1553,7 @@
             "base": "base1-j",
             "type": "tap",
             "config": {
-                "playTime": 2280
+                "playTime": 2286
             },
             "speed": {
                 "0": 500
