@@ -114,7 +114,7 @@ function drawBase(this: Renderer, base: Base) {
 
     ctx.save();
     ctx.translate(x, y);
-    ctx.rotate(rad + Math.PI);
+    if (id !== 'base1.png') ctx.rotate(rad + Math.PI);
     if (base.ctxFilter.length > 0) ctx.filter = base.ctxFilter;
     ctx.globalAlpha = a;
     ctx.drawImage(img, -radius, -radius, radius * 2, radius * 2);
