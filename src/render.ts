@@ -53,7 +53,6 @@ export function drawInfo(e: RenderEvent<'after'>) {
     ctx.textAlign = 'left';
     ctx.font = '100 24px normal';
     ctx.fillText(time, 10, 10);
-    ctx.restore();
     if (combo < 3 && !t.game.chart.judger.auto) return;
     ctx.textAlign = 'center';
     ctx.font = '100 48px normal';
@@ -63,6 +62,7 @@ export function drawInfo(e: RenderEvent<'after'>) {
     if (t.game.chart.judger.auto)
         ctx.fillText(`autoplay`, canvas.width / 2, 50);
     else ctx.fillText(`combo`, canvas.width / 2, 50);
+    ctx.restore();
 }
 
 function drawTap(this: Renderer, note: BaseNote<'tap'>) {
