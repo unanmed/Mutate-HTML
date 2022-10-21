@@ -8,6 +8,7 @@ import {
     utils
 } from 'mutate-game';
 import { image } from './image';
+import { formatTime } from './utils';
 
 export function setRenderer(game: Mutate) {
     // game.renderer.setNote('tap', drawTap);
@@ -17,6 +18,7 @@ export function setRenderer(game: Mutate) {
     game.chart.camera.setGlobalEffects(globalEffect);
 }
 
+/** 游玩信息 */
 export function drawInfo(e: RenderEvent<'after'>) {
     const t = e.target as Renderer;
     const ctx = e.ctx;
@@ -27,6 +29,7 @@ export function drawInfo(e: RenderEvent<'after'>) {
     ctx.fillStyle = '#fff';
     ctx.textAlign = 'right';
     ctx.font = '100 32px normal';
+    // 分数
     ctx.fillText(
         game.getScore().toString().padStart(7, '0'),
         canvas.width - 20,
@@ -36,11 +39,29 @@ export function drawInfo(e: RenderEvent<'after'>) {
     if (combo < 3 && !t.game.chart.judger.auto) return;
     ctx.textAlign = 'center';
     ctx.font = '100 48px normal';
+    // 连击数
     ctx.fillText(`${combo}`, canvas.width / 2, 10);
     ctx.font = '100 32px normal';
     if (t.game.chart.judger.auto)
         ctx.fillText(`autoplay`, canvas.width / 2, 50);
     else ctx.fillText(`combo`, canvas.width / 2, 50);
+    // 谱面进度
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(
+        (canvas.width * t.game.time) / 1000 / t.game.ac.audio.duration,
+        0
+    );
+    ctx.lineCap = 'square';
+    ctx.lineWidth = 8;
+    ctx.stroke();
+    // 时长
+    const time = `${formatTime(Math.floor(t.game.time / 1000))} / ${formatTime(
+        Math.floor(t.game.ac.audio.duration + 1)
+    )}`;
+    ctx.textAlign = 'left';
+    ctx.font = '100 24px normal';
+    ctx.fillText(time, 10, 10);
     ctx.restore();
 }
 
@@ -128,11 +149,10 @@ function globalEffect(camera: Camera) {
     const dy = 540 * scale;
     const x = camera.x * scale;
     const y = camera.y * scale;
-    ctx.translate(dx, dy);
+    ctx.translate(-x + dx, -y + dy);
     ctx.rotate((camera.angle * Math.PI) / 180);
     ctx.scale(camera.size, camera.size);
     ctx.translate(-dx, -dy);
-    ctx.translate(-x, -y);
 
     ctx.shadowBlur = 4;
     ctx.shadowColor = 'black';

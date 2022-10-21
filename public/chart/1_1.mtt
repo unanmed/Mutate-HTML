@@ -297,7 +297,7 @@
                 "custom": false,
                 "start": 39459,
                 "type": "rotate",
-                "time": 15000,
+                "time": 9000,
                 "n": 180,
                 "relation": "relative",
                 "mode": {
@@ -316,6 +316,230 @@
                         1,
                         1,
                         1,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 48571,
+                "type": "rotate",
+                "time": 10000,
+                "n": 720,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "trigo",
+                    "args": [
+                        "sin",
+                        "in-out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 59429,
+                "type": "rotate",
+                "time": 4000,
+                "n": 60,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 59429,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": -480,
+                "y": 270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 64000,
+                "type": "rotate",
+                "time": 4000,
+                "n": 240,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 64000,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": 480,
+                "y": 270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 68571,
+                "type": "rotate",
+                "time": 4000,
+                "n": 120,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 68571,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": -480,
+                "y": 270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 73143,
+                "type": "rotate",
+                "time": 4000,
+                "n": 180,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 73143,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": 480,
+                "y": -270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
                         1
                     ]
                 }
@@ -1458,7 +1682,8 @@
             "bpm": {
                 "0": 0,
                 "39429": 105,
-                "48000": 52.5
+                "48000": 52.5,
+                "59429": 0
             },
             "rgba": {
                 "0": [
@@ -1569,7 +1794,9 @@
             },
             "bpm": {
                 "0": 0,
-                "48000": 52.5
+                "48000": 52.5,
+                "58857": 105,
+                "59429": 0
             },
             "rgba": {
                 "0": [
@@ -4885,6 +5112,1364 @@
             "type": "tap",
             "config": {
                 "playTime": 52000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 52571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 52571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 53143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 53143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 53714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 53714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 54286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 54286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 54857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 54857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 55429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 55429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 56000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 56000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 56571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 56571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 57143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 57143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 57714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 57714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 58286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 58286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 58857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 58857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 59429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 59714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 60000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 60286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 60429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 60571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 60857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 61143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 61286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 61429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 61714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 62000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 62143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 62286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 62571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 62857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 63429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 63714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 64000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 64286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 64571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 64857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 65000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 65143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 65429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 65714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 65857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 66000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 66286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 66571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 66714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 66857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 67143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 67429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 68000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 68286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 68571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 68857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 69143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 69429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 69571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 69714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 70000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 70286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 70429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 70571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 70857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 71143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 71286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 71429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 71714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 72000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 72571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 72856
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 73143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 73429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 73571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 73714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 74000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 74286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 74571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 74714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 74857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 75143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 75429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 75714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 75857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 76000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 76286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 76571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 76857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 77000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 77143
             },
             "speed": {
                 "0": 700

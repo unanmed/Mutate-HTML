@@ -34,3 +34,12 @@ export function formatSize(size: number): string {
     else if (size < 1024 ** 4) return `${(size / 1024 ** 3).toFixed(2)}GB`;
     return `${size}B`;
 }
+
+/**
+ * 格式化时间
+ */
+export function formatTime(time: number): string {
+    return `${Math.floor(time / 60)}:${(time % 60)
+        .toString()
+        .padStart(2, '0')}`;
+}
