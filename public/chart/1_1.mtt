@@ -543,6 +543,974 @@
                         1
                     ]
                 }
+            },
+            {
+                "custom": false,
+                "start": 77143,
+                "type": "rotate",
+                "time": 1000,
+                "n": 120,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 77143,
+                "type": "move",
+                "time": 1000,
+                "n": 0,
+                "x": 0,
+                "y": 0,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 77143,
+                "type": "resize",
+                "time": 1000,
+                "n": 1.2,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 96571,
+                "type": "resize",
+                "time": 400,
+                "n": 1,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "hyper",
+                    "args": [
+                        "sin",
+                        "out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 114000,
+                "type": "rotate",
+                "time": 3000,
+                "n": 360,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "power",
+                    "args": [
+                        2,
+                        "in-out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 117714,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 118286,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 118857,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 119429,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 120000,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 120571,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 121143,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 121714,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 122286,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 122857,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 123429,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 124000,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 124571,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 125143,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 125714,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 126286,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 126857,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 127429,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 128000,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 128571,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 129143,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 129714,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 130286,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 130857,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 131429,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 132000,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 132571,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 133143,
+                "type": "shake",
+                "time": 100,
+                "n": 0,
+                "relation": "absolute",
+                "shake": true,
+                "x": 1,
+                "y": 0,
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "shake",
+                    "args": [
+                        5,
+                        {
+                            "fnType": "generator",
+                            "fn": "linear",
+                            "args": []
+                        }
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 124571,
+                "type": "rotate",
+                "time": 8000,
+                "n": 720,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "trigo",
+                    "args": [
+                        "sin",
+                        "in-out"
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 134857,
+                "type": "rotate",
+                "time": 4000,
+                "n": 60,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 134857,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": 480,
+                "y": -270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 139429,
+                "type": "rotate",
+                "time": 4000,
+                "n": 180,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 139429,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": -480,
+                "y": 270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 144000,
+                "type": "rotate",
+                "time": 4000,
+                "n": 60,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 144000,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": -480,
+                "y": -270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 148571,
+                "type": "rotate",
+                "time": 4000,
+                "n": 180,
+                "relation": "relative",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 148571,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": 480,
+                "y": 270,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "bezier",
+                    "args": [
+                        0.9,
+                        0.91,
+                        0.92,
+                        0.93,
+                        0.94,
+                        0.95,
+                        0.96,
+                        0.97,
+                        0.98,
+                        0.99,
+                        1
+                    ]
+                }
+            },
+            {
+                "custom": false,
+                "start": 152571,
+                "type": "move",
+                "time": 4000,
+                "n": 0,
+                "x": 0,
+                "y": 0,
+                "relation": "absolute",
+                "mode": {
+                    "fnType": "generator",
+                    "fn": "hyper",
+                    "args": [
+                        "sin",
+                        "out"
+                    ]
+                }
             }
         ],
         "css": {
@@ -1247,9 +2215,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 21764,
+                    "start": 21714,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1262,9 +2230,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 22050,
+                    "start": 22000,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
@@ -1277,9 +2245,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 22336,
+                    "start": 22286,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1292,9 +2260,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 22621,
+                    "start": 22571,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
@@ -1307,9 +2275,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 22907,
+                    "start": 22857,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1322,9 +2290,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 23193,
+                    "start": 23143,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
@@ -1337,9 +2305,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 23479,
+                    "start": 23429,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1352,9 +2320,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 23764,
+                    "start": 23714,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
@@ -1367,9 +2335,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 24050,
+                    "start": 24000,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1382,9 +2350,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 24336,
+                    "start": 24286,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
@@ -1397,9 +2365,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 24621,
+                    "start": 24571,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1412,9 +2380,9 @@
                 },
                 {
                     "custom": false,
-                    "start": 24907,
+                    "start": 24857,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
@@ -1442,27 +2410,24 @@
                 },
                 {
                     "custom": false,
-                    "start": 26050,
+                    "start": 26000,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
                     "mode": {
                         "fnType": "generator",
-                        "fn": "hyper",
-                        "args": [
-                            "sin",
-                            "out"
-                        ]
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 },
                 {
                     "custom": false,
-                    "start": 26336,
+                    "start": 26286,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1475,27 +2440,24 @@
                 },
                 {
                     "custom": false,
-                    "start": 26621,
+                    "start": 26571,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
                     "mode": {
                         "fnType": "generator",
-                        "fn": "hyper",
-                        "args": [
-                            "sin",
-                            "out"
-                        ]
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 },
                 {
                     "custom": false,
-                    "start": 26907,
+                    "start": 26857,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1508,27 +2470,24 @@
                 },
                 {
                     "custom": false,
-                    "start": 27193,
+                    "start": 27143,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
                     "mode": {
                         "fnType": "generator",
-                        "fn": "hyper",
-                        "args": [
-                            "sin",
-                            "out"
-                        ]
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 },
                 {
                     "custom": false,
-                    "start": 27479,
+                    "start": 27429,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1541,27 +2500,24 @@
                 },
                 {
                     "custom": false,
-                    "start": 27764,
+                    "start": 27714,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
                     "mode": {
                         "fnType": "generator",
-                        "fn": "hyper",
-                        "args": [
-                            "sin",
-                            "out"
-                        ]
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 },
                 {
                     "custom": false,
-                    "start": 28050,
+                    "start": 28000,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1574,27 +2530,24 @@
                 },
                 {
                     "custom": false,
-                    "start": 28336,
+                    "start": 28286,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
                     "mode": {
                         "fnType": "generator",
-                        "fn": "hyper",
-                        "args": [
-                            "sin",
-                            "out"
-                        ]
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 },
                 {
                     "custom": false,
-                    "start": 28621,
+                    "start": 28571,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1607,27 +2560,24 @@
                 },
                 {
                     "custom": false,
-                    "start": 28907,
+                    "start": 28857,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
                     "mode": {
                         "fnType": "generator",
-                        "fn": "hyper",
-                        "args": [
-                            "sin",
-                            "out"
-                        ]
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 },
                 {
                     "custom": false,
-                    "start": 29193,
+                    "start": 29143,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 1340,
                     "y": 720,
@@ -1640,19 +2590,16 @@
                 },
                 {
                     "custom": false,
-                    "start": 29479,
+                    "start": 29429,
                     "type": "move",
-                    "time": 200,
+                    "time": 286,
                     "n": 0,
                     "x": 580,
                     "y": 720,
                     "mode": {
                         "fnType": "generator",
-                        "fn": "hyper",
-                        "args": [
-                            "sin",
-                            "out"
-                        ]
+                        "fn": "linear",
+                        "args": []
                     },
                     "relation": "absolute"
                 },
@@ -1683,7 +2630,9 @@
                 "0": 0,
                 "39429": 105,
                 "48000": 52.5,
-                "59429": 0
+                "59429": 0,
+                "97143": 52.5,
+                "133714": 0
             },
             "rgba": {
                 "0": [
@@ -1707,6 +2656,22 @@
                         "args": []
                     },
                     "relation": "absolute"
+                },
+                {
+                    "custom": true,
+                    "start": 152571,
+                    "type": "a",
+                    "time": 2000,
+                    "n": 0,
+                    "relation": "absolute",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
                 }
             ]
         },
@@ -1720,7 +2685,15 @@
             },
             "bpm": {
                 "0": 0,
-                "39429": -52.5
+                "39429": -52.5,
+                "59429": 0,
+                "97143": 52.5,
+                "100571": 0,
+                "101143": -52.5,
+                "105143": 0,
+                "105714": 52.5,
+                "134286": 0,
+                "152571": 52.5
             },
             "rgba": {
                 "0": [
@@ -1744,6 +2717,1078 @@
                         "args": []
                     },
                     "relation": "absolute"
+                },
+                {
+                    "custom": false,
+                    "start": 59429,
+                    "type": "rotate",
+                    "time": 2000,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 78857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 79143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 79429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 79714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 80000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 80286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 80571,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 80857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 81143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 81429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 81714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 82000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 82286,
+                    "type": "rotate",
+                    "time": 400,
+                    "n": 180,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 82857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 83143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 83429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 83714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 84000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 84286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 84571,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 84857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 85143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 85429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 85714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 86000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 86286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 86571,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 86857,
+                    "type": "rotate",
+                    "time": 400,
+                    "n": 180,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 87429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 87714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 88000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 88286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 88571,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 88857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 89143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 89429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 89714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 90000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 90286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 90571,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 90857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 91143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 91429,
+                    "type": "rotate",
+                    "time": 400,
+                    "n": 180,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 92000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 92286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 92571,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 92857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 93000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 93143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 93429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 93714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 94000,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 94143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 94286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 94571,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 94857,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 90,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 95143,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 95286,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 95429,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 95714,
+                    "type": "rotate",
+                    "time": 143,
+                    "n": 45,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 96000,
+                    "type": "rotate",
+                    "time": 400,
+                    "n": 360,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 96571,
+                    "type": "rotate",
+                    "time": 200,
+                    "n": 135,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 100571,
+                    "type": "rotate",
+                    "time": 400,
+                    "n": 360,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 105143,
+                    "type": "rotate",
+                    "time": 400,
+                    "n": -360,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": false,
+                    "start": 109714,
+                    "type": "rotate",
+                    "time": 400,
+                    "n": 360,
+                    "relation": "relative",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
+                },
+                {
+                    "custom": true,
+                    "start": 152571,
+                    "type": "a",
+                    "time": 2000,
+                    "n": 0,
+                    "relation": "absolute",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
                 }
             ]
         },
@@ -1757,7 +3802,10 @@
             },
             "bpm": {
                 "0": 0,
-                "39429": 52.5
+                "39429": 52.5,
+                "59429": 0,
+                "117714": -52.5,
+                "133714": 0
             },
             "rgba": {
                 "0": [
@@ -1781,6 +3829,22 @@
                         "args": []
                     },
                     "relation": "absolute"
+                },
+                {
+                    "custom": true,
+                    "start": 152571,
+                    "type": "a",
+                    "time": 2000,
+                    "n": 0,
+                    "relation": "absolute",
+                    "mode": {
+                        "fnType": "generator",
+                        "fn": "hyper",
+                        "args": [
+                            "sin",
+                            "out"
+                        ]
+                    }
                 }
             ]
         },
@@ -6470,6 +8534,2820 @@
             "type": "drag",
             "config": {
                 "playTime": 77143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 97143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 97429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 97714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 98000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 98286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 98571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 98857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 99143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 99429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 99714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 100000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 100286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 100571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 101143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 101429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 101714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 102000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 102286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 102571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 102857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 103143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 103429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 103714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 104000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 104286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 104571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 104857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 105143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 105714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 106000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 106286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 106571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 106857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 107143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 107429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 107714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 108000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 108286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 108571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 108857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 109143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 109429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 109714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 110286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 110571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 110857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 111143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 111429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 111714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 112000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 112286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 112571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 112857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 113143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 113286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 113429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 113571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 113714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 113857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 114000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 114143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 114286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 114429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 114571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 114714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 114857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 115000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 115143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 115286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "drag",
+            "config": {
+                "playTime": 115429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 117714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 117714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 118286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 118286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 118857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 118857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 119429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 119429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 120000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 120000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 120571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 120571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 121143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 121143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 121714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 121714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 122286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 122286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 122857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 122857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 123429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 123429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 124000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 124000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 124571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 124571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 125143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 125143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 125714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 125714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 126286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 126286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 126857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 126857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 127429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 127429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 128000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 128000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 128571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 128571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 129143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 129143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 129714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 129714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 130286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 130286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 130857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 130857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 131429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 131429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 132000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 132000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 132571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 132571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 133143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 133143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base4-j",
+            "type": "tap",
+            "config": {
+                "playTime": 133714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "tap",
+            "config": {
+                "playTime": 133714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 134857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 135143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 135429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 135714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 135857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 136000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 136286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 136571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 136714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 136857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 137143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 137429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 137571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 137714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 138000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 138286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 138857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 139143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 139429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 139714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 140000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 140286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 140429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 140571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 140857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 141143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 141286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 141429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 141714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 142000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 142143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 142286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 142571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 142857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 143429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 143714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 144000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 144286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 144571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 144857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 145000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 145143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 145429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 145714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 145857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 146000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 146286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 146571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 146714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 146857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 147143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 147429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 148000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 148286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 148571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 148857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 149000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 149143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 149429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 149714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 150000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 150143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 150286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 150571
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 150857
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 151143
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 151286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 151429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 151714
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 152000
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 152286
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 152429
+            },
+            "speed": {
+                "0": 700
+            },
+            "filter": {},
+            "shadow": {},
+            "opacity": {},
+            "animate": []
+        },
+        {
+            "base": "base5",
+            "type": "drag",
+            "config": {
+                "playTime": 152571
             },
             "speed": {
                 "0": 700
