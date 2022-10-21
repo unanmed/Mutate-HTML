@@ -36,15 +36,6 @@ export function drawInfo(e: RenderEvent<'after'>) {
         15
     );
     const combo = game.chart.judger.combo;
-    if (combo < 3 && !t.game.chart.judger.auto) return;
-    ctx.textAlign = 'center';
-    ctx.font = '100 48px normal';
-    // 连击数
-    ctx.fillText(`${combo}`, canvas.width / 2, 10);
-    ctx.font = '100 32px normal';
-    if (t.game.chart.judger.auto)
-        ctx.fillText(`autoplay`, canvas.width / 2, 50);
-    else ctx.fillText(`combo`, canvas.width / 2, 50);
     // 谱面进度
     ctx.beginPath();
     ctx.moveTo(0, 0);
@@ -63,6 +54,15 @@ export function drawInfo(e: RenderEvent<'after'>) {
     ctx.font = '100 24px normal';
     ctx.fillText(time, 10, 10);
     ctx.restore();
+    if (combo < 3 && !t.game.chart.judger.auto) return;
+    ctx.textAlign = 'center';
+    ctx.font = '100 48px normal';
+    // 连击数
+    ctx.fillText(`${combo}`, canvas.width / 2, 10);
+    ctx.font = '100 32px normal';
+    if (t.game.chart.judger.auto)
+        ctx.fillText(`autoplay`, canvas.width / 2, 50);
+    else ctx.fillText(`combo`, canvas.width / 2, 50);
 }
 
 function drawTap(this: Renderer, note: BaseNote<'tap'>) {
