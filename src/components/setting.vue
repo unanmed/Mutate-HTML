@@ -125,7 +125,7 @@
 
 <script lang="ts" setup>
 import { animate, Ticker, utils } from 'mutate-game';
-import { onMounted, onUpdated, ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { ac, play } from '../audio';
 import {
     LeftOutlined,
@@ -178,7 +178,7 @@ async function exit() {
     const div = document.getElementById('settings') as HTMLDivElement;
     div.style.opacity = '0';
     await animate.sleep(600);
-    play(`${import.meta.env.BASE_URL}music/mutate.mp3`);
+    play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
     ticker.destroy();
     emits('exit');
 }

@@ -1,6 +1,6 @@
 <template>
     <div id="mutate-div">
-        <div id="mutate-core">
+        <div v-if="!ended && !exited" id="mutate-core">
             <canvas id="mutate-game" style="width: 100%; height: 100%"></canvas>
             <a-progress
                 :percent="parseFloat(rate[0])"
@@ -25,19 +25,35 @@
                 }"
             ></a-progress>
         </div>
+        <Settle
+            v-if="ended && !exited"
+            :song="song"
+            :auto="auto"
+            :hard="hard"
+            :score="score"
+            :detail="detail!"
+            :max-combo="maxCombo"
+            @exit="exit"
+        ></Settle>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { animate, create, Ticker } from 'mutate-game';
+import { animate, create, MutateDetail, Ticker } from 'mutate-game';
 import { onMounted, ref, watch } from 'vue';
 import { drawInfo, setRenderer } from '../render';
 import { formatSize, getSize, isMobile } from '../utils';
+import Settle from './settle.vue';
+import { info, MusicHard } from '../constants';
 
 const props = defineProps<{
-    chart: string;
-    music: string;
     auto: boolean;
+    song: string;
+    hard: keyof MusicHard;
+}>();
+
+const emits = defineEmits<{
+    (e: 'exit'): void;
 }>();
 
 const loaded = ref([0, 0]);
@@ -45,11 +61,23 @@ const all = ref([0, 0]);
 const rate = ref(['0', '0']);
 const opacity = ref(0);
 const offset = parseFloat(localStorage.getItem('@mutate:offset') ?? '0');
+const ended = ref(false);
+const score = ref(0);
+const detail = ref<MutateDetail>();
+const maxCombo = ref(0);
+const exited = ref(false);
+
+function exit() {
+    exited.value = true;
+    emits('exit');
+}
 
 onMounted(async () => {
+    const root = document.getElementById('mutate-div') as HTMLDivElement;
     const div = document.getElementById('mutate-core') as HTMLDivElement;
     const canvas = document.getElementById('mutate-game') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+
     let { w, h } = getSize();
     w -= 10;
     h -= 10;
@@ -123,9 +151,12 @@ onMounted(async () => {
         ];
     });
 
+    const music = info[props.song];
+    console.log(music);
+
     await game.load(
-        `${base}music/${props.music}`,
-        `${base}chart/${props.chart}`,
+        `${base}music/${music.file.music}`,
+        `${base}chart/${music.file.chart[props.hard]}`,
         e => {
             loaded.value[0] = e.loaded;
             all.value[0] = e.total;
@@ -151,6 +182,16 @@ onMounted(async () => {
     if (props.auto) game.chart.judger.auto = true;
 
     game.renderer.on('after', drawInfo);
+
+    game.on('end', async () => {
+        div.style.opacity = '0';
+        score.value = game.getScore();
+        detail.value = game.getDetail();
+        maxCombo.value = game.chart.judger.maxCombo;
+        await animate.sleep(600);
+        root.style.backgroundColor = '#111';
+        ended.value = true;
+    });
 });
 </script>
 
@@ -167,6 +208,7 @@ onMounted(async () => {
     justify-items: center;
     align-items: center;
     justify-content: center;
+    transition: all 0.6s linear;
 }
 
 #mutate-core {

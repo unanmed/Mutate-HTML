@@ -3,7 +3,13 @@
         <span v-if="!acted" id="start-tip">点击以加载游戏</span>
         <Start v-if="startPage"></Start>
         <Select v-if="select" @start="play" @setting="openSetting"></Select>
-        <Play v-if="playing" :chart="chart" :music="music" :auto="auto"></Play>
+        <Play
+            v-if="playing"
+            :auto="auto"
+            :song="song"
+            :hard="hard"
+            @exit="endGame"
+        ></Play>
         <Setting v-if="setting" @exit="exitSetting"></Setting>
     </div>
 </template>
@@ -12,7 +18,6 @@
 import { onMounted, provide, ref, watch } from 'vue';
 import Start from './components/start.vue';
 import Select from './components/select.vue';
-import { animate } from 'mutate-game';
 import { info, MusicHard } from './constants';
 import Play from './components/play.vue';
 import Setting from './components/setting.vue';
@@ -32,10 +37,10 @@ const acted = ref(false);
 const select = ref(false);
 const setting = ref(false);
 
-const music = ref('');
-const chart = ref('');
 const playing = ref(false);
 const auto = ref(false);
+const song = ref('');
+const hard = ref<keyof MusicHard>('easy');
 
 watch(select, n => {
     if (n === true) {
@@ -74,14 +79,12 @@ function start() {
  * 开始游戏
  */
 function play(data: StartInfo) {
-    const { music: song, hard } = data;
-    const m = info[song].file.music;
-    const c = info[song].file.chart[hard] as string;
-    music.value = m;
-    chart.value = c;
+    const { music, hard: h } = data;
     playing.value = true;
     select.value = false;
     auto.value = data.auto;
+    song.value = music;
+    hard.value = h;
 }
 
 /**
@@ -97,6 +100,14 @@ function openSetting() {
  */
 function exitSetting() {
     setting.value = false;
+    select.value = true;
+}
+
+/**
+ * 一局游戏结束
+ */
+function endGame() {
+    playing.value = false;
     select.value = true;
 }
 </script>

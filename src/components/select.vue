@@ -158,9 +158,19 @@
                             getScore().slice(0, -1)
                         }}</span
                     >
-                    <span id="rank">{{
-                        hasPlayed() ? getScore().slice(-1) : ''
-                    }}</span>
+                    <span
+                        id="rank"
+                        :style="{
+                            color: getRankColor(hasPlayed() ? (getScore().slice(-1) as Rank) : 'F'),
+                            background:
+                                (getScore().slice(-1) as Rank) === 'AP'
+                                    ? 'linear-gradient(0.25turn, #3f87a6, #ebf8e1, gold, #3f87a6)'
+                                    : '',
+                            'background-clip': (getScore().slice(-1) as Rank) === 'AP' ? 'text' : '',
+                            WebkitBackgroundClip: (getScore().slice(-1) as Rank) === 'AP' ? 'text' : ''
+                        }"
+                        >{{ hasPlayed() ? getScore().slice(-1) : '' }}</span
+                    >
                 </div>
                 <a-divider
                     style="border-color: #ddd4; margin: 1%"
@@ -196,7 +206,7 @@
 import { animate, Ticker } from 'mutate-game';
 import { computed, onMounted, ref, watch } from 'vue';
 import { musics, info, MusicHard } from '../constants';
-import { getSize, isMobile } from '../utils';
+import { getSize, isMobile, getColor as getRankColor, Rank } from '../utils';
 import Scroll from './scroll.vue';
 import { CaretRightOutlined, SettingOutlined } from '@ant-design/icons-vue';
 import { getAudio, main } from '../audio';
@@ -543,6 +553,7 @@ onMounted(async () => {
 
             #rank {
                 font-size: 2em;
+                animation: back 10000s linear infinite;
             }
         }
 
@@ -552,6 +563,15 @@ onMounted(async () => {
             height: 100%;
             align-items: center;
         }
+    }
+}
+
+@keyframes back {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 1e4vw;
     }
 }
 </style>
