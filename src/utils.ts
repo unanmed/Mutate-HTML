@@ -73,3 +73,7 @@ export function getColor(rank: Rank | 'AUTO') {
     if (rank === 'AUTO') return '#fc66ff';
     return '#fff';
 }
+
+export function getRankFromScore(score: string): Rank {
+    return score.match(/(F|D|C|B|A|S|FC|AP)$/)![0] as Rank;
+}

@@ -69,6 +69,7 @@ async function load() {
         })()
     ];
     await Promise.all(tasks);
+    loaded.value = 100;
 }
 
 /**

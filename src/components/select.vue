@@ -155,21 +155,31 @@
                 <div id="score">
                     <span id="score-num"
                         >成绩&nbsp;&nbsp;&nbsp;&nbsp;{{
-                            getScore().slice(0, -1)
+                            getScore().match(/^[0-9]+/)![0]
                         }}</span
                     >
                     <span
                         id="rank"
                         :style="{
-                            color: getRankColor(hasPlayed() ? (getScore().slice(-1) as Rank) : 'F'),
+                            color: getRankColor(
+                                hasPlayed() ? getRankFromScore(getScore()) : 'F'
+                            ),
                             background:
-                                (getScore().slice(-1) as Rank) === 'AP'
+                                getRankFromScore(getScore()) === 'AP'
                                     ? 'linear-gradient(0.25turn, #3f87a6, #ebf8e1, gold, #3f87a6)'
                                     : '',
-                            'background-clip': (getScore().slice(-1) as Rank) === 'AP' ? 'text' : '',
-                            WebkitBackgroundClip: (getScore().slice(-1) as Rank) === 'AP' ? 'text' : ''
+                            'background-clip':
+                                getRankFromScore(getScore()) === 'AP'
+                                    ? 'text'
+                                    : '',
+                            WebkitBackgroundClip:
+                                getRankFromScore(getScore()) === 'AP'
+                                    ? 'text'
+                                    : ''
                         }"
-                        >{{ hasPlayed() ? getScore().slice(-1) : '' }}</span
+                        >{{
+                            hasPlayed() ? getRankFromScore(getScore()) : ''
+                        }}</span
                     >
                 </div>
                 <a-divider
@@ -206,7 +216,13 @@
 import { animate, Ticker } from 'mutate-game';
 import { computed, onMounted, ref, watch } from 'vue';
 import { musics, info, MusicHard } from '../constants';
-import { getSize, isMobile, getColor as getRankColor, Rank } from '../utils';
+import {
+    getSize,
+    isMobile,
+    getColor as getRankColor,
+    Rank,
+    getRankFromScore
+} from '../utils';
 import Scroll from './scroll.vue';
 import { CaretRightOutlined, SettingOutlined } from '@ant-design/icons-vue';
 import { getAudio, main } from '../audio';
