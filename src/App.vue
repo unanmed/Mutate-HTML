@@ -1,9 +1,10 @@
 <template>
     <div id="game" @click="start">
         <span v-if="!acted" id="start-tip">点击以加载游戏</span>
-        <Start v-if="startPage && acted && !started"></Start>
-        <Select v-if="started && !playing" @start="play"></Select>
+        <Start v-if="startPage"></Start>
+        <Select v-if="select" @start="play" @setting="openSetting"></Select>
         <Play v-if="playing" :chart="chart" :music="music" :auto="auto"></Play>
+        <Setting v-if="setting" @exit="exitSetting"></Setting>
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import Select from './components/select.vue';
 import { animate } from 'mutate-game';
 import { info, MusicHard } from './constants';
 import Play from './components/play.vue';
+import Setting from './components/setting.vue';
 
 interface StartInfo {
     music: string;
@@ -22,12 +24,14 @@ interface StartInfo {
 }
 
 /** 是否在开始界面 */
-const startPage = ref(true);
+const startPage = ref(false);
 
 /** 是否与页面交互过 */
 const acted = ref(false);
 
 const started = ref(false);
+const select = ref(false);
+const setting = ref(false);
 
 const music = ref('');
 const chart = ref('');
@@ -41,7 +45,13 @@ watch(started, async n => {
     game.style.border = '1px solid #fff';
 });
 
-provide('started', started);
+watch(select, n => {
+    if (n === true) {
+        startPage.value = false;
+    }
+});
+
+provide('select', select);
 
 onMounted(() => {
     const div = document.getElementById('game') as HTMLDivElement;
@@ -61,6 +71,7 @@ function start() {
     const span = document.getElementById('start-tip') as HTMLSpanElement;
     span.style.opacity = '0';
     span.addEventListener('transitionend', () => {
+        startPage.value = true;
         acted.value = true;
     });
 }
@@ -75,7 +86,24 @@ function play(data: StartInfo) {
     music.value = m;
     chart.value = c;
     playing.value = true;
+    select.value = false;
     auto.value = data.auto;
+}
+
+/**
+ * 打开设置界面
+ */
+function openSetting() {
+    select.value = false;
+    setting.value = true;
+}
+
+/**
+ * 退出设置界面
+ */
+function exitSetting() {
+    setting.value = false;
+    select.value = true;
 }
 </script>
 
@@ -88,6 +116,7 @@ function play(data: StartInfo) {
     justify-items: center;
     align-items: center;
     transition: border 0.6s linear;
+    user-select: none;
 }
 
 #start-tip {

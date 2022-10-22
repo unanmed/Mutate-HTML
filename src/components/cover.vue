@@ -17,7 +17,7 @@ interface Ball {
     color: string;
 }
 
-const started = inject('started') as Ref<boolean>;
+const select = inject('select') as Ref<boolean>;
 
 let ticker = new mutate.Ticker();
 
@@ -28,7 +28,7 @@ function startGame() {
     const cover = document.getElementById('cover') as HTMLCanvasElement;
     cover.style.opacity = '0';
     cover.addEventListener('transitionend', e => {
-        started.value = true;
+        select.value = true;
         ticker.destroy();
     });
 }

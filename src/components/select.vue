@@ -19,6 +19,14 @@
                             'font-size': isMobile() ? `1em` : `1.5em`
                         }"
                     >
+                        <!-- <a-menu-item
+                            :key="'offset'"
+                            :style="{
+                                'font-size': isMobile() ? `1em` : `1.5em`,
+                                'text-align': 'center'
+                            }"
+                            >校准</a-menu-item
+                        > -->
                         <a-sub-menu
                             v-for="(arr, key) of musics"
                             :key="key"
@@ -59,17 +67,30 @@
         </div>
         <div id="rightbar">
             <div id="song-image">
-                <span
-                    id="song-name"
-                    :style="{
-                        'font-size': isMobile()
-                            ? `${width / 800}em`
-                            : `${width / 600}em`
-                    }"
-                    >{{ selectedKeys[0] }}</span
-                >
+                <div id="song-top-info">
+                    <span
+                        id="song-name"
+                        :style="{
+                            'font-size': isMobile()
+                                ? `${width / 800}em`
+                                : `${width / 600}em`
+                        }"
+                        >{{ selectedKeys[0] }}</span
+                    >
+                    <setting-outlined
+                        id="settings"
+                        :style="{
+                            'margin-top': '2%',
+                            'margin-right': '5%',
+                            transform: `scale(${width / 9}%)`,
+                            cursor: 'pointer',
+                            transition: 'all 0.2s linear'
+                        }"
+                        @click="openSetting"
+                    />
+                </div>
                 <a-divider
-                    style="border-color: #ddd4; margin: 1%"
+                    style="border-color: #ddd4; margin: 0"
                     dashed
                 ></a-divider>
                 <img
@@ -177,7 +198,7 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { musics, info, MusicHard } from '../constants';
 import { getSize, isMobile } from '../utils';
 import Scroll from './scroll.vue';
-import { CaretRightOutlined } from '@ant-design/icons-vue';
+import { CaretRightOutlined, SettingOutlined } from '@ant-design/icons-vue';
 import { getAudio, main } from '../audio';
 
 interface StartInfo {
@@ -188,6 +209,7 @@ interface StartInfo {
 
 const emits = defineEmits<{
     (e: 'start', data: StartInfo): void;
+    (e: 'setting'): void;
 }>();
 
 let song = localStorage.getItem('@mutate:select');
@@ -318,8 +340,22 @@ async function play() {
         gain.gain.value = (700 - time) / 700;
     });
     await animate.sleep(700);
+    ticker.destroy();
     source.stop();
     emits('start', info);
+}
+
+async function openSetting() {
+    div.style.opacity = '0';
+    const ticker = new Ticker();
+    const [source, gain] = getAudio(main.value);
+    ticker.add(time => {
+        gain.gain.value = (700 - time) / 700;
+    });
+    await animate.sleep(700);
+    ticker.destroy();
+    source.stop();
+    emits('setting');
 }
 
 onMounted(async () => {
@@ -445,10 +481,20 @@ onMounted(async () => {
         justify-content: space-between;
         height: 100%;
 
-        #song-name {
+        #song-top-info {
             height: 10%;
-            font-size: 1.5em;
             max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            #song-name {
+                margin-left: 7%;
+            }
+
+            #settings:hover {
+                color: rgb(43, 177, 255);
+            }
         }
 
         #image {

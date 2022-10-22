@@ -14,7 +14,7 @@ let cnt = 0;
 /** 音频处理模块 */
 export const ac = new AudioContext();
 
-export let main = ref(0);
+export const main = ref(0);
 
 /**
  * 加载音频但不播放
@@ -58,7 +58,9 @@ export async function play(
     source.connect(gain);
     gain.connect(ac.destination);
     source.start();
-    return cnt++;
+    const n = cnt++;
+    if (url === `${import.meta.env.BASE_URL}music/mutate.mp3`) main.value = n;
+    return n;
 }
 
 /**

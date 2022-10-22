@@ -44,6 +44,7 @@ const loaded = ref([0, 0]);
 const all = ref([0, 0]);
 const rate = ref(['0', '0']);
 const opacity = ref(0);
+const offset = parseFloat(localStorage.getItem('@mutate:offset') ?? '0');
 
 onMounted(async () => {
     const div = document.getElementById('mutate-core') as HTMLDivElement;
@@ -142,7 +143,7 @@ onMounted(async () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.style.opacity = '1';
     canvas.style.transition = '';
-    // game.setOffset(-100);
+    game.setOffset(-offset);
     setRenderer(game);
     game.start();
     game.setSound('tap', `${import.meta.env.BASE_URL}se/tap.wav`);
