@@ -29,7 +29,6 @@ const startPage = ref(false);
 /** 是否与页面交互过 */
 const acted = ref(false);
 
-const started = ref(false);
 const select = ref(false);
 const setting = ref(false);
 
@@ -38,17 +37,12 @@ const chart = ref('');
 const playing = ref(false);
 const auto = ref(false);
 
-watch(started, async n => {
-    await animate.sleep(200);
-    started.value = n;
-    const game = document.getElementById('game') as HTMLDivElement;
-    game.style.border = '1px solid #fff';
-});
-
 watch(select, n => {
     if (n === true) {
         startPage.value = false;
     }
+    const div = document.getElementById('game') as HTMLDivElement;
+    div.style.border = '1px solid #fff';
 });
 
 provide('select', select);

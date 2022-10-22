@@ -2,8 +2,8 @@
     <div id="settings">
         <a-layout
             :style="{
-                width: '95vw',
-                height: '95vh'
+                width: isMobile() ? '95vh' : '95vw',
+                height: isMobile() ? '95vw' : '95vh'
             }"
         >
             <a-layout-header>
@@ -45,49 +45,76 @@
             </a-layout-header>
             <a-layout-content>
                 <div v-if="setting[0] === 'offset'" id="offset">
-                    <span id="hint"
-                        >调整滑动条使在第三个节拍打击时恰好在标准线处</span
+                    <span
+                        id="hint"
+                        :style="{
+                            'font-size': isMobile() ? '2.5vh' : '3vw'
+                        }"
+                        >调整滑动条使在第三个节拍打击时恰好在标准线处{{
+                            isMobile() ? '（手机端不可拖动滑动条）' : ''
+                        }}</span
                     >
                     <canvas id="offset-canvas"></canvas>
                     <div id="slider">
-                        <span style="font-size: 2vw">
+                        <span
+                            :style="{ 'font-size': isMobile() ? '2vh' : '2vw' }"
+                        >
                             打击延迟&nbsp;&nbsp;&nbsp;&nbsp;{{
                                 hitOffset > 0 ? `+${hitOffset}` : hitOffset
                             }}ms
                         </span>
-                        <span style="font-size: 2vw"
+                        <span
+                            :style="{ 'font-size': isMobile() ? '2vh' : '2vw' }"
                             >{{ offset > 0 ? `+${offset}` : offset }}ms</span
                         >
-                        <a-slider
-                            v-model:value="offset"
-                            style="font-size: 16px"
-                            :step="5"
-                            :tip-formatter="(v: number) => `${v > 0 ? `+${v}` : v}ms`"
-                            :min="-300"
-                            :max="300"
-                            :included="false"
-                            :marks="{
-                                '-300': '-300ms',
-                                '-200': '-200ms',
-                                '-100': '-100ms',
-                                '0': '0',
-                                '100': '+100ms',
-                                '200': '+200ms',
-                                '300': '+300ms'
-                            }"
-                            ><template #mark="{ label, point }">
-                                <template v-if="point === 0">
-                                    <strong style="font-size: 1.4vw">{{
-                                        label
-                                    }}</strong>
-                                </template>
-                                <template v-else
-                                    ><p style="font-size: 1.4vw">
-                                        {{ label }}
-                                    </p></template
-                                >
-                            </template></a-slider
-                        >
+                        <div id="slider-main">
+                            <minus-outlined
+                                style="font-size: 3vw; cursor: pointer"
+                                @click="
+                                    offset < -300
+                                        ? (offset = -300)
+                                        : (offset -= 5)
+                                "
+                            />
+                            <a-slider
+                                v-model:value="offset"
+                                id="slider-slider"
+                                :step="5"
+                                :tip-formatter="(v: number) => `${v > 0 ? `+${v}` : v}ms`"
+                                :min="-300"
+                                :max="300"
+                                :included="false"
+                                :marks="{
+                                    '-300': '-300ms',
+                                    '-200': '-200ms',
+                                    '-100': '-100ms',
+                                    '0': '0',
+                                    '100': '+100ms',
+                                    '200': '+200ms',
+                                    '300': '+300ms'
+                                }"
+                                ><template #mark="{ label, point }">
+                                    <template v-if="point === 0">
+                                        <strong style="font-size: 1.4vw">{{
+                                            label
+                                        }}</strong>
+                                    </template>
+                                    <template v-else
+                                        ><p style="font-size: 1.4vw">
+                                            {{ label }}
+                                        </p></template
+                                    >
+                                </template></a-slider
+                            >
+                            <plus-outlined
+                                style="font-size: 3vw; cursor: pointer"
+                                @click="
+                                    offset > 300
+                                        ? (offset = 300)
+                                        : (offset += 5)
+                                "
+                            />
+                        </div>
                     </div>
                 </div>
                 <div id="option" v-if="setting[0] === 'option'"></div>
@@ -100,7 +127,12 @@
 import { animate, Ticker, utils } from 'mutate-game';
 import { onMounted, onUpdated, ref, watch } from 'vue';
 import { ac, play } from '../audio';
-import { LeftOutlined } from '@ant-design/icons-vue';
+import {
+    LeftOutlined,
+    MinusOutlined,
+    PlusOutlined
+} from '@ant-design/icons-vue';
+import { isMobile } from '../utils';
 
 type Settings = 'offset' | 'option';
 
@@ -241,7 +273,7 @@ async function drawOffset() {
     let cnt = 0;
     canvas.addEventListener('touchstart', e => {
         const origin = cnt;
-        if (cnt > origin) {
+        if (e.touches.length > origin) {
             const time = ((ac.currentTime - start) * 1000) % 2400;
             hitPos = (time / 2400) * w;
             hitTime = 0;
@@ -286,7 +318,6 @@ async function drawOffset() {
     background-color: #111;
 
     #hint {
-        font-size: 3vw;
         max-width: 100%;
         white-space: nowrap;
         display: inline-block;
@@ -302,6 +333,18 @@ async function drawOffset() {
 
         span {
             align-self: center;
+        }
+
+        #slider-main {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+            #slider-slider {
+                width: 80%;
+            }
         }
     }
 
