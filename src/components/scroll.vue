@@ -7,7 +7,7 @@ import { onMounted, onUpdated } from 'vue';
 
 const props = defineProps<{
     total: number;
-    now: number;
+    scroll: number;
     id: string;
 }>();
 
@@ -15,10 +15,10 @@ let ctx: CanvasRenderingContext2D;
 
 let mouseDown = false;
 
-let now = props.now;
+let now = props.scroll;
 
 /** 绘制 */
-function draw(y: number = props.now) {
+function draw(y: number = props.scroll) {
     now = y;
     const total = props.total;
     if (total === 0) return;
@@ -61,7 +61,7 @@ onMounted(() => {
 
     document.addEventListener('mouseup', e => {
         mouseDown = false;
-        if (canvas.height < props.total) emits('scroll', now);
+        if (canvas.height < props.total) emits('update:scroll', now);
     });
 
     document.addEventListener('mousemove', e => {
@@ -69,7 +69,7 @@ onMounted(() => {
         const dy = e.movementY;
         if (canvas.height < props.total) {
             draw(dy + now);
-            emits('scroll', now + dy);
+            emits('update:scroll', now + dy);
         }
     });
 });
@@ -77,7 +77,7 @@ onMounted(() => {
 defineExpose({ draw });
 
 const emits = defineEmits<{
-    (e: 'scroll', dy: number): void;
+    (e: 'update:scroll', dy: number): void;
 }>();
 </script>
 

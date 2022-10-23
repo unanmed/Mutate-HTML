@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     Scroll: typeof import('./src/components/scroll.vue')['default']
     Select: typeof import('./src/components/select.vue')['default']
     Setting: typeof import('./src/components/setting.vue')['default']
+    SettingOne: typeof import('./src/components/settingOne.vue')['default']
     Settle: typeof import('./src/components/settle.vue')['default']
     Start: typeof import('./src/components/start.vue')['default']
   }

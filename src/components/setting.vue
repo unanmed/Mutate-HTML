@@ -80,7 +80,7 @@
                                 v-model:value="offset"
                                 id="slider-slider"
                                 :step="5"
-                                :tip-formatter="(v: number) => `${v > 0 ? `+${v}` : v}ms`"
+                                :tip-formatter="null"
                                 :min="-300"
                                 :max="300"
                                 :included="false"
@@ -95,12 +95,23 @@
                                 }"
                                 ><template #mark="{ label, point }">
                                     <template v-if="point === 0">
-                                        <strong style="font-size: 1.4vw">{{
-                                            label
-                                        }}</strong>
+                                        <strong
+                                            :style="{
+                                                'font-size': isMobile()
+                                                    ? '1.4vh'
+                                                    : '1.4vw'
+                                            }"
+                                            >{{ label }}</strong
+                                        >
                                     </template>
                                     <template v-else
-                                        ><p style="font-size: 1.4vw">
+                                        ><p
+                                            :style="{
+                                                'font-size': isMobile()
+                                                    ? '1.4vh'
+                                                    : '1.4vw'
+                                            }"
+                                        >
                                             {{ label }}
                                         </p></template
                                     >
@@ -117,7 +128,34 @@
                         </div>
                     </div>
                 </div>
-                <div id="option" v-if="setting[0] === 'option'"></div>
+                <div id="option" v-if="setting[0] === 'option'">
+                    <div id="option-main">
+                        <div id="left">
+                            <SettingOne
+                                v-model:value="seVolume"
+                                :storage="'@mutate:seVolume'"
+                                >音效音量</SettingOne
+                            >
+                        </div>
+                        <a-divider
+                            type="vertical"
+                            dashed
+                            id="option-divider"
+                        ></a-divider>
+                        <div id="right">
+                            <SettingOne
+                                v-model:value="musicVolume"
+                                :storage="'@mutate:musicVolume'"
+                                >音乐音量</SettingOne
+                            >
+                        </div>
+                    </div>
+                    <Scroll
+                        :total="optionTotal"
+                        v-model:scroll="optionScroll"
+                        :id="'option'"
+                    ></Scroll>
+                </div>
             </a-layout-content>
         </a-layout>
     </div>
@@ -133,6 +171,8 @@ import {
     PlusOutlined
 } from '@ant-design/icons-vue';
 import { isMobile } from '../utils';
+import Scroll from './scroll.vue';
+import SettingOne from './settingOne.vue';
 
 type Settings = 'offset' | 'option';
 
@@ -144,6 +184,16 @@ const setting = ref<[Settings]>(['offset']);
 const offset = ref(0);
 const hitOffset = ref(0);
 const ticker = new Ticker();
+
+const optionScroll = ref(0);
+const optionTotal = ref(0);
+
+const seVolume = ref(
+    parseInt(localStorage.getItem('@mutate:seVolume') ?? '50')
+);
+const musicVolume = ref(
+    parseInt(localStorage.getItem('@mutate:musicVolume') ?? '100')
+);
 
 const initOffset = localStorage.getItem('@mutate:offset');
 if (!utils.has(initOffset)) {
@@ -164,9 +214,12 @@ watch(
     n => {
         ticker.clear();
         if (n[0] === 'offset') drawOffset();
+        if (n[0] === 'option') updateOption();
     },
     { immediate: true }
 );
+
+watch(optionScroll, n => scrollOption(n));
 
 onMounted(async () => {
     await animate.sleep(200);
@@ -181,6 +234,32 @@ async function exit() {
     play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
     ticker.destroy();
     emits('exit');
+}
+
+async function updateOption() {
+    await animate.sleep(200);
+    const option = document.getElementById('option-main') as HTMLDivElement;
+    const style = getComputedStyle(option);
+
+    optionTotal.value = parseFloat(style.top);
+    optionScroll.value = 0;
+}
+
+function scrollOption(y: number) {
+    if (setting.value[0] !== 'option') return;
+    const div = document.getElementById('option-main') as HTMLDivElement;
+    if (parseFloat(getComputedStyle(div).height) >= optionTotal.value) return;
+    const h = parseFloat(getComputedStyle(div).height);
+    if (y + h >= optionTotal.value) {
+        optionScroll.value = optionTotal.value - h;
+        div.style.top = `${-optionScroll.value}px`;
+    } else if (y <= 0) {
+        optionScroll.value = 0;
+        div.style.top = '0px';
+    } else {
+        optionScroll.value = y;
+        div.style.top = `${-y}px`;
+    }
 }
 
 async function drawOffset() {
@@ -352,6 +431,37 @@ async function drawOffset() {
         width: 100%;
         height: 50%;
         background-color: #222;
+    }
+}
+
+#option {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #111;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+
+    #option-main {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow: hidden;
+        padding: 2%;
+
+        #left {
+            width: 100%;
+        }
+
+        #right {
+            width: 100%;
+        }
+
+        #option-divider {
+            height: 100%;
+            margin: 0 2% 0 2%;
+        }
     }
 }
 </style>

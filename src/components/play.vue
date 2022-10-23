@@ -59,9 +59,9 @@
 
 <script lang="ts" setup>
 import { animate, create, Mutate, MutateDetail, Ticker } from 'mutate-game';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 import { drawInfo, setRenderer } from '../render';
-import { formatSize, getSize, isMobile } from '../utils';
+import { formatSize, getSize } from '../utils';
 import Settle from './settle.vue';
 import { info, MusicHard } from '../constants';
 import {
@@ -257,6 +257,14 @@ onMounted(async () => {
     game.setSound('tap', `${import.meta.env.BASE_URL}se/tap.wav`);
     game.setSound('drag', `${import.meta.env.BASE_URL}se/drag.wav`);
     if (props.auto) game.chart.judger.auto = true;
+
+    // 设置音量等
+    const seVolume =
+        parseInt(localStorage.getItem('@mutate:seVolume') ?? '50') / 100;
+    game.ac.seVolume = seVolume;
+    const musicVolume =
+        parseInt(localStorage.getItem('@mutate:musicVolume') ?? '100') / 100;
+    game.ac.musicVolume = musicVolume;
 
     game.renderer.on('after', drawInfo);
 

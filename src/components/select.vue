@@ -19,14 +19,6 @@
                             'font-size': isMobile() ? `1em` : `1.5em`
                         }"
                     >
-                        <!-- <a-menu-item
-                            :key="'offset'"
-                            :style="{
-                                'font-size': isMobile() ? `1em` : `1.5em`,
-                                'text-align': 'center'
-                            }"
-                            >校准</a-menu-item
-                        > -->
                         <a-sub-menu
                             v-for="(arr, key) of musics"
                             :key="key"
@@ -46,13 +38,7 @@
                     </a-menu>
                 </div>
             </div>
-            <Scroll
-                :id="'select'"
-                :now="now"
-                :total="total"
-                ref="scroll"
-                @scroll="scrollList"
-            ></Scroll>
+            <Scroll :id="'select'" v-model:scroll="now" :total="total"></Scroll>
             <a-divider
                 style="
                     border-color: #ddd4;
@@ -262,8 +248,6 @@ const now = ref(parseFloat(initSelect[2]));
 
 const total = ref(0);
 
-const scroll = ref(Scroll);
-
 const width = isMobile() ? window.innerHeight : window.innerWidth;
 
 const auto = ref(false);
@@ -286,9 +270,7 @@ watch(selectedKeys, n => {
     );
 });
 
-function draw() {
-    requestAnimationFrame(() => scroll.value.draw());
-}
+watch(now, n => scrollList(n));
 
 /** 滚动 */
 function scrollList(y: number) {
@@ -304,7 +286,6 @@ function scrollList(y: number) {
         now.value = y;
         menu.style.top = `${-y}px`;
     }
-    draw();
 }
 
 /** 计算滚动条的总高度 */
