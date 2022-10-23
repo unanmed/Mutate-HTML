@@ -24,6 +24,19 @@
                     transition: 'opacity 0.6s linear'
                 }"
             ></a-progress>
+            <pause-outlined
+                :style="{
+                    position: 'absolute',
+                    left: '10px',
+                    top: '10px',
+                    'font-size': '32px',
+                    'font-weight': '900',
+                    cursor: 'pointer',
+                    opacity: pauseOpacity,
+                    transition: 'all 0.6s linear'
+                }"
+                @click="pause"
+            />
         </div>
         <Settle
             v-if="ended && !exited"
@@ -35,16 +48,29 @@
             :max-combo="maxCombo"
             @exit="exit"
         ></Settle>
+        <div id="pause" v-if="!timeBack && paused">
+            <left-outlined style="margin: 25%" @click="exitInPlaying" />
+            <reload-outlined style="margin: 25%" @click="restart" />
+            <send-outlined style="margin: 25%" @click="resume" />
+        </div>
+        <span id="time-back" v-if="paused && timeBack">{{ time }}</span>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { animate, create, MutateDetail, Ticker } from 'mutate-game';
+import { animate, create, Mutate, MutateDetail, Ticker } from 'mutate-game';
 import { onMounted, ref, watch } from 'vue';
 import { drawInfo, setRenderer } from '../render';
 import { formatSize, getSize, isMobile } from '../utils';
 import Settle from './settle.vue';
 import { info, MusicHard } from '../constants';
+import {
+    LeftOutlined,
+    ReloadOutlined,
+    SendOutlined,
+    PauseOutlined
+} from '@ant-design/icons-vue';
+import { play } from '../audio';
 
 const props = defineProps<{
     auto: boolean;
@@ -66,10 +92,59 @@ const score = ref(0);
 const detail = ref<MutateDetail>();
 const maxCombo = ref(0);
 const exited = ref(false);
+const paused = ref(false);
+const time = ref(3);
+const timeBack = ref(false);
+const pauseOpacity = ref(0);
+
+let game: Mutate;
 
 function exit() {
     exited.value = true;
     emits('exit');
+}
+
+function pause() {
+    if (paused.value) return;
+    const div = document.getElementById('mutate-core') as HTMLDivElement;
+    div.style.filter = 'blur(10px)brightness(50%)';
+    game.pause();
+    paused.value = true;
+}
+
+async function resume() {
+    // 这个得有倒计时
+    const div = document.getElementById('mutate-core') as HTMLDivElement;
+    timeBack.value = true;
+    time.value = 3;
+    await animate.sleep(1000);
+    time.value = 2;
+    await animate.sleep(1000);
+    time.value = 1;
+    div.style.filter = 'none';
+    await animate.sleep(1000);
+    timeBack.value = false;
+    paused.value = false;
+    game.resume();
+}
+
+async function restart() {
+    const div = document.getElementById('mutate-div') as HTMLDivElement;
+    div.style.opacity = '0';
+    await animate.sleep(700);
+    div.style.opacity = '1';
+    const core = document.getElementById('mutate-core') as HTMLDivElement;
+    core.style.filter = 'none';
+    game.restart(0);
+    paused.value = false;
+}
+
+async function exitInPlaying() {
+    const div = document.getElementById('mutate-div') as HTMLDivElement;
+    div.style.opacity = '0';
+    await animate.sleep(600);
+    emits('exit');
+    play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
 }
 
 onMounted(async () => {
@@ -96,10 +171,12 @@ onMounted(async () => {
     }
 
     await animate.sleep(600);
-    const game = create(canvas);
+    game = create(canvas);
     const base = import.meta.env.BASE_URL;
     canvas.style.opacity = '1';
     opacity.value = 1;
+    div.style.opacity = '1';
+    root.style.opacity = '1';
     // 加载动画
     const ticker = new Ticker();
     ticker.add(time => {
@@ -152,7 +229,6 @@ onMounted(async () => {
     });
 
     const music = info[props.song];
-    console.log(music);
 
     await game.load(
         `${base}music/${music.file.music}`,
@@ -170,6 +246,7 @@ onMounted(async () => {
     canvas.style.opacity = '0';
     opacity.value = 0;
     await animate.sleep(600);
+    pauseOpacity.value = 1;
     ticker.destroy();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.style.opacity = '1';
@@ -182,6 +259,12 @@ onMounted(async () => {
     if (props.auto) game.chart.judger.auto = true;
 
     game.renderer.on('after', drawInfo);
+
+    canvas.addEventListener('click', e => {
+        if (e.offsetX <= 60 && e.offsetY <= 60) pause();
+    });
+
+    canvas.addEventListener('touchstart', e => {});
 
     game.on('end', async () => {
         div.style.opacity = '0';
@@ -213,5 +296,21 @@ onMounted(async () => {
 
 #mutate-core {
     position: relative;
+    transition: all 0.6s linear;
+}
+
+#pause {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+}
+
+#time-back {
+    position: absolute;
+    font-size: 6vw;
+    font-family: normal;
 }
 </style>

@@ -52,7 +52,7 @@ export function drawInfo(e: RenderEvent<'after'>) {
     )}`;
     ctx.textAlign = 'left';
     ctx.font = '100 24px normal';
-    ctx.fillText(time, 10, 10);
+    ctx.fillText(time, 60, 10);
     if (combo < 3 && !t.game.chart.judger.auto) return;
     ctx.textAlign = 'center';
     ctx.font = '100 48px normal';

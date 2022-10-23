@@ -31,7 +31,7 @@ const gameLoaded = ref(false);
 const loaded = ref(0);
 
 // ### 总下载量
-const total = 3410663;
+const total = 3626394;
 
 const loadedSize = ref(0);
 
@@ -59,7 +59,7 @@ async function load() {
         (async () => {
             const data = (await loadOne(
                 `${base}font/normal.ttf`,
-                3,
+                6,
                 'arraybuffer'
             )) as AxiosResponse<ArrayBuffer>;
             const font = new FontFace('normal', data.data);

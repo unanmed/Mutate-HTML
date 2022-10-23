@@ -68,11 +68,7 @@
                 }"
                 @click="exit"
             >
-                <check-outlined
-                    :style="{
-                        // color: '#111'
-                    }"
-                />
+                <check-outlined />
             </a-button>
         </div>
     </div>
