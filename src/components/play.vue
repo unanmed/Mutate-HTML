@@ -71,6 +71,7 @@ import {
     PauseOutlined
 } from '@ant-design/icons-vue';
 import { play } from '../audio';
+import { setTutorial } from '../tutorial';
 
 const props = defineProps<{
     auto: boolean;
@@ -110,6 +111,7 @@ function pause() {
     div.style.filter = 'blur(10px)brightness(50%)';
     game.pause();
     paused.value = true;
+    play(`${import.meta.env.BASE_URL}se/pause.mp3`);
 }
 
 async function resume() {
@@ -267,18 +269,20 @@ onMounted(async () => {
     game.ac.musicVolume = musicVolume;
 
     game.renderer.on('after', drawInfo);
+    if (props.song === '教程') setTutorial(game);
 
-    canvas.addEventListener('click', e => {
-        if (e.offsetX <= 60 && e.offsetY <= 60) pause();
-    });
+    const fn = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') pause();
+    };
 
-    canvas.addEventListener('touchstart', e => {});
+    document.addEventListener('keydown', fn);
 
     game.on('end', async () => {
         div.style.opacity = '0';
         score.value = game.getScore();
         detail.value = game.getDetail();
         maxCombo.value = game.chart.judger.maxCombo;
+        document.removeEventListener('keydown', fn);
         await animate.sleep(600);
         root.style.backgroundColor = '#111';
         ended.value = true;

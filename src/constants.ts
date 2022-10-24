@@ -29,6 +29,7 @@ export type MusicHard = {
  * 歌曲列表
  */
 export const musics: Record<string, string[]> = {
+    教程: ['教程'],
     单曲: ['灵', '红枫']
 };
 
@@ -36,6 +37,25 @@ export const musics: Record<string, string[]> = {
  * 歌曲信息
  */
 export const info: Record<string, MusicInfo> = {
+    教程: {
+        file: {
+            music: 'mutate.mp3',
+            image: 'mutate.png',
+            chart: {
+                easy: 'tutorial.mtt',
+                normal: 'tutorial.mtt',
+                hard: 'tutorial.mtt'
+            }
+        },
+        author: '古祠',
+        chart: '古祠',
+        duration: 108,
+        hard: {
+            easy: 2,
+            normal: 2,
+            hard: 2
+        }
+    },
     灵: {
         file: {
             music: '1.mp3',

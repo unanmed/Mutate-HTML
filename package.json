@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "pnpm compress && vue-tsc --noEmit && vite build && pnpm run pack",
+    "build-html": "pnpm compress && vue-tsc --noEmit && vite build --base=/Mutate-HTML/ && pnpm run pack",
     "preview": "vite preview",
     "compress": "ts-node-esm script/compress.ts",
     "pack": "ts-node-esm script/pack.ts",
-    "buildh5": "pnpm compress && pnpm build && ts-node-esm script/packh5.ts",
-    "build-gh": "pnpm compress && vue-tsc --noEmit && vite build --base=/Mutate-HTML/ && pnpm run pack"
+    "buildh5": "pnpm compress && pnpm build-html && ts-node-esm script/packh5.ts",
+    "build-gh": "pnpm compress && pnpm build-html && pnpm run pack"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
@@ -18,7 +19,7 @@
     "axios": "^1.1.2",
     "less": "^4.1.3",
     "lodash": "^4.17.21",
-    "mutate-game": "1.2.6",
+    "mutate-game": "1.2.7",
     "vue": "^3.2.37"
   },
   "devDependencies": {

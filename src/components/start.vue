@@ -53,6 +53,7 @@ async function load() {
         loadOne(`${base}music/mutate.mp3`, 0, 'arraybuffer'),
         loadOne(`${base}se/tap.wav`, 1, 'arraybuffer'),
         loadOne(`${base}se/drag.wav`, 2, 'arraybuffer'),
+        loadOne(`${base}se/pause.mp3`, 2, 'arraybuffer'),
         loadOne(`${base}image/base1.png`, 3, 'arraybuffer'),
         loadOne(`${base}image/base2.png`, 4, 'arraybuffer'),
         loadOne(`${base}image/base3.png`, 5, 'arraybuffer'),

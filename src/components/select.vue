@@ -227,8 +227,8 @@ const emits = defineEmits<{
 let song = localStorage.getItem('@mutate:select');
 
 if (!song) {
-    localStorage.setItem('@mutate:select', '单曲@@灵@@0');
-    song = '单曲@@灵@@0';
+    localStorage.setItem('@mutate:select', '教程@@教程@@0');
+    song = '教程@@教程@@0';
 }
 
 /** 打开游戏时的选择信息 */
@@ -315,6 +315,10 @@ function formatTime(s: number) {
 }
 
 function getScore() {
+    if (selectedKeys.value[0] === '教程') {
+        let score = localStorage.getItem(`@mutate:score-教程`) ?? '0F';
+        return score.padStart(8, '0');
+    }
     let score = localStorage.getItem(
         `@mutate:score-${selectedKeys.value[0]}-${hard.value}`
     );

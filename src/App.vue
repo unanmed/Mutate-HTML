@@ -21,6 +21,8 @@ import Select from './components/select.vue';
 import { info, MusicHard } from './constants';
 import Play from './components/play.vue';
 import Setting from './components/setting.vue';
+import { animate, Ticker } from 'mutate-game';
+import { getAudio, main } from './audio';
 
 interface StartInfo {
     music: string;
@@ -42,8 +44,22 @@ const auto = ref(false);
 const song = ref('');
 const hard = ref<keyof MusicHard>('easy');
 
-watch(select, n => {
+watch(select, async n => {
     if (n === true) {
+        const played = localStorage.getItem('@mutate:played') ?? 'false';
+        if (played === 'false') {
+            localStorage.setItem('@mutate:played', 'true');
+            select.value = false;
+            const ticker = new Ticker();
+            const [source, gain] = getAudio(main.value);
+            ticker.add(time => {
+                gain.gain.value = (700 - time) / 700;
+            });
+            await animate.sleep(700);
+            ticker.destroy();
+            source.stop();
+            setting.value = true;
+        }
         startPage.value = false;
     }
     const div = document.getElementById('game') as HTMLDivElement;

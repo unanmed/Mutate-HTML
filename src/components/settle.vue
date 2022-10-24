@@ -22,7 +22,7 @@
                     'font-size': isMobile() ? '4vh' : '4vw'
                 }"
             >
-                <span>{{ score.toString().padStart(7, '0') }}</span>
+                <span>{{ score.toString().padStart(6, '0') }}</span>
                 <span
                     id="rank"
                     :style="{
@@ -107,17 +107,24 @@ else rank.value = 'AP';
 
 // 自动肯定不能计成绩
 if (!props.auto) {
-    const sto =
+    let sto =
         localStorage.getItem(`@mutate:score-${props.song}-${props.hard}`) ??
         '0F';
+    if (props.song === '教程')
+        sto = localStorage.getItem('@mutate:score-教程') ?? '0F';
+
     const initScore = parseFloat(sto.match(/^[0-9]+/)![0]);
     const initRank = sto.match(/(F|D|C|B|A|S|AP|FC)$/)![0] as Rank;
     const toScore = props.score > initScore ? props.score : initScore;
     const toRank = isHigherRank(rank.value, initRank) ? rank.value : initRank;
-    localStorage.setItem(
-        `@mutate:score-${props.song}-${props.hard}`,
-        `${toScore}${toRank}`
-    );
+    if (props.song === '教程') {
+        localStorage.setItem(`@mutate:score-教程`, `${toScore}${toRank}`);
+    } else {
+        localStorage.setItem(
+            `@mutate:score-${props.song}-${props.hard}`,
+            `${toScore}${toRank}`
+        );
+    }
 }
 
 async function exit() {

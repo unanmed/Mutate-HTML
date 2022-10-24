@@ -203,8 +203,6 @@ if (!utils.has(initOffset)) {
     offset.value = parseInt(initOffset);
 }
 
-let lastId = 0;
-
 watch(offset, n => {
     localStorage.setItem('@mutate:offset', n.toString());
 });
@@ -324,12 +322,10 @@ async function drawOffset() {
         const c = Math.floor(time / 600) % 4;
         if ((c === 1 || c === 2) && lastPlay !== c) {
             lastPlay = c;
-            lastId = await play(`${import.meta.env.BASE_URL}se/drag.wav`);
+            await play(`${import.meta.env.BASE_URL}se/drag.wav`);
         } else if (c === 3 && lastPlay !== c) {
             lastPlay = c;
-            lastId = await play(`${import.meta.env.BASE_URL}se/tap.wav`);
-        } else {
-            lastId = 0;
+            await play(`${import.meta.env.BASE_URL}se/tap.wav`);
         }
     });
 

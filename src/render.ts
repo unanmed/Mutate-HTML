@@ -13,7 +13,7 @@ import { formatTime } from './utils';
 export function setRenderer(game: Mutate) {
     // game.renderer.setNote('tap', drawTap);
     // game.renderer.setNote('drag', drawDrag);
-    // game.renderer.setNote('hold', drawHold);
+    game.renderer.setNote('hold', drawHold);
     game.renderer.setBase(drawBase);
     game.chart.camera.setGlobalEffects(globalEffect);
 }
@@ -65,54 +65,11 @@ export function drawInfo(e: RenderEvent<'after'>) {
     ctx.restore();
 }
 
-function drawTap(this: Renderer, note: BaseNote<'tap'>) {
-    if (
-        utils.has(note.noteTime) &&
-        this.game.time > note.noteTime + note.missTime
-    )
-        return;
-    if (note.played) return;
-    if (!note.inited) return;
+function drawTap(this: Renderer, note: BaseNote<'tap'>) {}
 
-    const [x, y, d] = note.calPosition();
-    if (isNaN(x)) return;
-    if (!this.inGame(x, y, this.game.drawWidth / 2)) return;
+function drawDrag(this: Renderer, note: BaseNote<'drag'>) {}
 
-    const rad = note.rad + (note.angle * Math.PI) / 180;
-    const ctx = this.game.ctx;
-    const hw = this.game.halfWidth;
-    const htw = this.game.halfTopWidth;
-    const hh = this.game.halfHeight;
-    const alpha = note.custom.opacity;
-
-    ctx.save();
-    ctx.translate(x * this.game.scale, y * this.game.scale);
-    ctx.rotate(rad + Math.PI / 2);
-    ctx.filter = note.ctxFilter;
-    // 绘制
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 4 * this.game.drawScale;
-    ctx.globalAlpha = alpha;
-    if (d < note.base.custom.radius) {
-        ctx.globalAlpha = (d / note.base.custom.radius) * alpha;
-    }
-    ctx.beginPath();
-    ctx.moveTo(-hw, 0);
-    ctx.lineTo(-htw, -hh);
-    ctx.lineTo(htw, -hh);
-    ctx.lineTo(hw, 0);
-    ctx.lineTo(htw, hh);
-    ctx.lineTo(-htw, hh);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    // 恢复画布属性
-    ctx.restore();
-}
-
-function drawDrag(note: BaseNote<'drag'>) {}
-
-function drawHold(note: BaseNote<'hold'>) {}
+function drawHold(this: Renderer, note: BaseNote<'hold'>) {}
 
 function drawBase(this: Renderer, base: Base) {
     if (!this.inGame(base.x, base.y)) return;
