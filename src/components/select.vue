@@ -327,11 +327,13 @@ function getScore() {
 }
 
 function hasPlayed() {
-    return (
-        localStorage.getItem(
-            `@mutate:score-${selectedKeys.value[0]}-${hard.value}`
-        ) !== null
-    );
+    if (selectedKeys.value[0] !== '教程')
+        return (
+            localStorage.getItem(
+                `@mutate:score-${selectedKeys.value[0]}-${hard.value}`
+            ) !== null
+        );
+    else return localStorage.getItem(`@mutate:score-教程`) !== null;
 }
 
 function getImgSrc(name: string) {

@@ -314,7 +314,7 @@
                         "fn": "hyper",
                         "args": [
                             "sin",
-                            "in"
+                            "in-out"
                         ],
                         "pathType": "pathG",
                         "pathFn": "circle",

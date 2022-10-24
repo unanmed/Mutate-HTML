@@ -72,6 +72,7 @@ import {
 } from '@ant-design/icons-vue';
 import { play } from '../audio';
 import { setTutorial } from '../tutorial';
+import { createRoute, pushRoute } from '../replay';
 
 const props = defineProps<{
     auto: boolean;
@@ -270,6 +271,16 @@ onMounted(async () => {
 
     game.renderer.on('after', drawInfo);
     if (props.song === '教程') setTutorial(game);
+
+    if (!props.auto) {
+        game.chart.judger.on('hit', e => {
+            pushRoute(game.time);
+        });
+        createRoute(
+            props.song,
+            info[props.song].file.chart[props.hard]!.slice(0, -4)
+        );
+    }
 
     const fn = (e: KeyboardEvent) => {
         if (e.key === 'Escape') pause();
