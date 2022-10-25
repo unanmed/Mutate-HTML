@@ -74,8 +74,6 @@ onMounted(() => {
     });
 });
 
-defineExpose({ draw });
-
 const emits = defineEmits<{
     (e: 'update:scroll', dy: number): void;
 }>();
