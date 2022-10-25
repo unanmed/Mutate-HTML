@@ -4,6 +4,17 @@ import { postRoute } from './replay';
 
 export type Rank = 'F' | 'D' | 'C' | 'B' | 'A' | 'S' | 'FC' | 'AP';
 
+interface ScoreResponse {
+    hard: keyof MusicHard;
+    hp: string;
+    ending: string;
+    verify: number; // 录像过没过
+}
+
+type ScoreArr = ScoreResponse[];
+
+type MaxScore = Record<keyof MusicHard, Record<string, string>>;
+
 const mobile = window.innerWidth <= window.innerHeight;
 
 /** 评级列表 */
@@ -162,5 +173,41 @@ export function uploadStart(hard: keyof MusicHard) {
 }
 
 export async function recoverFromSubmit(): Promise<boolean> {
+    try {
+        const info = await axios.get('/backend/user/getScore.php?tower=Mutate');
+        const data = JSON.parse(info.data);
+        if (data.code === '-1') return alert('当前未登录！'), false;
+        else if (data.code === '-2')
+            throw new TypeError(`Unexpected mismatch of tower name.`);
+
+        // 开始获取信息
+        const res = data.res as ScoreArr;
+        const max: MaxScore = {
+            easy: {},
+            normal: {},
+            hard: {},
+            master: {}
+        };
+        for (const one of res) {
+            if (one.verify !== -1) continue; // 录像没过不记录
+            const hard = one.hard;
+            const song = one.ending;
+            const score = one.hp;
+            if (score > max[hard][song]) max[hard][song] = score;
+        }
+
+        // 写入存档，服务器上没有的就不清空了
+        for (const hard in max) {
+            for (const song in max[hard as keyof MusicHard]) {
+                const score = max[hard as keyof MusicHard][song];
+                if (song === '教程') {
+                    localStorage.setItem('@mutate:score-教程', score);
+                }
+                localStorage.setItem(`@mutate:score-${song}-${hard}`, score);
+            }
+        }
+    } catch {
+        return false;
+    }
     return true;
 }

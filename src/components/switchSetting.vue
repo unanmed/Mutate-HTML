@@ -4,16 +4,17 @@
             ><slot></slot
         ></span>
         <a-switch
+            id="switch"
             v-model:checked="checked"
             checked-children="on"
-            unchecked-children="off"
+            un-checked-children="off"
         ></a-switch>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { utils } from 'mutate-game';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { isMobile } from '../utils';
 
 const props = defineProps<{
@@ -25,7 +26,13 @@ const checked = ref(props.defaultOn);
 const s = localStorage.getItem(props.storage);
 if (utils.has(s)) {
     checked.value = s === 'true' ? true : false;
+} else {
+    localStorage.setItem(props.storage, `${props.defaultOn}`);
 }
+
+watch(checked, n => {
+    localStorage.setItem(props.storage, `${checked.value}`);
+});
 </script>
 
 <style lang="less" scoped>
@@ -37,6 +44,10 @@ if (utils.has(s)) {
 
     #name {
         font-family: normal;
+    }
+
+    #switch[aria-checked='false'] {
+        background-color: #666;
     }
 }
 </style>

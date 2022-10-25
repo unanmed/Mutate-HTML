@@ -5,21 +5,23 @@
                 <SettingOne :default-value="50" :storage="'@mutate:seVolume'"
                     >音效音量</SettingOne
                 >
+                <SwitchSetting
+                    :default-on="true"
+                    :storage="'@mutate:autoUpload'"
+                    >通关后自动上传成绩</SwitchSetting
+                >
+            </div>
+            <a-divider type="vertical" dashed id="option-divider"></a-divider>
+            <div id="right">
+                <SettingOne
+                    :default-value="100"
+                    :storage="'@mutate:musicVolume'"
+                    >音乐音量</SettingOne
+                >
                 <div id="functions">
-                    <a-button
-                        :style="{
-                            'font-size': isMobile() ? '2.5vh' : '2.5vw'
-                        }"
-                        @click="recover"
-                        >恢复数据</a-button
-                    >
-                    <a-button
-                        :style="{
-                            'font-size': isMobile() ? '2.5vh' : '2.5vw'
-                        }"
-                        :danger="true"
-                        @click="clear"
-                        >清除数据</a-button
+                    <SettingButton @click="recover">恢复数据</SettingButton>
+                    <SettingButton @click="clear" :danger="true"
+                        >清除数据</SettingButton
                     >
                     <a-modal
                         v-model:visible="alertBox"
@@ -46,14 +48,6 @@
                     >
                 </div>
             </div>
-            <a-divider type="vertical" dashed id="option-divider"></a-divider>
-            <div id="right">
-                <SettingOne
-                    :default-value="100"
-                    :storage="'@mutate:musicVolume'"
-                    >音乐音量</SettingOne
-                >
-            </div>
             <Scroll
                 :total="optionTotal"
                 v-model:scroll="optionScroll"
@@ -66,8 +60,10 @@
 <script lang="ts" setup>
 import { onMounted, ref, watch } from 'vue';
 import Scroll from '../components/scroll.vue';
+import SettingButton from '../components/settingButton.vue';
 import SettingOne from '../components/settingOne.vue';
-import { recoverFromSubmit, isMobile } from '../utils';
+import SwitchSetting from '../components/switchSetting.vue';
+import { recoverFromSubmit } from '../utils';
 
 // 清除数据与恢复数据的确认框
 const alertBox = ref(false);
@@ -99,8 +95,7 @@ function scrollOption(y: number) {
 function recover() {
     alertBox.value = true;
     alertText.value =
-        // '此操作将尝试从你上传的成绩中恢复你的存档，此操作将会覆盖当前存档，请在存档丢失后使用该功能';
-        '功能开发中，即将上线...';
+        '此操作将尝试从你上传的录像通过的成绩中恢复你的存档，此操作将会覆盖当前存档，请在存档丢失后使用该功能';
     alertType.value = 'recover';
 }
 
@@ -113,7 +108,6 @@ function clear() {
 
 async function confirm() {
     if (alertType.value === 'recover') {
-        return (alertBox.value = false);
         const success = await recoverFromSubmit();
         if (success) alert('恢复成功！');
         else alert('恢复失败！');
@@ -161,23 +155,6 @@ onMounted(() => {
 
         #left {
             width: 100%;
-
-            #functions {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: center;
-                margin-top: 10%;
-                font-family: normal;
-                height: 9%;
-
-                * {
-                    // background-color: cornflowerblue;
-                    line-height: 0.9;
-                    height: 100%;
-                    width: 35%;
-                }
-            }
         }
 
         #right {
@@ -195,5 +172,22 @@ onMounted(() => {
     font-size: 1.4vw;
     height: 100%;
     line-height: 1.1;
+}
+
+#functions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10%;
+    font-family: normal;
+    height: 9%;
+
+    * {
+        // background-color: cornflowerblue;
+        line-height: 0.9;
+        height: 100%;
+        width: 35%;
+    }
 }
 </style>

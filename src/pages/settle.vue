@@ -26,7 +26,7 @@
                 <span
                     id="rank"
                     :style="{
-                        color: getColor(auto ? 'AUTO' : rank),
+                        color: getColor(autoUpload ? 'AUTO' : rank),
                         background:
                             rank === 'AP'
                                 ? 'linear-gradient(0.25turn, #3f87a6, #ebf8e1, gold, #3f87a6)'
@@ -34,7 +34,7 @@
                         'background-clip': rank === 'AP' ? 'text' : '',
                         WebkitBackgroundClip: rank === 'AP' ? 'text' : ''
                     }"
-                    >{{ auto ? 'AUTO' : rank }}</span
+                    >{{ autoUpload ? 'AUTO' : rank }}</span
                 >
             </div>
             <a-divider dashed style="width: 100%; margin: 0"></a-divider>
@@ -67,10 +67,12 @@
                     'font-size': isMobile() ? '3vh' : '3vw'
                 }"
                 :loading="uploading"
+                :disabled="uploaded"
                 @click="upload"
-                v-if="!auto"
+                v-if="!autoUpload"
             >
                 <upload-outlined v-if="!uploading" />
+                <span>{{ uploadText }}</span>
             </a-button>
             <a-button
                 id="confirm"
@@ -110,6 +112,10 @@ const props = defineProps<{
 }>();
 
 const uploading = ref(false);
+const uploaded = ref(false);
+const uploadText = ref('上传成绩');
+const autoUpload =
+    localStorage.getItem('@mutate:autoUpload') === 'true' ? true : false;
 
 const emits = defineEmits<{
     (e: 'exit'): void;
@@ -155,11 +161,23 @@ async function exit() {
 }
 
 async function upload() {
-    uploading.value = true;
     const match = document.cookie.match(new RegExp('(^| )id=([^;]+)'));
-    if (!utils.has(match) || match[2] === '')
-        return alert('用户未登录！登录后可以上传成绩！');
-    uploadScore(props.song, props.hard, props.score, match[2]);
+    if (!utils.has(match) || match[2] === '') {
+        localStorage.setItem('@mutate:autoUpload', 'false');
+        return alert(
+            '用户未登录，已关闭自动上传成绩的功能！登录后可以上传成绩，并体验恢复存档功能！'
+        );
+    }
+    uploading.value = true;
+    uploadText.value = '成绩上传中';
+    await uploadScore(props.song, props.hard, props.score, match[2]);
+    if (autoUpload) {
+        uploadText.value = '已自动上传成绩';
+    } else {
+        uploadText.value = '成绩已上传';
+    }
+    uploading.value = false;
+    uploaded.value = true;
 }
 
 onMounted(async () => {
@@ -169,6 +187,7 @@ onMounted(async () => {
     play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
     div.style.opacity = '1';
     div.style.filter = 'none';
+    if (autoUpload) upload();
 });
 </script>
 
