@@ -211,3 +211,10 @@ export async function recoverFromSubmit(): Promise<boolean> {
     }
     return true;
 }
+
+/**
+ * 输出n个空格
+ */
+export function space(n: number): string {
+    return '&nbsp;'.repeat(n);
+}

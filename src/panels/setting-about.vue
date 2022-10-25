@@ -17,7 +17,7 @@
         <span class="desc">谱师</span>
         <span>古祠</span>
         <span class="desc">特别鸣谢</span>
-        <span>灵梦</span>
+        <span>灵梦&nbsp;&nbsp;阿尔法</span>
     </div>
 </template>
 
@@ -33,6 +33,7 @@ import { isMobile } from '../utils';
     justify-content: center;
     align-items: center;
     text-align: center;
+    user-select: text;
 
     .desc {
         margin-top: 1%;

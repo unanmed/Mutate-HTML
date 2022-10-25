@@ -26,7 +26,7 @@
                 <span
                     id="rank"
                     :style="{
-                        color: getColor(autoUpload ? 'AUTO' : rank),
+                        color: getColor(auto ? 'AUTO' : rank),
                         background:
                             rank === 'AP'
                                 ? 'linear-gradient(0.25turn, #3f87a6, #ebf8e1, gold, #3f87a6)'
@@ -34,7 +34,7 @@
                         'background-clip': rank === 'AP' ? 'text' : '',
                         WebkitBackgroundClip: rank === 'AP' ? 'text' : ''
                     }"
-                    >{{ autoUpload ? 'AUTO' : rank }}</span
+                    >{{ auto ? 'AUTO' : rank }}</span
                 >
             </div>
             <a-divider dashed style="width: 100%; margin: 0"></a-divider>
@@ -61,28 +61,29 @@
                 dashed
                 style="width: 100%; margin: 0 0 10% 0"
             ></a-divider>
-            <a-button
-                id="upload"
-                :style="{
-                    'font-size': isMobile() ? '3vh' : '3vw'
-                }"
-                :loading="uploading"
-                :disabled="uploaded"
-                @click="upload"
-                v-if="!autoUpload"
-            >
-                <upload-outlined v-if="!uploading" />
-                <span>{{ uploadText }}</span>
-            </a-button>
-            <a-button
-                id="confirm"
-                :style="{
-                    'font-size': isMobile() ? '3vh' : '3vw'
-                }"
-                @click="exit"
-            >
-                <check-outlined />
-            </a-button>
+            <div id="buttons">
+                <a-button
+                    id="upload"
+                    :style="{
+                        'font-size': isMobile() ? '2vh' : '2vw'
+                    }"
+                    :loading="uploading"
+                    :disabled="uploaded"
+                    @click="upload(false)"
+                >
+                    <upload-outlined />
+                    <span>{{ uploadText }}</span>
+                </a-button>
+                <a-button
+                    id="confirm"
+                    :style="{
+                        'font-size': isMobile() ? '3vh' : '3vw'
+                    }"
+                    @click="exit"
+                >
+                    <check-outlined />
+                </a-button>
+            </div>
         </div>
     </div>
 </template>
@@ -101,6 +102,7 @@ import {
     uploadScore
 } from '../utils';
 import { CheckOutlined, UploadOutlined } from '@ant-design/icons-vue';
+import { message } from 'ant-design-vue';
 
 const props = defineProps<{
     auto: boolean;
@@ -113,7 +115,7 @@ const props = defineProps<{
 
 const uploading = ref(false);
 const uploaded = ref(false);
-const uploadText = ref('上传成绩');
+const uploadText = ref(props.auto ? '自动播放' : '上传成绩');
 const autoUpload =
     localStorage.getItem('@mutate:autoUpload') === 'true' ? true : false;
 
@@ -160,11 +162,17 @@ async function exit() {
     emits('exit');
 }
 
-async function upload() {
+async function upload(noAlert: boolean = false) {
+    if (props.auto && !noAlert) {
+        uploadText.value = '自动播放';
+        uploaded.value = true;
+        return message.error('自动播放不能上传成绩！');
+    }
     const match = document.cookie.match(new RegExp('(^| )id=([^;]+)'));
     if (!utils.has(match) || match[2] === '') {
         localStorage.setItem('@mutate:autoUpload', 'false');
-        return alert(
+        uploaded.value = true;
+        return message.error(
             '用户未登录，已关闭自动上传成绩的功能！登录后可以上传成绩，并体验恢复存档功能！'
         );
     }
@@ -187,7 +195,7 @@ onMounted(async () => {
     play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
     div.style.opacity = '1';
     div.style.filter = 'none';
-    if (autoUpload) upload();
+    if (autoUpload) upload(true);
 });
 </script>
 
@@ -258,13 +266,21 @@ onMounted(async () => {
         }
     }
 
-    #confirm,
-    #upload {
-        width: 40%;
+    #buttons {
+        display: flex;
+        flex-direction: row;
         height: 10%;
-        background-color: #ddd;
-        line-height: 0.9;
-        color: #111;
+        justify-content: space-around;
+        width: 100%;
+
+        #confirm,
+        #upload {
+            width: 40%;
+            height: 100%;
+            background-color: #ddd;
+            line-height: 1.1;
+            color: #111;
+        }
     }
 }
 

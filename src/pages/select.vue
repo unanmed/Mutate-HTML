@@ -36,11 +36,6 @@ import { getAudio, main } from '../audio';
 import SelectLeftbar from '../panels/select-leftbar.vue';
 import SelectSongimage from '../panels/select-songimage.vue';
 import SelectSonginfo from '../panels/select-songinfo.vue';
-import { message } from 'ant-design-vue';
-
-message.config({
-    top: '100px'
-});
 
 interface StartInfo {
     music: string;
@@ -120,20 +115,6 @@ async function openSetting() {
 onMounted(async () => {
     await animate.sleep(200);
 
-    const autoUpload =
-        localStorage.getItem('@mutate:autoUpload') === 'true' ? true : false;
-    if (autoUpload) {
-        message.success({
-            class: 'auto-upload',
-            content: '已开启自动上传成绩功能！'
-        });
-    } else {
-        message.warn({
-            content: '未开启自动上传成绩功能！',
-            class: 'auto-upload'
-        });
-    }
-
     div = document.getElementById('select') as HTMLDivElement;
     songinfo = document.getElementById('song-info') as HTMLDivElement;
     score = document.getElementById('score-num') as HTMLSpanElement;
@@ -194,13 +175,5 @@ onMounted(async () => {
     padding-right: 2%;
     padding-top: 7%;
     padding-bottom: 7%;
-}
-</style>
-
-<style lang="less">
-.auto-upload {
-    font-size: 32px;
-    font-family: normal;
-    color: yellow;
 }
 </style>

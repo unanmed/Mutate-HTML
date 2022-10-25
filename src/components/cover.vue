@@ -7,6 +7,11 @@ import { inject, onMounted, Ref } from 'vue';
 import * as mutate from 'mutate-game';
 import { getSize } from '../utils';
 import { play, ac, main } from '../audio';
+import { message } from 'ant-design-vue';
+
+message.config({
+    top: '100px'
+});
 
 interface Ball {
     x: number;
@@ -30,6 +35,21 @@ function startGame() {
     cover.addEventListener('transitionend', e => {
         select.value = true;
         ticker.destroy();
+        const autoUpload =
+            localStorage.getItem('@mutate:autoUpload') === 'true'
+                ? true
+                : false;
+        if (autoUpload) {
+            message.success({
+                class: 'auto-upload',
+                content: '已开启自动上传成绩功能！'
+            });
+        } else {
+            message.warn({
+                content: '未开启自动上传成绩功能！',
+                class: 'auto-upload'
+            });
+        }
     });
 }
 
@@ -199,5 +219,13 @@ onMounted(async () => {
     100% {
         background-color: rgb(0, 9, 21);
     }
+}
+</style>
+
+<style lang="less">
+.auto-upload {
+    font-size: 32px;
+    font-family: normal;
+    color: yellow;
 }
 </style>
