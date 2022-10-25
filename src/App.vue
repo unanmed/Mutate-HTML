@@ -16,11 +16,11 @@
 
 <script lang="ts" setup>
 import { onMounted, provide, ref, watch } from 'vue';
-import Start from './components/start.vue';
-import Select from './components/select.vue';
+import Start from './pages/start.vue';
+import Select from './pages/select.vue';
 import { info, MusicHard } from './constants';
-import Play from './components/play.vue';
-import Setting from './components/setting.vue';
+import Play from './pages/play.vue';
+import Setting from './pages/setting.vue';
 import { animate, Ticker } from 'mutate-game';
 import { getAudio, main } from './audio';
 

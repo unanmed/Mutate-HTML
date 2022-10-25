@@ -12,7 +12,7 @@
 import { onMounted, ref } from 'vue';
 import { loadAudio } from '../audio';
 import * as mutate from 'mutate-game';
-import Cover from './cover.vue';
+import Cover from '../components/cover.vue';
 import axios, { AxiosProgressEvent, AxiosResponse, ResponseType } from 'axios';
 import { formatSize, isMobile } from '../utils';
 import { loadImage } from '../image';

@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
+    AModal: typeof import('ant-design-vue/es')['Modal']
     AProgress: typeof import('ant-design-vue/es')['Progress']
     ASlider: typeof import('ant-design-vue/es')['Slider']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
@@ -26,5 +27,6 @@ declare module '@vue/runtime-core' {
     SettingOne: typeof import('./src/components/settingOne.vue')['default']
     Settle: typeof import('./src/components/settle.vue')['default']
     Start: typeof import('./src/components/start.vue')['default']
+    SwitchSetting: typeof import('./src/components/switchSetting.vue')['default']
   }
 }

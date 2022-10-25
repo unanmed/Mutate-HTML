@@ -207,9 +207,10 @@ import {
     isMobile,
     getColor as getRankColor,
     Rank,
-    getRankFromScore
+    getRankFromScore,
+    uploadStart
 } from '../utils';
-import Scroll from './scroll.vue';
+import Scroll from '../components/scroll.vue';
 import { CaretRightOutlined, SettingOutlined } from '@ant-design/icons-vue';
 import { getAudio, main } from '../audio';
 
@@ -355,6 +356,7 @@ async function play() {
     await animate.sleep(700);
     ticker.destroy();
     source.stop();
+    uploadStart(hard.value);
     emits('start', info);
 }
 

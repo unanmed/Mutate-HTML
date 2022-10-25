@@ -62,6 +62,17 @@
                 style="width: 100%; margin: 0 0 10% 0"
             ></a-divider>
             <a-button
+                id="upload"
+                :style="{
+                    'font-size': isMobile() ? '3vh' : '3vw'
+                }"
+                :loading="uploading"
+                @click="upload"
+                v-if="!auto"
+            >
+                <upload-outlined v-if="!uploading" />
+            </a-button>
+            <a-button
                 id="confirm"
                 :style="{
                     'font-size': isMobile() ? '3vh' : '3vw'
@@ -75,12 +86,19 @@
 </template>
 
 <script setup lang="ts">
-import { animate, MutateDetail } from 'mutate-game';
+import { animate, MutateDetail, utils } from 'mutate-game';
 import { onMounted, ref } from 'vue';
 import { play } from '../audio';
 import { info, MusicHard } from '../constants';
-import { getRank, isHigherRank, isMobile, Rank, getColor } from '../utils';
-import { CheckOutlined } from '@ant-design/icons-vue';
+import {
+    getRank,
+    isHigherRank,
+    isMobile,
+    Rank,
+    getColor,
+    uploadScore
+} from '../utils';
+import { CheckOutlined, UploadOutlined } from '@ant-design/icons-vue';
 
 const props = defineProps<{
     auto: boolean;
@@ -90,6 +108,8 @@ const props = defineProps<{
     detail: MutateDetail;
     maxCombo: number;
 }>();
+
+const uploading = ref(false);
 
 const emits = defineEmits<{
     (e: 'exit'): void;
@@ -132,6 +152,14 @@ async function exit() {
     div.style.opacity = '0';
     await animate.sleep(600);
     emits('exit');
+}
+
+async function upload() {
+    uploading.value = true;
+    const match = document.cookie.match(new RegExp('(^| )id=([^;]+)'));
+    if (!utils.has(match) || match[2] === '')
+        return alert('用户未登录！登录后可以上传成绩！');
+    uploadScore(props.song, props.hard, props.score, match[2]);
 }
 
 onMounted(async () => {
@@ -211,7 +239,8 @@ onMounted(async () => {
         }
     }
 
-    #confirm {
+    #confirm,
+    #upload {
         width: 40%;
         height: 10%;
         background-color: #ddd;

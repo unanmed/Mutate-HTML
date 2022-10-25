@@ -7,7 +7,7 @@
         <div id="setting-slider">
             <minus-outlined
                 style="cursor: pointer"
-                @click="emits('update:value', value - (step ?? 5)), update()"
+                @click="update(value - (step ?? 5))"
             />
             <a-slider
                 id="slider-slider"
@@ -35,7 +35,7 @@
             >
             <plus-outlined
                 style="cursor: pointer"
-                @click="emits('update:value', value + (step ?? 5)), update()"
+                @click="update(value + (step ?? 5))"
             />
         </div>
     </div>
@@ -43,22 +43,32 @@
 
 <script lang="ts" setup>
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons-vue';
+import { utils } from 'mutate-game';
+import { ref } from 'vue';
 import { isMobile } from '../utils';
 
 const props = defineProps<{
-    value: number;
+    defaultValue: number;
     storage: string;
     min?: number;
     max?: number;
     step?: number;
 }>();
 
+const value = ref(props.defaultValue);
+const s = localStorage.getItem(props.storage);
+if (utils.has(s)) {
+    value.value = parseInt(s);
+}
+
 const emits = defineEmits<{
     (e: 'update:value', v: number): void;
 }>();
 
-function update() {
-    localStorage.setItem(props.storage, props.value.toString());
+function update(v: number) {
+    emits('update:value', v);
+    value.value = v;
+    localStorage.setItem(props.storage, value.value.toString());
 }
 </script>
 
@@ -67,6 +77,7 @@ function update() {
     width: 100%;
     font-size: 2.4vw;
     font-family: normal;
+    margin: 2% 0 2% 0;
 }
 
 #setting-info {

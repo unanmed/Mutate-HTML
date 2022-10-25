@@ -107,7 +107,7 @@ function exit() {
 }
 
 function pause() {
-    if (paused.value) return;
+    if (paused.value || opacity.value !== 0) return;
     const div = document.getElementById('mutate-core') as HTMLDivElement;
     div.style.filter = 'blur(10px)brightness(50%)';
     game.pause();

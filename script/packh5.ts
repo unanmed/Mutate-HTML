@@ -20,17 +20,9 @@ import fse from 'fs-extra';
     await Promise.all(tasks);
 
     // 2. 移动main.js等，生成h5魔塔的发塔形式
-    try {
-        await fs.mkdir('./dist/libs');
-    } catch {}
-
-    try {
-        await fs.mkdir('./dist/libs/thirdparty');
-    } catch {}
-
-    try {
-        await fs.mkdir('./dist/project');
-    } catch {}
+    await fs.mkdir('./dist/libs');
+    await fs.mkdir('./dist/libs/thirdparty');
+    await fs.mkdir('./dist/project');
 
     await fse.copyFile('./script/main.js', './dist/main.js');
     await fse.copyFile('./script/data.js', './dist/project/data.js');
