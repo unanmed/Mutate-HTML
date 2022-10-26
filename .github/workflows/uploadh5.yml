@@ -1,0 +1,35 @@
+name: Upload Mutate to h5mota.com
+
+on:
+  push:
+    branches: ["master"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  updateh5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+    # 执行依赖安装
+      - name: 安装依赖
+        run: |
+          npm i -g pnpm
+          pnpm i
+          pnpm buildh5
+
+      - name: 发布自助更新
+        run: ts-node-esm script/update.ts ${{ secrets.ID }} ${{ secrets.PASSWORD }}
+
+      - name: 自动通过审核
+        run: ts-node-sem script/autoAccept.ts ${{ secrets.ID }} ${{ secrets.PASSWORD }}
+        

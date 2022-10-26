@@ -21,14 +21,9 @@ declare module '@vue/runtime-core' {
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ASwitch: typeof import('ant-design-vue/es')['Switch']
     Cover: typeof import('./src/components/cover.vue')['default']
-    Play: typeof import('./src/components/play.vue')['default']
     Scroll: typeof import('./src/components/scroll.vue')['default']
-    Select: typeof import('./src/components/select.vue')['default']
-    Setting: typeof import('./src/components/setting.vue')['default']
     SettingButton: typeof import('./src/components/settingButton.vue')['default']
     SettingOne: typeof import('./src/components/settingOne.vue')['default']
-    Settle: typeof import('./src/components/settle.vue')['default']
-    Start: typeof import('./src/components/start.vue')['default']
     SwitchSetting: typeof import('./src/components/switchSetting.vue')['default']
   }
 }

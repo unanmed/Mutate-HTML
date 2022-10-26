@@ -96,7 +96,7 @@
 
 <script lang="ts" setup>
 import { CaretRightOutlined } from '@ant-design/icons-vue';
-import { computed, onUpdated, ref } from 'vue';
+import { computed, onUpdated, ref, watch } from 'vue';
 import { MusicHard, info } from '../constants';
 import {
     isMobile,
@@ -117,6 +117,7 @@ const props = defineProps<{
 
 const emits = defineEmits<{
     (e: 'play', info: StartInfo): void;
+    (e: 'update:hard', hard: keyof MusicHard): void;
 }>();
 
 const hard = ref<keyof MusicHard>('easy');
@@ -131,6 +132,10 @@ const width = isMobile() ? window.innerHeight : window.innerWidth;
 function selectHard(h: keyof MusicHard) {
     hard.value = h;
 }
+
+watch(hard, n => {
+    emits('update:hard', n);
+});
 
 function getScore() {
     if (selectedKeys.value[0] === '教程') {

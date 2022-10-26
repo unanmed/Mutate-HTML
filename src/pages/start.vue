@@ -31,7 +31,7 @@ const gameLoaded = ref(false);
 const loaded = ref(0);
 
 // ### 总下载量
-const total = 3885035;
+const total = 4001031;
 
 const loadedSize = ref(0);
 

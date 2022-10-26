@@ -22,7 +22,11 @@
                 type="vertical"
                 dashed
             ></a-divider>
-            <SelectSonginfo :selectedKeys="selectedKeys" @play="play" />
+            <SelectSonginfo
+                :selectedKeys="selectedKeys"
+                v-model:hard="hard"
+                @play="play"
+            />
         </div>
     </div>
 </template>
