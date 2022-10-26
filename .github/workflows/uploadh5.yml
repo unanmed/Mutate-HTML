@@ -23,7 +23,7 @@ jobs:
     # 执行依赖安装
       - name: 安装依赖 & 更新
         run: |
-          npm i -g pnpm
+          npm i -g pnpm ts-node
           pnpm i
           pnpm buildh5
           ts-node-esm script/update.ts ${{ secrets.ID }} ${{ secrets.PASSWORD }}

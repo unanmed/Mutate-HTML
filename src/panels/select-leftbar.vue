@@ -69,8 +69,8 @@ let songs: HTMLDivElement;
 let menu: HTMLDivElement;
 let div: HTMLDivElement;
 
-let selected = props.selectedKeys;
-let opened = props.openKeys;
+const selectedKeys = ref(props.selectedKeys);
+const openKeys = ref(props.openKeys);
 
 // 滚动条
 const now = ref(parseFloat(props.scroll));
@@ -104,16 +104,16 @@ function scrollList(y: number) {
 }
 
 onUpdated(() => {
-    selected = props.selectedKeys;
-    opened = props.openKeys;
+    selectedKeys.value = props.selectedKeys;
+    openKeys.value = props.openKeys;
 
     localStorage.setItem(
         '@mutate:select',
-        `${opened.join(',')}@@${selected[0]}@@${now.value}`
+        `${openKeys.value.join(',')}@@${selectedKeys.value[0]}@@${now.value}`
     );
     localStorage.setItem(
         '@mutate:select',
-        `${opened.join(',')}@@${selected[0]}@@${now.value}`
+        `${openKeys.value.join(',')}@@${selectedKeys.value[0]}@@${now.value}`
     );
 });
 
