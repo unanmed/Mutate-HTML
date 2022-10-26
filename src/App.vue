@@ -18,7 +18,7 @@
 import { onMounted, provide, ref, watch } from 'vue';
 import Start from './pages/start.vue';
 import Select from './pages/select.vue';
-import { info, MusicHard } from './constants';
+import { MusicHard } from './constants';
 import Play from './pages/play.vue';
 import Setting from './pages/setting.vue';
 import { animate, Ticker } from 'mutate-game';
@@ -162,5 +162,19 @@ function endGame() {
     100% {
         transform: scale(100%);
     }
+}
+</style>
+
+<style lang="less">
+.auto-upload-yellow {
+    font-size: 32px;
+    font-family: normal;
+    color: yellow;
+}
+
+.auto-upload-green {
+    font-size: 32px;
+    font-family: normal;
+    color: lightgreen;
 }
 </style>

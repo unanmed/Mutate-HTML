@@ -41,13 +41,13 @@ function startGame() {
                 : false;
         if (autoUpload) {
             message.success({
-                class: 'auto-upload',
+                class: 'auto-upload-green',
                 content: '已开启自动上传成绩功能！'
             });
         } else {
             message.warn({
                 content: '未开启自动上传成绩功能！',
-                class: 'auto-upload'
+                class: 'auto-upload-yellow'
             });
         }
     });
@@ -219,13 +219,5 @@ onMounted(async () => {
     100% {
         background-color: rgb(0, 9, 21);
     }
-}
-</style>
-
-<style lang="less">
-.auto-upload {
-    font-size: 32px;
-    font-family: normal;
-    color: yellow;
 }
 </style>
