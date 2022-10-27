@@ -52,12 +52,13 @@ import { animate } from 'mutate-game';
 import { onMounted, onUpdated, ref, watch } from 'vue';
 import Scroll from '../components/scroll.vue';
 import { isMobile } from '../utils';
-import { musics, info } from '../constants';
+import { musics, info, MusicHard } from '../constants';
 
 const props = defineProps<{
     selectedKeys: string[];
     openKeys: string[];
     scroll: string;
+    hard: keyof MusicHard;
 }>();
 
 const emits = defineEmits<{
@@ -109,11 +110,9 @@ onUpdated(() => {
 
     localStorage.setItem(
         '@mutate:select',
-        `${openKeys.value.join(',')}@@${selectedKeys.value[0]}@@${now.value}`
-    );
-    localStorage.setItem(
-        '@mutate:select',
-        `${openKeys.value.join(',')}@@${selectedKeys.value[0]}@@${now.value}`
+        `${openKeys.value.join(',')}@@${selectedKeys.value[0]}@@${now.value}@@${
+            props.hard
+        }`
     );
 });
 

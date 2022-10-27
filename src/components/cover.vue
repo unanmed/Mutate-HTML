@@ -10,7 +10,8 @@ import { play, ac, main } from '../audio';
 import { message } from 'ant-design-vue';
 
 message.config({
-    top: '100px'
+    top: '100px',
+    duration: 3
 });
 
 interface Ball {
@@ -35,20 +36,27 @@ function startGame() {
     cover.addEventListener('transitionend', e => {
         select.value = true;
         ticker.destroy();
-        const autoUpload =
-            localStorage.getItem('@mutate:autoUpload') === 'true'
-                ? true
-                : false;
-        if (autoUpload) {
-            message.success({
-                class: 'auto-upload-green',
-                content: '已开启自动上传成绩功能！'
-            });
-        } else {
+        if (!location.host.includes('h5mota.com')) {
             message.warn({
-                content: '未开启自动上传成绩功能！',
+                content: '当前网址不在h5mota.com，将无法体验云存档等功能',
                 class: 'auto-upload-yellow'
             });
+        } else {
+            const autoUpload =
+                localStorage.getItem('@mutate:autoUpload') === 'true'
+                    ? true
+                    : false;
+            if (autoUpload) {
+                message.success({
+                    class: 'auto-upload-green',
+                    content: '已开启自动上传成绩功能！'
+                });
+            } else {
+                message.warn({
+                    content: '未开启自动上传成绩功能！',
+                    class: 'auto-upload-yellow'
+                });
+            }
         }
     });
 }

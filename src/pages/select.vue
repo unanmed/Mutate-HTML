@@ -10,6 +10,7 @@
         <SelectLeftbar
             v-model:selectedKeys="selectedKeys"
             v-model:openKeys="openKeys"
+            :hard="hard"
             :scroll="initSelect[2]"
         />
         <div id="rightbar">
@@ -55,8 +56,8 @@ const emits = defineEmits<{
 let song = localStorage.getItem('@mutate:select');
 
 if (!song) {
-    localStorage.setItem('@mutate:select', '教程@@教程@@0');
-    song = '教程@@教程@@0';
+    localStorage.setItem('@mutate:select', '教程@@教程@@0@@easy');
+    song = '教程@@教程@@0@@easy';
 }
 
 /** 打开游戏时的选择信息 */
@@ -69,7 +70,7 @@ const openKeys = ref<string[]>(initSelect[0].split(','));
 const selectedKeys = ref<string[]>([initSelect[1]]);
 
 /** 选择的难度 */
-const hard = ref<keyof MusicHard>('easy');
+const hard = ref<keyof MusicHard>(initSelect[3] as keyof MusicHard);
 
 const width = isMobile() ? window.innerHeight : window.innerWidth;
 

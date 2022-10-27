@@ -71,7 +71,7 @@ export const info: Record<string, MusicInfo> = {
         duration: 158,
         hard: {
             easy: 4,
-            normal: 7,
+            normal: 9,
             hard: 12
         }
     },

@@ -156,6 +156,8 @@ onMounted(async () => {
     const canvas = document.getElementById('mutate-game') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     let { w, h } = getSize();
     w -= 10;
     h -= 10;

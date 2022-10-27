@@ -177,9 +177,10 @@ export async function recoverFromSubmit(): Promise<boolean> {
         const info = await axios.get('/backend/user/getScore.php?tower=Mutate');
         const data = JSON.parse(info.data);
         if (data.code === '-1') return alert('当前未登录！'), false;
-        else if (data.code === '-2')
+        else if (data.code === '-2') {
+            alert('未知错误：塔名不匹配！');
             throw new TypeError(`Unexpected mismatch of tower name.`);
-
+        }
         // 开始获取信息
         const res = data.res as ScoreArr;
         const max: MaxScore = {

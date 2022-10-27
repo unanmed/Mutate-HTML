@@ -113,6 +113,7 @@ interface StartInfo {
 
 const props = defineProps<{
     selectedKeys: string[];
+    hard: keyof MusicHard;
 }>();
 
 const emits = defineEmits<{
@@ -120,7 +121,7 @@ const emits = defineEmits<{
     (e: 'update:hard', hard: keyof MusicHard): void;
 }>();
 
-const hard = ref<keyof MusicHard>('easy');
+const hard = ref<keyof MusicHard>(props.hard);
 const auto = ref(false);
 
 const color = computed(() => getColor(hard.value));

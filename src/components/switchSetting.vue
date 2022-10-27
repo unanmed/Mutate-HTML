@@ -1,6 +1,6 @@
 <template>
     <div id="switch">
-        <span id="name" :style="{ 'font-size': isMobile() ? '1.5vh' : '1.5vw' }"
+        <span id="name" :style="{ 'font-size': isMobile() ? '2vh' : '2vw' }"
             ><slot></slot
         ></span>
         <a-switch
@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts" setup>
+import { message } from 'ant-design-vue';
 import { utils } from 'mutate-game';
 import { ref, watch } from 'vue';
 import { isMobile } from '../utils';
@@ -31,6 +32,15 @@ if (utils.has(s)) {
 }
 
 watch(checked, n => {
+    if (props.storage === '@mutate:autoUpload') {
+        if (n === true && !location.host.includes('h5mota.com')) {
+            message.warn({
+                content: '当前不在h5mota.com，无法开启此功能',
+                class: 'auto-upload-yellow'
+            });
+            checked.value = false;
+        }
+    }
     localStorage.setItem(props.storage, `${checked.value}`);
 });
 </script>

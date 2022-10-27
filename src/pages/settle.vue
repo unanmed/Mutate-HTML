@@ -157,16 +157,26 @@ if (!props.auto) {
 
 async function exit() {
     const div = document.getElementById('settle') as HTMLDivElement;
+    div.style.transition = 'opacity 0.6s linear';
+    await animate.sleep(50);
     div.style.opacity = '0';
     await animate.sleep(600);
     emits('exit');
 }
 
 async function upload(noAlert: boolean = false) {
-    if (props.auto && !noAlert) {
+    if (!location.host.includes('h5mota.com')) {
+        // 不是h5魔塔网址，不能上传
+        uploaded.value = true;
+        uploadText.value = '无法上传';
+        message.warn('当前不在h5mota.com，无法上传成绩');
+        return;
+    }
+    if (props.auto) {
         uploadText.value = '自动播放';
         uploaded.value = true;
-        return message.error('自动播放不能上传成绩！');
+        if (!noAlert) return message.error('自动播放不能上传成绩！');
+        return;
     }
     const match = document.cookie.match(new RegExp('(^| )id=([^;]+)'));
     if (!utils.has(match) || match[2] === '') {
@@ -177,13 +187,17 @@ async function upload(noAlert: boolean = false) {
         );
     }
     uploading.value = true;
-    uploadText.value = '成绩上传中';
+    uploadText.value = '上传中';
     await uploadScore(props.song, props.hard, props.score, match[2]);
-    if (autoUpload) {
-        uploadText.value = '已自动上传成绩';
-    } else {
-        uploadText.value = '成绩已上传';
+    uploadText.value = '上传成功';
+
+    if (props.auto) {
+        message.success({
+            content: '成绩已自动上传！',
+            class: 'auto-upload-green'
+        });
     }
+
     uploading.value = false;
     uploaded.value = true;
 }
