@@ -134,9 +134,9 @@ export function getPlatform(): string {
         'iPod'
     ];
     for (const t of platforms) {
-        if (navigator.userAgent.indexOf(t) >= 0) {
-            if (t == 'iPhone' || t == 'iPad' || t == 'iPod') return 'IOS';
-            if (t == 'Android') return 'Android';
+        if (navigator.userAgent.includes(t)) {
+            if (t === 'iPhone' || t === 'iPad' || t === 'iPod') return 'IOS';
+            if (t === 'Android') return 'Android';
             return 'PC';
         }
     }

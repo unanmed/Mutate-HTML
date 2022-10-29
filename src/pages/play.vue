@@ -48,7 +48,13 @@
             :max-combo="maxCombo"
             @exit="exit"
         ></Settle>
-        <div id="pause" v-if="!timeBack && paused">
+        <div
+            id="pause"
+            v-if="!timeBack && paused"
+            :style="{
+                'font-size': isMobile() ? '3vh' : '3vw'
+            }"
+        >
             <left-outlined style="margin: 25%" @click="exitInPlaying" />
             <reload-outlined style="margin: 25%" @click="restart" />
             <send-outlined style="margin: 25%" @click="resume" />
@@ -61,7 +67,7 @@
 import { animate, create, Mutate, MutateDetail, Ticker } from 'mutate-game';
 import { onMounted, ref } from 'vue';
 import { drawInfo, setRenderer } from '../render';
-import { formatSize, getSize } from '../utils';
+import { formatSize, getSize, isMobile } from '../utils';
 import Settle from './settle.vue';
 import { info, MusicHard } from '../constants';
 import {
@@ -73,6 +79,7 @@ import {
 import { play } from '../audio';
 import { setTutorial } from '../tutorial';
 import { createRoute, pushRoute } from '../replay';
+import { circle } from '../path';
 
 const props = defineProps<{
     auto: boolean;
@@ -234,6 +241,7 @@ onMounted(async () => {
     });
 
     const music = info[props.song];
+    game.chart.register('pathG', 'circle2', circle);
 
     await game.load(
         `${base}music/${music.file.music}`,
