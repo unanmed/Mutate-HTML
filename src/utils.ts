@@ -160,6 +160,7 @@ export function getHardCode(hard: keyof MusicHard): string {
 }
 
 export function uploadStart(hard: keyof MusicHard) {
+    if (!location.host.includes('h5mota.com')) return;
     const formData = new FormData();
     formData.append('type', 'people');
     formData.append('name', 'Mutate');

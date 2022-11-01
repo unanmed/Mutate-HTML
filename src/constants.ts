@@ -30,7 +30,7 @@ export type MusicHard = {
  */
 export const musics: Record<string, string[]> = {
     教程: ['教程'],
-    单曲: ['灵', '红枫']
+    单曲: ['灵']
 };
 
 /**
@@ -74,24 +74,24 @@ export const info: Record<string, MusicInfo> = {
             normal: 9,
             hard: 12
         }
-    },
-    红枫: {
-        file: {
-            music: '2.mp3',
-            image: '2.jpg',
-            chart: {
-                easy: '2_1.mtt',
-                normal: '2_2.mtt',
-                hard: '2_3.mtt'
-            }
-        },
-        author: '弱鸡绿毛怪',
-        chart: '古祠',
-        duration: 135,
-        hard: {
-            easy: 3,
-            normal: 8,
-            hard: 14
-        }
     }
+    // 红枫: {
+    //     file: {
+    //         music: '2.mp3',
+    //         image: '2.jpg',
+    //         chart: {
+    //             easy: '2_1.mtt',
+    //             normal: '2_2.mtt',
+    //             hard: '2_3.mtt'
+    //         }
+    //     },
+    //     author: '弱鸡绿毛怪',
+    //     chart: '古祠',
+    //     duration: 135,
+    //     hard: {
+    //         easy: 3,
+    //         normal: 8,
+    //         hard: 14
+    //     }
+    // }
 };
