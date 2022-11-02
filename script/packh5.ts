@@ -11,7 +11,7 @@ import fse from 'fs-extra';
     const tasks = mtts.map(v => {
         fs.readFile(`./dist/chart/${v}`, 'utf-8').then(async vv => {
             await fs.writeFile(
-                `./dist/chart_js/${v.slice(0, -4)}.js`,
+                `./dist/chart_js/${v.slice(0, -4)}.min.js`,
                 `window.mtt=${vv}`,
                 'utf-8'
             );
