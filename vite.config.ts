@@ -8,7 +8,11 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 export default defineConfig({
     plugins: [
         vue(),
-        legacy({ targets: ['defaults', 'not IE 11'] }),
+        legacy({
+            targets: ['defaults', 'not IE 11'],
+            modernPolyfills: true,
+            polyfills: true
+        }),
         Components({
             resolvers: [AntDesignVueResolver()]
         })

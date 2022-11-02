@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "compress": "ts-node-esm script/compress.ts",
     "pack": "ts-node-esm script/pack.ts",
-    "buildh5": "pnpm compress && pnpm build && ts-node-esm script/packh5.ts",
+    "buildh5": "pnpm build && ts-node-esm script/packh5.ts",
     "build-gh": "pnpm compress && pnpm build-html"
   },
   "dependencies": {
