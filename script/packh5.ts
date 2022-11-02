@@ -23,7 +23,38 @@ import fse from 'fs-extra';
     await fs.mkdir('./dist/libs');
     await fs.mkdir('./dist/libs/thirdparty');
     await fs.mkdir('./dist/project');
+    await fs.mkdir('./dist/project/autotiles');
+    await fs.mkdir('./dist/project/images');
+    await fs.mkdir('./dist/project/materials');
+    await fs.mkdir('./dist/project/animates');
+    await fs.mkdir('./dist/project/fonts');
+    await fs.mkdir('./dist/project/floors');
+    await fs.mkdir('./dist/project/tilesets');
+    await fs.mkdir('./dist/project/sounds');
+    await fs.mkdir('./dist/project/bgms');
 
-    await fse.copyFile('./script/main.js', './dist/main.js');
-    await fse.copyFile('./script/data.js', './dist/project/data.js');
+    await fs.writeFile(
+        './dist/project/icons.js',
+        `var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 = 
+{
+    "autotile": {
+        
+    }
+}`,
+        'utf-8'
+    );
+    await fs.writeFile('./dist/project/floors/none.js', '"none"', 'utf-8');
+    await fs.writeFile('./dist/libs/none.js', '"none"', 'utf-8');
+
+    await fse.copyFile('./script/template/main.js', './dist/main.js');
+    await fse.copyFile('./script/template/data.js', './dist/project/data.js');
+
+    await Promise.all(
+        ['animates', 'images', 'materials', 'sounds', 'tilesets'].map(v => {
+            fse.copyFile(
+                './script/template/.h5data',
+                `./dist/project/${v}/${v}.h5data`
+            );
+        })
+    );
 })();

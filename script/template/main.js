@@ -1,4 +1,3 @@
-//// 用于跑录像和骗过发塔系统
 function main() {
     //------------------------ 用户修改内容 ------------------------//
 
@@ -21,8 +20,8 @@ function main() {
 
     this.dom = {};
     this.mode = 'play';
-    this.loadList = [];
-    this.pureData = [];
+    this.loadList = ['none'];
+    this.pureData = ['data'];
     this.materials = [];
 
     this.statusBar = {
@@ -40,23 +39,21 @@ main.prototype.loadMod = function () {};
 
 main.prototype.init = function () {};
 
-var main = new main();
-
-const core = {
+var core = {
     utils: {},
     extensions: {},
     loader: {},
     icons: {},
     control: {
-        _replay_error: () => 0,
-        _replay_finished: () => 0,
-        stopReplay: () => 0
+        _replay_error: function () {},
+        _replay_finished: function () {},
+        stopReplay: function () {}
     },
     maps: {},
     ui: {},
     events: {
         eventdata: {
-            win: () => 0
+            win: function () {}
         }
     },
     plugin: {},
@@ -66,27 +63,33 @@ const core = {
         hero: {},
         replay: {}
     },
-    decodeRoute: str => str,
-    startGame: (a, b, route) => 0,
-    replay: () => 0,
-    calValue: v => v,
-    clone: v => v
+    decodeRoute: function (str) {
+        return str;
+    },
+    startGame: function () {},
+    replay: function () {},
+    calValue: function (v) {
+        return v;
+    },
+    clone: function (v) {
+        return v;
+    }
 };
 window.core = core;
 
 /** @type {string[]} */
-let route = [];
-let mtt;
-let hard = 'easy';
-let music = '';
+var route = [];
+var mtt;
+var hard = 'easy';
+var music = '';
 
 core.startGame = function (h, seed, r) {
     // seed没啥用，只有hard route有用
     route = r;
     hard = h;
     // 根据第一项加载谱面
-    const file = route[0].match(/\#file:[^]+$/)[0].slice(6);
-    main.loadMod(`./chart_js`, `${file}`, () => 0);
+    var file = route[0].match(/\#file:[^]+$/)[0].slice(6);
+    main.loadMod('./chart_js', file, function () {});
     music = route[0].match(/^id:[^_\#]+/)[0].slice(3);
     mtt = window.mtt;
     core.status.replay.pausing = true;
@@ -94,22 +97,30 @@ core.startGame = function (h, seed, r) {
 
 core.replay = function () {
     // 获取每个音符的打击时间
-    const notes = mtt.notes;
-    let times = Object.values(notes).map(v => v.config?.playTime);
-    times = times.filter(v => v !== void 0 && v !== null).sort((a, b) => a - b);
+    var notes = mtt.notes;
+    var times = Object.values(notes).map(function (v) {
+        return (v.config || {}).playTime;
+    });
+    times = times
+        .filter(function (v) {
+            return v !== void 0 && v !== null;
+        })
+        .sort(function (a, b) {
+            return a - b;
+        });
     // 模拟游玩
     if (!/^id:[^_]+\#file:[^]+$/.test(route[0]))
         return core.control._replay_error();
     route.shift();
     if (times.length !== route.length) core.control._replay_error();
-    let perfect = 0,
+    var perfect = 0,
         good = 0,
         miss = 0,
         maxCombo = 0,
         combo = 0;
-    for (let i = 0; i < times.length; i++) {
-        const hit = route[i];
-        const basetime = times[i];
+    for (var i = 0; i < times.length; i++) {
+        var hit = route[i];
+        var basetime = times[i];
         if (Math.abs(hit - basetime) <= 50) {
             perfect++;
             combo++;
@@ -123,10 +134,12 @@ core.replay = function () {
             combo = 0;
         }
     }
-    const comboScore = (maxCombo / times.length) * 100000;
-    const per = 900000 / times.length;
-    const hitScore = perfect * per + good * per * 0.5;
+    var comboScore = (maxCombo / times.length) * 100000;
+    var per = 900000 / times.length;
+    var hitScore = perfect * per + good * per * 0.5;
     core.status.hero.hp = Math.round(comboScore + hitScore);
     core.events.eventdata.win(music);
     core.control.stopReplay();
 };
+
+var main = new main();
