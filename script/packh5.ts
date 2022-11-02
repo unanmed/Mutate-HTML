@@ -49,6 +49,10 @@ import fse from 'fs-extra';
 
     await fse.copyFile('./script/template/main.js', './dist/main.js');
     await fse.copyFile('./script/template/data.js', './dist/project/data.js');
+    await fse.copyFile(
+        './script/template/lz-string.min.js',
+        './dist/libs/thirdparty/lz-string.min.js'
+    );
 
     await Promise.all(
         ['animates', 'images', 'materials', 'sounds', 'tilesets'].map(v => {

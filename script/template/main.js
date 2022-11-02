@@ -88,7 +88,12 @@ var music = '';
 
 core.startGame = function (h, seed, r) {
     // seed没啥用，只有hard route有用
-    route = JSON.parse(r.replaceAll('\\"', '"'));
+    try {
+        route = JSON.parse(r.replaceAll('\\"', '"'));
+    } catch {
+        // 兼容某个带base64的版本
+        route = JSON.parse(LZString.decompressFromBase64(r).replaceAll('\\"', '"'));
+    }
     hard = h;
     // 根据第一项加载谱面
     var file = route[0].match(/\#file:[^]+$/)[0].slice(6);
