@@ -1,7 +1,4 @@
 // For H5 Replay Check
-
-import LZString from 'lz-string';
-
 class Route extends Array<string> {
     constructor(id: string, ...eles: any[]) {
         super(`id:${id}`, ...eles);
@@ -46,7 +43,7 @@ export function clearRoute() {
  */
 export function postRoute(form: FormData) {
     if (!route.check()) return;
-    form.append('route', LZString.compressToBase64(JSON.stringify([...route])));
+    form.append('route', JSON.stringify([...route]));
 }
 
 // 录像的其它操作? pop? shift? 要这些干什么?
