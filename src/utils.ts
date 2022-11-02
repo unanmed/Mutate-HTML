@@ -121,7 +121,7 @@ export async function uploadScore(
     formData.append('base64', '1');
     postRoute(formData);
 
-    return await axios.post('/games/upload.php', formData);
+    return await axios.postForm('/games/upload.php', formData);
 }
 
 export function getPlatform(): string {
@@ -170,13 +170,13 @@ export function uploadStart(hard: keyof MusicHard) {
     formData.append('hardCode', getHardCode(hard));
     formData.append('base64', '1');
 
-    axios.post('/games/upload.php', formData);
+    axios.postForm('/games/upload.php', formData);
 }
 
 export async function recoverFromSubmit(): Promise<boolean> {
     try {
         const info = await axios.get('/backend/user/getScore.php?tower=Mutate');
-        const data = JSON.parse(info.data);
+        const data = info.data.res;
         if (data.code === '-1') return alert('当前未登录！'), false;
         else if (data.code === '-2') {
             alert('未知错误：塔名不匹配！');
