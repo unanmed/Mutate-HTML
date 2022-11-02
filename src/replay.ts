@@ -1,5 +1,5 @@
 // For H5 Replay Check
-class Route extends Array<string> {
+class Route extends Array<number | string> {
     constructor(id: string, ...eles: any[]) {
         super(`id:${id}`, ...eles);
     }
@@ -10,7 +10,7 @@ class Route extends Array<string> {
 
     // 检查格式是否正确
     check(): boolean {
-        if (!/^id:[^_]+\#file:[^]+$/.test(this[0])) return false;
+        if (!/^id:[^_]+\#file:[^]+$/.test(this[0] as string)) return false;
         return true;
     }
 }
@@ -28,7 +28,7 @@ export function createRoute(music: string, mtt: string) {
  * 向录像中添加打击时间
  */
 export function pushRoute(time: number) {
-    route.push(time.toString());
+    route.push(time);
 }
 
 /**
