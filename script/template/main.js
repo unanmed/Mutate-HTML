@@ -121,7 +121,7 @@ core.replay = function () {
     // 模拟游玩
     if (!/^id:[^_]+\#file:[^]+$/.test(route[0]))
         return core.control._replay_error();
-    route.shift();
+    route = route.slice(route.length - times.length);
     if (times.length !== route.length) core.control._replay_error();
     var perfect = 0,
         good = 0,

@@ -286,6 +286,12 @@ onMounted(async () => {
         game.chart.judger.on('hit', e => {
             pushRoute(game.time);
         });
+        game.on('restart', e => {
+            createRoute(
+                props.song,
+                info[props.song].file.chart[props.hard]!.slice(0, -4)
+            );
+        });
         createRoute(
             props.song,
             info[props.song].file.chart[props.hard]!.slice(0, -4)
@@ -307,13 +313,6 @@ onMounted(async () => {
         await animate.sleep(600);
         root.style.backgroundColor = '#111';
         ended.value = true;
-    });
-
-    game.on('restart', e => {
-        createRoute(
-            props.song,
-            info[props.song].file.chart[props.hard]!.slice(0, -4)
-        );
     });
 });
 </script>
