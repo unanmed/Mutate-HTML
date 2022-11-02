@@ -4,6 +4,13 @@ interface ImageMap {
     [x: string]: HTMLImageElement;
 }
 
+// polyfill，不知为何plugin-legacy没有起作用？
+if (!Array.prototype.at) {
+    Array.prototype.at = function (i) {
+        return i >= 0 ? this[i] : this[this.length + i];
+    };
+}
+
 export const image: ImageMap = {};
 
 export async function loadImage(

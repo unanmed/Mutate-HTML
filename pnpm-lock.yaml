@@ -253,7 +253,7 @@ packages:
   /@simonwep/pickr/1.8.2:
     resolution: {integrity: sha512-/l5w8BIkrpP6n1xsetx9MWPWlU6OblN5YgZZphxan0Tq4BByTCETL6lyIeY8lagalS2Nbt4F2W034KHLIiunKA==}
     dependencies:
-      core-js: 3.25.5
+      core-js: 3.26.0
       nanopop: 2.2.0
     dev: false
 
@@ -310,7 +310,7 @@ packages:
       vite: ^3.0.0
     dependencies:
       '@babel/standalone': 7.19.3
-      core-js: 3.25.5
+      core-js: 3.26.0
       magic-string: 0.26.7
       regenerator-runtime: 0.13.9
       systemjs: 6.13.0
@@ -879,8 +879,8 @@ packages:
     dependencies:
       is-what: 3.14.1
 
-  /core-js/3.25.5:
-    resolution: {integrity: sha512-nbm6eZSjm+ZuBQxCUPQKQCoUEfFOXjUZ8dTTyikyKaWrTYmAVbykQfwsKE5dBK88u3QCkCrzsx/PPlKfhsvgpw==}
+  /core-js/3.26.0:
+    resolution: {integrity: sha512-+DkDrhoR4Y0PxDz6rurahuB+I45OsEUv8E1maPTB6OuHRohMMcznBq9TMpdpDMm/hUPob/mJJS3PqgbHpMTQgw==}
     requiresBuild: true
 
   /core-util-is/1.0.3:
