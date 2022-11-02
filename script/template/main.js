@@ -63,6 +63,9 @@ var core = {
         hero: {},
         replay: {}
     },
+    firstData: {
+        name: 'Mutate'
+    },
     decodeRoute: function (str) {
         return str;
     },
