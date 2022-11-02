@@ -188,10 +188,17 @@ async function upload(noAlert: boolean = false) {
     }
     uploading.value = true;
     uploadText.value = '上传中';
-    await uploadScore(props.song, props.hard, props.score, match[2]);
+    const data = await uploadScore(
+        props.song,
+        props.hard,
+        props.score,
+        match[2]
+    );
+    console.log(data);
+
     uploadText.value = '上传成功';
 
-    if (props.auto) {
+    if (!props.auto) {
         message.success({
             content: '成绩已自动上传！',
             class: 'auto-upload-green'
