@@ -129,11 +129,11 @@ core.replay = function () {
     for (var i = 0; i < times.length; i++) {
         var hit = route[i];
         var basetime = times[i];
-        if (Math.abs(hit - basetime) <= 50) {
+        if (Math.abs(hit - basetime) < 50) {
             perfect++;
             combo++;
             if (combo > maxCombo) maxCombo = combo;
-        } else if (Math.abs(hit - basetime) <= 80) {
+        } else if (Math.abs(hit - basetime) < 80) {
             good++;
             combo++;
             if (combo > maxCombo) maxCombo = combo;
