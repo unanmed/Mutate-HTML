@@ -104,9 +104,9 @@ export async function uploadScore(
     formData.append('name', 'Mutate');
     formData.append('version', 'v0.1');
     formData.append('platform', getPlatform());
-    formData.append('hard', encodeBase64(hard));
-    formData.append('username', encodeBase64(username));
-    formData.append('ending', encodeBase64(song));
+    formData.append('hard', hard);
+    formData.append('username', username);
+    formData.append('ending', song);
     formData.append('lv', '0');
     formData.append('hp', score.toString());
     formData.append('atk', '0');
@@ -118,7 +118,7 @@ export async function uploadScore(
     formData.append('norank', '0');
     formData.append('seed', '0');
     formData.append('totalTime', '0');
-    formData.append('base64', '1');
+    formData.append('base64', '0');
     postRoute(formData);
 
     return await axios.postForm('/games/upload.php', formData);
@@ -168,7 +168,7 @@ export function uploadStart(hard: keyof MusicHard) {
     formData.append('platform', getPlatform());
     formData.append('hard', hard);
     formData.append('hardCode', getHardCode(hard));
-    formData.append('base64', '1');
+    formData.append('base64', '0');
 
     axios.postForm('/games/upload.php', formData);
 }
