@@ -208,7 +208,8 @@ export async function recoverFromSubmit(): Promise<boolean> {
                 localStorage.setItem(`@mutate:score-${song}-${hard}`, score);
             }
         }
-    } catch {
+    } catch (e) {
+        console.error(e);
         return false;
     }
     return true;
