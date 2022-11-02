@@ -54,7 +54,7 @@ const password = process.argv[3]; // 密码
     const form = new FormData();
     form.append('type', 'upload');
     form.append('name', 'Mutate');
-    form.append('comment', '');
+    form.append('comment', tower.comment);
     form.append('file', stream);
 
     const headers = form.getHeaders(); // 获取headers
