@@ -88,7 +88,7 @@ var music = '';
 
 core.startGame = function (h, seed, r) {
     // seed没啥用，只有hard route有用
-    route = r;
+    route = JSON.parse(r.replaceAll('\\"', '"'));
     hard = h;
     // 根据第一项加载谱面
     var file = route[0].match(/\#file:[^]+$/)[0].slice(6);
