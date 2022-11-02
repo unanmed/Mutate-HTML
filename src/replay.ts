@@ -11,7 +11,7 @@ class Route extends Array<string> {
 
     // 检查格式是否正确
     check(): boolean {
-        if (!/^id:[^_]+\#file:[^]+.mtt$/.test(this[0])) return false;
+        if (!/^id:[^_]+\#file:[^]+$/.test(this[0])) return false;
         return true;
     }
 }
