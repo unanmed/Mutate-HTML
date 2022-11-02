@@ -72,7 +72,7 @@ export const info: Record<string, MusicInfo> = {
         hard: {
             easy: 4,
             normal: 9,
-            hard: 12
+            hard: 13
         }
     }
     // 红枫: {
