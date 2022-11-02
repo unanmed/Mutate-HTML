@@ -92,7 +92,7 @@ core.startGame = function (h, seed, r) {
     hard = h;
     // 根据第一项加载谱面
     var file = route[0].match(/\#file:[^]+$/)[0].slice(6);
-    main.loadMod('./chart_js', file + '.mtt', function () {});
+    main.loadMod('chart_js', file, function () {});
     music = route[0].match(/^id:[^_\#]+/)[0].slice(3);
     mtt = window.mtt;
     core.status.replay.pausing = true;
