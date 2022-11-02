@@ -90,7 +90,7 @@ core.startGame = function (h, seed, r) {
     // seed没啥用，只有hard route有用
     try {
         route = JSON.parse(r.replaceAll('\\"', '"'));
-    } catch {
+    } catch (e) {
         // 兼容某个带base64的版本
         route = JSON.parse(LZString.decompressFromBase64(r).replaceAll('\\"', '"'));
     }
