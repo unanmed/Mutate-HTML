@@ -308,6 +308,13 @@ onMounted(async () => {
         root.style.backgroundColor = '#111';
         ended.value = true;
     });
+
+    game.on('restart', e => {
+        createRoute(
+            props.song,
+            info[props.song].file.chart[props.hard]!.slice(0, -4)
+        );
+    });
 });
 </script>
 

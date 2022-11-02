@@ -76,5 +76,5 @@ const password = process.argv[3]; // 密码
     );
     if (ans.data.error === 0 && ans.data.upload === true && ans.data.code === 1)
         console.log('上传成功');
-    else console.log(`上传失败, 失败信息: `, ans.data);
+    else throw new Error(`上传失败, 失败信息: ${ans.data}`);
 })();

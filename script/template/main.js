@@ -61,7 +61,9 @@ var core = {
     enemys: {},
     status: {
         hero: {},
-        replay: {}
+        replay: {
+            toReplay: []
+        }
     },
     firstData: {
         name: 'Mutate'
