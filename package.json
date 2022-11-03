@@ -19,7 +19,7 @@
     "axios": "^1.1.2",
     "less": "^4.1.3",
     "lodash": "^4.17.21",
-    "mutate-game": "1.2.9",
+    "mutate-game": "1.2.10",
     "vue": "^3.2.37"
   },
   "devDependencies": {
