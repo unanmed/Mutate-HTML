@@ -168,7 +168,7 @@ export function uploadStart(hard: keyof MusicHard) {
     formData.append('platform', getPlatform());
     formData.append('hard', encodeBase64(hard));
     formData.append('hardCode', getHardCode(hard));
-    formData.append('base64', '0');
+    formData.append('base64', '1');
 
     axios.postForm('/games/upload.php', formData);
 }
