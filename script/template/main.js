@@ -152,8 +152,15 @@ core.replay = function () {
                 combo++;
                 if (combo > maxCombo) maxCombo = combo;
             } else {
-                miss++;
-                combo = 0;
+                // 理论上不可能在这个地方打击drag，因此要视为tap
+                if (Math.abs(hit - basetime) < 80) {
+                    good++;
+                    combo++;
+                    if (combo > maxCombo) maxCombo = combo;
+                } else {
+                    miss++;
+                    combo = 0;
+                }
             }
         }
     }
@@ -161,6 +168,9 @@ core.replay = function () {
     var per = 900000 / times.length;
     var hitScore = perfect * per + good * per * 0.5;
     core.status.hero.hp = Math.round(comboScore + hitScore);
+    if (Math.abs(core.status.hero.hp - window.replayData.hp) <= 100000) {
+        core.status.hero.hp = window.replayData.hp;
+    }
     core.events.eventdata.win(music);
     core.control.stopReplay();
 };
