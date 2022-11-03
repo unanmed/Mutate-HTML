@@ -10,6 +10,11 @@
                     :storage="'@mutate:autoUpload'"
                     >通关后自动上传成绩</SwitchSetting
                 >
+                <SwitchSetting
+                    :default-on="false"
+                    :storage="'@mutate:highPerformance'"
+                    >高性能模式</SwitchSetting
+                >
             </div>
             <a-divider type="vertical" dashed id="option-divider"></a-divider>
             <div id="right">

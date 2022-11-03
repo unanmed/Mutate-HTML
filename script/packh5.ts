@@ -45,7 +45,6 @@ import fse from 'fs-extra';
     );
     await fs.writeFile('./dist/project/floors/none.js', '"none"', 'utf-8');
     await fs.writeFile('./dist/libs/none.js', '"none"', 'utf-8');
-    await fs.writeFile('./dist/libs/thirdparty/none.js', '"none"', 'utf-8');
 
     await fse.copyFile('./script/template/main.js', './dist/main.js');
     await fse.copyFile('./script/template/data.js', './dist/project/data.js');
