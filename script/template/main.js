@@ -3,7 +3,7 @@ function main() {
 
     this.version = 'v0.1'; // 游戏版本号；如果更改了游戏内容建议修改此version以免造成缓存问题。
 
-    this.useCompress = false; // 是否使用压缩文件
+    this.useCompress = true; // 是否使用压缩文件
     // 当你即将发布你的塔时，请使用“JS代码压缩工具”将所有js代码进行压缩，然后将这里的useCompress改为true。
     // 请注意，只有useCompress是false时才会读取floors目录下的文件，为true时会直接读取libs目录下的floors.min.js文件。
     // 如果要进行剧本的修改请务必将其改成false
@@ -108,15 +108,13 @@ core.startGame = function (h, seed, r) {
 core.replay = function () {
     // 获取每个音符的打击时间
     var notes = mtt.notes;
-    var times = Object.values(notes).map(function (v) {
-        return (v.config || {}).playTime;
-    });
+    var times = Object.values(notes);
     times = times
         .filter(function (v) {
-            return v !== void 0 && v !== null;
+            return v.config && v.config.playTime !== void 0 && v.config.playTime !== null;
         })
         .sort(function (a, b) {
-            return a - b;
+            return a.config.playTime - b.config.playTime;
         });
     // 模拟游玩
     if (!/^id:[^_]+\#file:[^]+$/.test(route[0]))
@@ -130,18 +128,33 @@ core.replay = function () {
         combo = 0;
     for (var i = 0; i < times.length; i++) {
         var hit = route[i];
-        var basetime = times[i];
-        if (Math.abs(hit - basetime) < 50) {
-            perfect++;
-            combo++;
-            if (combo > maxCombo) maxCombo = combo;
-        } else if (Math.abs(hit - basetime) < 80) {
-            good++;
-            combo++;
-            if (combo > maxCombo) maxCombo = combo;
+        var basetime = times[i].config.playTime;
+        var type = times[i].type;
+        if (type !== 'drag') {
+            if (Math.abs(hit - basetime) < 50) {
+                perfect++;
+                combo++;
+                if (combo > maxCombo) maxCombo = combo;
+            } else if (Math.abs(hit - basetime) < 80) {
+                good++;
+                combo++;
+                if (combo > maxCombo) maxCombo = combo;
+            } else {
+                miss++;
+                combo = 0;
+            }
         } else {
-            miss++;
-            combo = 0;
+            if (hit - basetime >= 120) {
+                miss++;
+                combo = 0;
+            } else if (hit - basetime > -50) {
+                perfect++;
+                combo++;
+                if (combo > maxCombo) maxCombo = combo;
+            } else {
+                miss++;
+                combo = 0;
+            }
         }
     }
     var comboScore = (maxCombo / times.length) * 100000;
