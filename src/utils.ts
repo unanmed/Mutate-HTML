@@ -13,7 +13,7 @@ interface ScoreResponse {
 
 type ScoreArr = ScoreResponse[];
 
-type MaxScore = Record<keyof MusicHard, Record<string, string>>;
+type MaxScore = Record<keyof MusicHard, Record<string, number>>;
 
 const mobile = window.innerWidth <= window.innerHeight;
 
@@ -194,8 +194,8 @@ export async function recoverFromSubmit(): Promise<boolean> {
             if (one.verify !== -1) continue; // 录像没过不记录
             const hard = one.hard;
             const song = one.ending;
-            const score = one.hp;
-            if (score > max[hard][song]) max[hard][song] = score;
+            const score = parseFloat(one.hp);
+            if (score > (max[hard][song] ?? 0)) max[hard][song] = score;
         }
 
         // 写入存档，服务器上没有的就不清空了
@@ -203,9 +203,15 @@ export async function recoverFromSubmit(): Promise<boolean> {
             for (const song in max[hard as keyof MusicHard]) {
                 const score = max[hard as keyof MusicHard][song];
                 if (song === '教程') {
-                    localStorage.setItem('@mutate:score-教程', score);
+                    localStorage.setItem(
+                        '@mutate:score-教程',
+                        score.toString()
+                    );
                 }
-                localStorage.setItem(`@mutate:score-${song}-${hard}`, score);
+                localStorage.setItem(
+                    `@mutate:score-${song}-${hard}`,
+                    score.toString()
+                );
             }
         }
     } catch (e) {
