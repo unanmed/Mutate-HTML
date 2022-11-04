@@ -196,6 +196,7 @@ export async function recoverFromSubmit(): Promise<boolean> {
             const song = one.ending;
             const score = parseFloat(one.hp);
             if (score > (max[hard][song] ?? 0)) max[hard][song] = score;
+            console.log(score);
         }
 
         // 写入存档，服务器上没有的就不清空了
