@@ -190,10 +190,9 @@ export async function recoverFromSubmit(): Promise<boolean> {
             hard: {},
             master: {}
         };
-        console.log(data);
 
         for (const one of res) {
-            if (one.verify !== -1) continue; // 录像没过不记录
+            if (Number(one.verify) !== -1) continue; // 录像没过不记录
             const hard = one.hard;
             const song = one.ending;
             const score = parseFloat(one.hp);
