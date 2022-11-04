@@ -44,6 +44,12 @@ const auto = ref(false);
 const song = ref('');
 const hard = ref<keyof MusicHard>('easy');
 
+// 初始化一些配置
+const played = localStorage.getItem('@mutate:played') ?? 'false';
+if (played === 'false') {
+    localStorage.setItem('@mutate:autoUpload', 'true');
+}
+
 watch(select, async n => {
     if (n === true) {
         const played = localStorage.getItem('@mutate:played') ?? 'false';
