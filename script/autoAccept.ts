@@ -10,7 +10,7 @@ await new Promise(res => setTimeout(res, 10000));
 
 (async function () {
     const list = await axios.get(
-        'https://h5mota.com//backend/admin/tower/auditRecord.php',
+        'https://h5mota.com/backend/admin/tower/auditRecord.php',
         {
             headers: {
                 Cookie: `id=${id}; password=${hex_md5(password)}`
