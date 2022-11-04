@@ -63,6 +63,7 @@
 </template>
 
 <script lang="ts" setup>
+import { utils } from 'mutate-game';
 import { onMounted, ref, watch } from 'vue';
 import Scroll from '../components/scroll.vue';
 import SettingButton from '../components/settingButton.vue';
@@ -121,7 +122,13 @@ async function confirm() {
     if (alertType.value === 'clear') {
         try {
             const offset = localStorage.getItem('@mutate:offset');
-            localStorage.clear();
+            const length = localStorage.length;
+            for (let i = 0; i < length; i++) {
+                const key = localStorage.key(i);
+                if (utils.has(key) && key.startsWith('@mutate')) {
+                    localStorage.removeItem(key);
+                }
+            }
             localStorage.setItem('@mutate:played', 'true');
             localStorage.setItem('@mutate:offset', offset ?? '0');
             alert('清除成功！');
