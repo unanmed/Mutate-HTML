@@ -8,7 +8,7 @@ interface ScoreResponse {
     hard: keyof MusicHard;
     hp: string;
     ending: string;
-    verify: number; // 录像过没过
+    verify: string; // 录像过没过
 }
 
 type ScoreArr = ScoreResponse[];
@@ -206,13 +206,14 @@ export async function recoverFromSubmit(): Promise<boolean> {
                 if (song === '教程') {
                     localStorage.setItem(
                         '@mutate:score-教程',
-                        score.toString()
+                        `${score.toString()}${getRank(score)}`
+                    );
+                } else {
+                    localStorage.setItem(
+                        `@mutate:score-${song}-${hard}`,
+                        `${score.toString()}${getRank(score)}`
                     );
                 }
-                localStorage.setItem(
-                    `@mutate:score-${song}-${hard}`,
-                    score.toString()
-                );
             }
         }
     } catch (e) {
