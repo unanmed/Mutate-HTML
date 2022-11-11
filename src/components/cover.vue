@@ -76,7 +76,9 @@ onMounted(async () => {
     cover.style.border = '1px solid #fff';
     cover.style.opacity = '1';
 
-    const { w, h } = getSize();
+    const { w: ww, h: hh } = getSize();
+    const scale = window.devicePixelRatio;
+    const { w, h } = { w: ww * scale, h: hh * scale };
 
     cover.width = w;
     cover.height = h;
@@ -139,6 +141,7 @@ onMounted(async () => {
         } else {
             speed = 3;
             fSize = 1;
+            cover.style.filter = ``;
         }
         if (balls.length < 30) {
             generate(1);
@@ -153,6 +156,7 @@ onMounted(async () => {
             ds = 1 - dt / 100;
         }
 
+        ctx.filter = 'blur(25px)';
         for (let i = 0; i < balls.length; i++) {
             const v = balls[i];
             v.x += v.vx * speed;
@@ -168,14 +172,13 @@ onMounted(async () => {
                 continue;
             }
             // 绘制
-            ctx.filter = 'blur(25px)';
             ctx.fillStyle = v.color;
             ctx.beginPath();
             ctx.arc(v.x, v.y, v.r, 0, Math.PI * 2);
             ctx.closePath();
             ctx.fill();
-            ctx.filter = 'none';
         }
+        ctx.filter = 'none';
         // 后绘制文字
         ctx.shadowColor = '#3df0ff';
         ctx.shadowBlur = 8;
@@ -184,7 +187,7 @@ onMounted(async () => {
         ctx.textAlign = 'center';
         ctx.fillStyle = '#f78fff';
         ctx.strokeStyle = '#3df0ff';
-        ctx.font = `${fSize * 12 + ds}em normal`;
+        ctx.font = `${fSize * 12 + ds * scale}em normal`;
         ctx.filter = `blur(${(speed - 10) / 10}px)`;
         ctx.fillText('MUTATE', cover.width / 2, cover.height / 2);
         ctx.strokeText('MUTATE', cover.width / 2, cover.height / 2);
@@ -205,6 +208,8 @@ onMounted(async () => {
     opacity: 0;
     animation: cover 10s linear 0s alternate infinite running;
     transition: opacity 0.6s ease-out;
+    width: 100%;
+    height: 100%;
 }
 
 @keyframes cover {

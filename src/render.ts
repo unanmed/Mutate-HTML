@@ -33,7 +33,7 @@ export function drawInfo(e: RenderEvent<'after'>) {
     ctx.textBaseline = 'top';
     ctx.fillStyle = '#fff';
     ctx.textAlign = 'right';
-    ctx.font = '100 32px normal';
+    ctx.font = '100 50px normal';
     // 分数
     ctx.fillText(
         game.getScore().toString().padStart(7, '0'),
@@ -56,17 +56,17 @@ export function drawInfo(e: RenderEvent<'after'>) {
         Math.floor(t.game.ac.audio.duration + 1)
     )}`;
     ctx.textAlign = 'left';
-    ctx.font = '100 24px normal';
-    ctx.fillText(time, 60, 10);
+    ctx.font = '100 30px normal';
+    ctx.fillText(time, 80, 10);
     if (combo < 3 && !t.game.chart.judger.auto) return;
     ctx.textAlign = 'center';
-    ctx.font = '100 48px normal';
+    ctx.font = '100 70px normal';
     // 连击数
     ctx.fillText(`${combo}`, canvas.width / 2, 10);
-    ctx.font = '100 32px normal';
+    ctx.font = '100 50px normal';
     if (t.game.chart.judger.auto)
-        ctx.fillText(`autoplay`, canvas.width / 2, 50);
-    else ctx.fillText(`combo`, canvas.width / 2, 50);
+        ctx.fillText(`autoplay`, canvas.width / 2, 60);
+    else ctx.fillText(`combo`, canvas.width / 2, 60);
     ctx.restore();
 }
 

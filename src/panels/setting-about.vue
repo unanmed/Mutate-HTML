@@ -13,9 +13,9 @@
             >https://github.com/unanmed/Mutate-HTML</a
         >
         <span class="desc">曲师</span>
-        <span>弱鸡绿毛怪&nbsp;&nbsp;古祠</span>
+        <span>弱鸡绿毛怪&nbsp;&nbsp;古祠&nbsp;&nbsp;真理絵・霜月はるか</span>
         <span class="desc">谱师</span>
-        <span>古祠</span>
+        <span>古祠&nbsp;&nbsp;再顶</span>
         <span class="desc">特别鸣谢</span>
         <span>灵梦&nbsp;&nbsp;阿尔法</span>
     </div>
