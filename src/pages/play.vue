@@ -106,6 +106,8 @@ const time = ref(3);
 const timeBack = ref(false);
 const pauseOpacity = ref(0);
 
+let exitClicked = false;
+
 let game: Mutate;
 
 function exit() {
@@ -122,6 +124,9 @@ function pause() {
     play(`${import.meta.env.BASE_URL}se/pause.mp3`);
 }
 
+/**
+ * 继续
+ */
 async function resume() {
     // 这个得有倒计时
     const div = document.getElementById('mutate-core') as HTMLDivElement;
@@ -138,6 +143,9 @@ async function resume() {
     game.resume();
 }
 
+/**
+ * 重开
+ */
 async function restart() {
     const div = document.getElementById('mutate-div') as HTMLDivElement;
     div.style.opacity = '0';
@@ -149,12 +157,17 @@ async function restart() {
     paused.value = false;
 }
 
+/**
+ * 退出
+ */
 async function exitInPlaying() {
+    if (exitClicked) return;
     const div = document.getElementById('mutate-div') as HTMLDivElement;
     div.style.opacity = '0';
     await animate.sleep(600);
     emits('exit');
     play(`${import.meta.env.BASE_URL}music/mutate.mp3`, true);
+    exitClicked = true;
 }
 
 onMounted(async () => {
