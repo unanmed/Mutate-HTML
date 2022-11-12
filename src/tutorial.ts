@@ -45,7 +45,7 @@ function drawWelcome(ctx: CanvasRenderingContext2D, time: number) {
 function drawTap(ctx: CanvasRenderingContext2D, time: number) {
     drawText(
         ctx,
-        `首先是tap音符，你只需要在它到达判定圈的时刻${
+        `首先是tap音符，你只需要在它到达判定圈外圈的时刻${
             isMobile() ? '点击屏幕任意位置' : '按下任意按键'
         }即可`,
         time,

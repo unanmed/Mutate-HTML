@@ -192,9 +192,9 @@ async function upload(noAlert: boolean = false) {
         props.song,
         props.hard,
         props.score,
-        match[2]
+        match[2],
+        rank.value
     );
-    console.log(data);
 
     uploadText.value = '上传成功';
 

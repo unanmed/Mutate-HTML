@@ -97,15 +97,18 @@ export async function uploadScore(
     song: string,
     hard: keyof MusicHard,
     score: number,
-    username: string
+    username: string,
+    rank?: Rank
 ): Promise<void> {
+    let name = username;
+    if (rank === 'AP' || rank === 'FC') name += ` - ${rank}`;
     const formData = new FormData();
     formData.append('type', 'score');
     formData.append('name', 'Mutate');
     formData.append('version', 'v0.1');
     formData.append('platform', getPlatform());
     formData.append('hard', encodeBase64(hard));
-    formData.append('username', encodeBase64(username));
+    formData.append('username', encodeBase64(name));
     formData.append('ending', encodeBase64(song));
     formData.append('lv', '0');
     formData.append('hp', score.toString());
